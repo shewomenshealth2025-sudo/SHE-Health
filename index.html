@@ -1,157 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
   <title>SHE Health</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #fff8fb; color: #24151d; }
+    a { color: inherit; text-decoration: none; }
+    .header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.86); backdrop-filter: blur(14px); border-bottom: 1px solid #f8d9e8; }
+    .nav { max-width: 1180px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 44px; height: 44px; object-fit: contain; border-radius: 14px; }
+    .brand-text strong { display: block; font-size: 18px; line-height: 1; }
+    .brand-text span { color: #8c6274; font-size: 12px; font-weight: 600; }
+    .nav-links { display: flex; gap: 24px; color: #6d4b5b; font-size: 14px; font-weight: 700; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 14px 24px; font-weight: 800; border: 1px solid transparent; white-space: nowrap; }
+    .btn-dark { background: #24151d; color: white; }
+    .btn-pink { background: #ff4f9a; color: white; box-shadow: 0 18px 36px rgba(255,79,154,0.22); }
+    .btn-light { background: white; border-color: #f4cddd; color: #24151d; }
+    .hero { position: relative; overflow: hidden; padding: 88px 24px 72px; }
+    .hero:before { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: rgba(255,176,213,0.55); filter: blur(70px); top: 20px; left: 50%; transform: translateX(-50%); }
+    .hero-inner { position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #f4cddd; background: white; color: #c22c75; padding: 10px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; box-shadow: 0 8px 24px rgba(255,79,154,0.08); margin-bottom: 24px; }
+    h1 { font-size: clamp(46px, 7vw, 78px); line-height: 0.96; letter-spacing: -0.055em; margin: 0; max-width: 760px; }
+    .hero-copy { margin: 28px 0 0; max-width: 680px; font-size: 20px; line-height: 1.7; color: #6d4b5b; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .pills { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill { background: white; color: #7b5364; padding: 10px 15px; border-radius: 999px; font-size: 14px; font-weight: 800; box-shadow: 0 10px 24px rgba(36,21,29,0.04); }
+    .app-visual-card { background: white; border: 1px solid #f7dbea; border-radius: 40px; padding: 16px; box-shadow: 0 30px 80px rgba(255,79,154,0.16); max-width: 470px; margin: 0 auto; }
+    .app-inner { background: #fff3f8; border-radius: 32px; padding: 28px; overflow: hidden; }
+    .app-label { color: #8c6274; font-size: 14px; font-weight: 900; margin: 0; }
+    .app-title { font-size: 26px; line-height: 1.1; margin: 5px 0 18px; letter-spacing: -0.02em; }
+    .app-screens { position: relative; min-height: 395px; display: flex; align-items: center; justify-content: center; margin: 6px 0 22px; }
+    .app-screens:before { content: ""; position: absolute; width: 310px; height: 310px; border-radius: 50%; background: radial-gradient(circle, rgba(255,79,154,0.22) 0%, rgba(255,79,154,0.06) 48%, transparent 72%); z-index: 0; }
+    .screen-card { position: relative; background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 26px 55px rgba(36,21,29,0.14); border: 1px solid rgba(255,255,255,0.7); }
+    .screen-card img { display: block; width: 100%; height: auto; }
+    .main-screen { width: min(245px, 64vw); z-index: 2; transform: rotate(-2deg); }
+    .map-screen { width: min(195px, 52vw); position: absolute; right: -4px; top: 76px; z-index: 1; transform: rotate(5deg); opacity: 0.96; }
+    .nearby-card { background: #24151d; color: white; border-radius: 26px; padding: 22px; box-shadow: 0 18px 42px rgba(36,21,29,0.18); }
+    .nearby-card strong { display: block; font-size: 17px; margin-bottom: 6px; }
+    .nearby-card p { margin: 0; color: rgba(255,255,255,0.76); line-height: 1.6; font-size: 14px; }
+    section { padding: 76px 24px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .white { background: white; }
+    .cards, .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: white; border: 1px solid #f7dbea; border-radius: 28px; padding: 28px; box-shadow: 0 12px 36px rgba(36,21,29,0.04); }
+    .card h3 { margin: 0 0 12px; font-size: 21px; }
+    .card p { margin: 0; color: #6d4b5b; line-height: 1.65; }
+    .center { text-align: center; max-width: 760px; margin: 0 auto 46px; }
+    .kicker { color: #ff4f9a; text-transform: uppercase; letter-spacing: 0.22em; font-size: 13px; font-weight: 900; margin: 0 0 12px; }
+    h2 { font-size: clamp(36px, 5vw, 54px); line-height: 1.04; letter-spacing: -0.04em; margin: 0; }
+    .center p { color: #6d4b5b; font-size: 18px; line-height: 1.7; }
+    .icon { width: 48px; height: 48px; border-radius: 16px; background: #fff0f6; color: #ff4f9a; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 18px; font-size: 22px; }
+    .dark-section { background: #24151d; color: white; }
+    .helps-layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 42px; align-items: start; }
+    .dark-section p { color: rgba(255,255,255,0.75); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.12); border-radius: 30px; padding: 24px; }
+    .step-num { color: #ff8fbe; font-size: 38px; font-weight: 950; margin: 0 0 18px; }
+    .partner-section { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .audiences { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .audiences span { background: white; box-shadow: 0 10px 24px rgba(36,21,29,0.05); padding: 10px 15px; border-radius: 999px; color: #6d4b5b; font-weight: 850; font-size: 14px; }
+    .stack { background: white; border-radius: 38px; padding: 22px; box-shadow: 0 30px 80px rgba(255,79,154,0.14); }
+    .stack-item { display: flex; gap: 16px; background: #fff8fb; border-radius: 26px; padding: 20px; margin-bottom: 14px; }
+    .stack-item:last-child { margin-bottom: 0; }
+    .forum-block { border-radius: 42px; padding: 46px; color: white; background: linear-gradient(135deg, #ff4f9a, #24151d); display: grid; grid-template-columns: 1fr 0.9fr; gap: 42px; box-shadow: 0 30px 80px rgba(255,79,154,0.18); }
+    .forum-panel { background: rgba(255,255,255,0.14); border-radius: 30px; padding: 28px; }
+    footer { background: white; border-top: 1px solid #f8d9e8; padding: 28px 24px; color: #7b5364; font-size: 14px; }
+    .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 900px) { .nav-links { display: none; } .hero-inner, .helps-layout, .partner-section, .forum-block { grid-template-columns: 1fr; } .cards, .platform-grid, .steps { grid-template-columns: 1fr; } .app-visual-card { max-width: 100%; } }
+    @media (max-width: 560px) { .nav { padding: 14px 16px; } .brand-text span { display: none; } .btn-dark { padding: 12px 16px; } .hero, section { padding-left: 18px; padding-right: 18px; } .hero-actions { flex-direction: column; } .btn { width: 100%; } .app-inner { padding: 20px; } .app-screens { min-height: 345px; } .main-screen { width: 215px; } .map-screen { width: 160px; right: -26px; top: 74px; } .forum-block { padding: 28px; } }
+  </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
+  <header class="header">
+    <nav class="nav">
       <a class="brand" href="index.html">
-        <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
-        <div class="brand-word">SHE</div>
-        <div class="brand-tag">Women’s Health<br>Made Easy</div>
+        <img src="./assets/logo.png" alt="SHE Health logo">
+        <div class="brand-text"><strong><span style="color:#ff4f9a; font-size:18px;">SHE</span> Health</strong><span>Women’s Health, Made Easy</span></div>
       </a>
-      <nav class="links">
-        <a href="index.html" class="active">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="she-helps.html">SHE Helps</a>
-        <a href="partners.html">Partners</a>
-        <a href="forum.html">Forum</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <a class="btn dark-btn" href="partners.html">Partner with SHE</a>
-    </div>
+      <div class="nav-links">
+        <a href="platform.html">Platform</a><a href="she-helps.html">SHE Helps</a><a href="partners.html">For Partners</a><a href="forum.html">Forum</a><a href="contact.html">Contact</a>
+      </div>
+      <a class="btn btn-dark" href="partners.html">Partner with SHE</a>
+    </nav>
   </header>
 
   <main>
-    <section class="classic-hero">
-      <div class="hero-glow hero-glow-one"></div>
-      <div class="hero-glow hero-glow-two"></div>
-      <div class="wrap classic-hero-grid">
-        <div class="classic-copy">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
           <div class="eyebrow">✦ The navigation layer for women’s health</div>
           <h1>Women’s health is not broken. It is fragmented.</h1>
-          <p class="classic-lead">SHE Health helps women move from symptoms, confusion, and scattered information to clear education, practical next steps, trusted products, and support pathways.</p>
-          <div class="actions">
-            <a class="btn" href="partners.html">Partner with SHE</a>
-            <a class="btn alt" href="forum.html">View the SHE Forum</a>
-          </div>
-          <div class="tag-row">
-            <span>Evidence-based</span>
-            <span>Non-diagnostic</span>
-            <span>Location-aware</span>
-            <span>Institution-ready</span>
-          </div>
+          <p class="hero-copy">SHE Health helps women move from symptoms, confusion, and scattered information to clear education, practical next steps, trusted products, and support pathways.</p>
+          <div class="hero-actions"><a class="btn btn-pink" href="partners.html">Partner with SHE</a><a class="btn btn-light" href="forum.html">View the SHE Forum</a></div>
+          <div class="pills"><span class="pill">Evidence-based</span><span class="pill">Non-diagnostic</span><span class="pill">Location-aware</span><span class="pill">Institution-ready</span></div>
         </div>
 
-       <div class="app-visual-card refined">
-          <div class="visual-label">
-            <div>
-           <p class="eyebrow">SHE Helps in action</p>
-<h3>From symptom to support</h3>
+        <div class="app-visual-card">
+          <div class="app-inner">
+            <p class="app-label">SHE Helps in action</p>
+            <h3 class="app-title">From symptom to support</h3>
+            <div class="app-screens">
+              <div class="screen-card main-screen"><img src="./assets/app-home.png" alt="SHE app homepage screen"></div>
+              <div class="screen-card map-screen"><img src="./assets/app-map.png" alt="SHE app services map screen"></div>
             </div>
-           
-          </div>
-          <div class="app-screens">
-            <div class="screen-card main-screen">
-              <img src="assets/app-home.png" alt="SHE app homepage screenshot">
-            </div>
-            <div class="screen-card map-screen">
-              <img src="assets/app-map.png" alt="SHE app map and local support screenshot">
-            </div>
-          </div>
-          <div class="nearby-card">
-            <span>⌖</span>
-            <div>
-              <strong>Explore services near you</strong>
-              <p>Find local clinics, support services, GP guidance, physiotherapy, fertility support, and more.</p>
-            </div>
+            <div class="nearby-card"><strong>Explore services near you</strong><p>Find local clinics, support services, GP guidance, physiotherapy, fertility support, and more.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section white-band">
-      <div class="wrap grid3">
-        <div class="card"><h3>Information is everywhere</h3><p>Women are expected to self-navigate Google, social media, waitlists, forums, and fragmented services.</p></div>
-        <div class="card"><h3>Pathways are unclear</h3><p>Symptoms are often normalised, dismissed, or left without a practical next step.</p></div>
-        <div class="card"><h3>SHE creates direction</h3><p>Education, products, community, and services are connected into one usable navigation layer.</p></div>
-      </div>
-    </section>
+    <section class="white"><div class="section-inner cards">
+      <div class="card"><h3>Information is everywhere</h3><p>Women are expected to self-navigate Google, social media, waitlists, forums, and fragmented services.</p></div>
+      <div class="card"><h3>Pathways are unclear</h3><p>Symptoms are often normalised, dismissed, or left without a practical next step.</p></div>
+      <div class="card"><h3>SHE creates direction</h3><p>Education, products, community, and services are connected into one usable navigation layer.</p></div>
+    </div></section>
 
-    <section class="section">
-      <div class="wrap center-block">
-        <p class="mini-eyebrow">The platform</p>
-        <h2 class="big-title">One umbrella. Six connected layers.</h2>
-        <p class="section-copy wide">SHE is not just content, not just a tracker, and not just a community. It is a connected women’s health navigation system.</p>
+    <section><div class="section-inner">
+      <div class="center"><p class="kicker">The platform</p><h2>One umbrella. Six connected layers.</h2><p>SHE is not just content, not just a tracker, and not just a community. It is a connected women’s health navigation system.</p></div>
+      <div class="platform-grid">
+        <div class="card"><div class="icon">◇</div><h3>SHE Helps</h3><p>Guided symptom-to-action support that helps women understand possible routes, next steps, and local services.</p></div>
+        <div class="card"><div class="icon">✓</div><h3>SHE Facts</h3><p>Evidence-based education across periods, PCOS, endometriosis, contraception, fertility, menopause, and more.</p></div>
+        <div class="card"><div class="icon">★</div><h3>SHE Finds</h3><p>Structured product guidance for period care and women-centric health products, without the overwhelm.</p></div>
+        <div class="card"><div class="icon">◌</div><h3>SHE Asks</h3><p>A safer community layer for questions, lived experience, and real conversations around women’s health.</p></div>
+        <div class="card"><div class="icon">◉</div><h3>SHE Tells</h3><p>Curated insights, interviews, and masterclasses with professionals across healthcare, science, sport, and innovation.</p></div>
+        <div class="card"><div class="icon">▤</div><h3>SHE News</h3><p>Policy, research, femtech, and public health updates translated into clear, useful takeaways.</p></div>
       </div>
-      <div class="wrap grid3 platform-grid">
-        <div class="card"><div class="card-icon">◇</div><h3>SHE Helps</h3><p>Guided symptom-to-action support that helps women understand possible routes, next steps, and local services.</p></div>
-        <div class="card"><div class="card-icon">✓</div><h3>SHE Facts</h3><p>Evidence-based education across periods, PCOS, endometriosis, contraception, fertility, menopause, and more.</p></div>
-        <div class="card"><div class="card-icon">★</div><h3>SHE Finds</h3><p>Structured product guidance for period care and women-centric health products, without the overwhelm.</p></div>
-        <div class="card"><div class="card-icon">◌</div><h3>SHE Asks</h3><p>A safer community layer for questions, lived experience, and real conversations around women’s health.</p></div>
-        <div class="card"><div class="card-icon">◉</div><h3>SHE Tells</h3><p>Curated insights, interviews, and masterclasses with professionals across healthcare, science, sport, and innovation.</p></div>
-        <div class="card"><div class="card-icon">▤</div><h3>SHE News</h3><p>Policy, research, femtech, and public health updates translated into clear, useful takeaways.</p></div>
-      </div>
-    </section>
+    </div></section>
 
-    <section class="section dark-section">
-      <div class="wrap split">
-        <div>
-          <p class="mini-eyebrow pink-text">SHE Helps</p>
-          <h2 class="big-title light">From symptom to action.</h2>
-          <p class="section-copy light-copy">A guided experience that helps users choose a topic, understand patterns, explore possible causes educationally, and find clear next steps.</p>
-          <a class="btn light-btn" href="she-helps.html">See how it works</a>
-        </div>
-        <div class="step-grid">
-          <div class="step-card"><span>01</span><h3>Choose a topic</h3><p>Periods, pain, hormones, fertility, menopause, sexual health, and more.</p></div>
-          <div class="step-card"><span>02</span><h3>Select symptoms</h3><p>Users log relevant symptoms, context, and patterns without double-entry clutter.</p></div>
-          <div class="step-card"><span>03</span><h3>Find next steps</h3><p>Education, services, SHE Facts, SHE Finds, and practical support routes.</p></div>
-        </div>
-      </div>
-    </section>
+    <section class="dark-section"><div class="helps-layout">
+      <div><p class="kicker" style="color:#ff8fbe;">SHE Helps</p><h2>From symptom to action.</h2><p>A guided experience that helps users choose a topic, understand patterns, explore possible causes educationally, and find clear next steps.</p><a class="btn btn-light" href="she-helps.html">See how it works</a></div>
+      <div class="steps"><div class="step"><p class="step-num">01</p><h3>Choose a topic</h3><p>Periods, pain, hormones, fertility, menopause, sexual health, and more.</p></div><div class="step"><p class="step-num">02</p><h3>Select symptoms</h3><p>Users log relevant symptoms, context, and patterns without double-entry clutter.</p></div><div class="step"><p class="step-num">03</p><h3>Find next steps</h3><p>Education, services, SHE Facts, SHE Finds, and practical support routes.</p></div></div>
+    </div></section>
 
-    <section class="section">
-      <div class="wrap split">
-        <div>
-          <p class="mini-eyebrow">For institutions</p>
-          <h2 class="big-title">A support layer for the places women already are.</h2>
-          <p class="section-copy">SHE can be offered through universities, workplaces, clinics, councils, charities, and sponsored access partners — keeping the platform accessible while creating sustainable revenue.</p>
-          <div class="pill-cloud left"><span class="pill">Universities</span><span class="pill">Workplaces</span><span class="pill">Private clinics</span><span class="pill">Councils</span><span class="pill">Charities</span><span class="pill">Health partners</span></div>
-        </div>
-        <div class="stack-card">
-          <div class="notice"><h3>B2B2C access</h3><p>Organisations fund access for students, employees, patients, or local communities.</p></div>
-          <div class="notice"><h3>Aggregated insight</h3><p>Institutions understand education gaps, topic demand, and anonymised health-navigation trends.</p></div>
-          <div class="notice"><h3>Sponsored access</h3><p>Partners fund equitable access for underserved groups and public health education cohorts.</p></div>
-        </div>
-      </div>
-    </section>
+    <section><div class="section-inner partner-section">
+      <div><p class="kicker">For institutions</p><h2>A support layer for the places women already are.</h2><p class="hero-copy">SHE can be offered through universities, workplaces, clinics, councils, charities, and sponsored access partners — keeping the platform accessible while creating sustainable revenue.</p><div class="audiences"><span>Universities</span><span>Workplaces</span><span>Private clinics</span><span>Councils</span><span>Charities</span><span>Health partners</span></div></div>
+      <div class="stack"><div class="stack-item"><div class="icon">▥</div><div><h3>B2B2C access</h3><p>Organisations fund access for students, employees, patients, or local communities.</p></div></div><div class="stack-item"><div class="icon">▴</div><div><h3>Aggregated insight</h3><p>Institutions understand education gaps, topic demand, and anonymised health-navigation trends.</p></div></div><div class="stack-item"><div class="icon">∞</div><div><h3>Sponsored access</h3><p>Partners fund equitable access for underserved groups and public health education cohorts.</p></div></div></div>
+    </div></section>
 
-    <section class="section white-band">
-      <div class="wrap gradient-panel split">
-        <div>
-          <div class="forum-badge">Wednesday 9 September 2026 · Parliament Buildings, Stormont</div>
-          <h2 class="big-title light">SHE Women’s Health Forum 2026</h2>
-          <p class="section-copy light-copy">SHE Health is also a convener — bringing together government, healthcare, public health, academia, innovation, advocacy, and industry to advance women’s health across Northern Ireland and beyond.</p>
-          <p><strong>Policy changes the rules. Infrastructure changes outcomes.</strong></p>
-        </div>
-        <div class="glass-card"><h3>Partnership opportunities</h3><p>University and academic partnerships</p><p>Corporate and workplace partnerships</p><p>Women’s Wellness Partner category</p><p>Forum sponsorship and speaker travel support</p><p>Local business and community sponsorship</p><a class="btn light-btn" href="forum.html">Request the programme</a></div>
-      </div>
-    </section>
+    <section class="white"><div class="section-inner forum-block">
+      <div><div class="eyebrow" style="background:rgba(255,255,255,0.16); color:white; border-color:rgba(255,255,255,0.25);">□ Wednesday 9 September 2026 · Parliament Buildings, Stormont</div><h2>SHE Women’s Health Forum 2026</h2><p>SHE Health is also a convener — bringing together government, healthcare, public health, academia, innovation, advocacy, and industry to advance women’s health across Northern Ireland and beyond.</p><h3>Policy changes the rules. Infrastructure changes outcomes.</h3></div>
+      <div class="forum-panel"><h3>Partnership opportunities</h3><p>• University and academic partnerships</p><p>• Corporate and workplace partnerships</p><p>• Women’s Wellness Partner category</p><p>• Forum sponsorship and speaker travel support</p><p>• Local business and community sponsorship</p><a class="btn btn-light" href="forum.html">Request the programme</a></div>
+    </div></section>
 
-    <section class="section center-block">
-      <div class="wrap">
-        <h2 class="big-title">Build the missing infrastructure for women’s health.</h2>
-        <p class="section-copy wide">For women, SHE makes health easier to understand. For institutions, SHE turns fragmentation into structured support, education, and insight.</p>
-        <div class="actions center"><a class="btn" href="partners.html">Partner with SHE</a><a class="btn alt" href="contact.html">Start a conversation</a></div>
-      </div>
-    </section>
+    <section><div class="center"><h2>Build the missing infrastructure for women’s health.</h2><p>For women, SHE makes health easier to understand. For institutions, SHE turns fragmentation into structured support, education, and insight.</p><div class="hero-actions" style="justify-content:center;"><a class="btn btn-pink" href="partners.html">Partner with SHE</a><a class="btn btn-light" href="contact.html">Start a conversation</a></div></div></section>
   </main>
 
-  <footer class="footer"><div class="wrap footer-inner"><strong>SHE Health · Women’s Health, Made Easy</strong><span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span></div></footer>
+  <footer><div class="footer-inner"><strong>SHE Health · Women’s Health, Made Easy</strong><span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span></div></footer>
 </body>
 </html>
