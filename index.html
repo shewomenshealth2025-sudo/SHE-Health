@@ -6,132 +6,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #fff8fb;
-      color: #140b12;
+      color: #24151d;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
-      height: 90px;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #f4cddd;
-      display: flex;
-      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #f4d7e4;
     }
 
     .nav {
-      width: min(100%, 1480px);
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 48px;
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 26px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 330px;
+      gap: 12px;
+      min-width: 280px;
     }
 
     .brand img {
-      width: 56px;
-      height: 56px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
-      border-radius: 50%;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(255,79,154,0.18);
     }
 
-    .brand-word {
-      color: #f23f8e;
-      font-size: 42px;
-      font-weight: 950;
-      line-height: 1;
-      letter-spacing: -0.06em;
-    }
-
-    .brand-copy {
-      border-left: 1px solid #cab2bd;
-      padding-left: 14px;
-      font-size: 14px;
-      line-height: 1.24;
-      font-weight: 600;
-      color: #161018;
-    }
-
-    .links {
+    .brand-name {
       display: flex;
       align-items: center;
-      gap: 38px;
-      font-size: 16px;
+      gap: 12px;
+    }
+
+    .she-word {
+      color: #ff4f9a;
+      font-size: 34px;
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-rule {
+      width: 1px;
+      height: 34px;
+      background: #c9a6b7;
+    }
+
+    .brand-sub {
+      font-size: 14px;
+      line-height: 1.25;
+      color: #24151d;
+      font-weight: 500;
+    }
+
+    nav.links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
       font-weight: 800;
+      color: #24151d;
       white-space: nowrap;
     }
 
-    .links a {
-      position: relative;
-      padding: 32px 0;
+    nav.links a.active,
+    nav.links a:hover {
+      color: #ff4f9a;
     }
 
-    .links a.active {
-      color: #f23f8e;
-    }
-
-    .links a.active::after {
-      content: "";
-      position: absolute;
-      height: 2px;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      background: #f23f8e;
-      border-radius: 999px;
-    }
-
-    .app-btn {
-      background: #f23f8e;
-      color: #fff;
-      padding: 16px 32px;
+    .header-btn,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 999px;
       font-weight: 900;
-      box-shadow: 0 18px 36px rgba(242, 63, 142, 0.2);
+      text-decoration: none;
       white-space: nowrap;
+    }
+
+    .header-btn {
+      background: #ff4f9a;
+      color: white;
+      padding: 16px 30px;
+      box-shadow: 0 20px 40px rgba(255,79,154,0.22);
+    }
+
+    .btn-pink {
+      background: #ff4f9a;
+      color: white;
+      padding: 16px 28px;
+      box-shadow: 0 18px 36px rgba(255,79,154,0.22);
+    }
+
+    .btn-outline {
+      background: white;
+      color: #ff4f9a;
+      border: 1.5px solid #ff4f9a;
+      padding: 15px 28px;
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 680px;
+      padding: 86px 24px 80px;
       background:
-        radial-gradient(circle at 76% 36%, rgba(242, 63, 142, 0.16), transparent 35%),
-        linear-gradient(180deg, #fff8fb 0%, #fff4f8 100%);
-      border-bottom: 1px solid #fff;
+        radial-gradient(circle at 74% 30%, rgba(255,79,154,0.18), transparent 34%),
+        radial-gradient(circle at 12% 70%, rgba(255,200,224,0.28), transparent 32%),
+        #fff8fb;
     }
 
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
-      left: -6%;
-      right: -6%;
-      bottom: -28%;
-      height: 48%;
-      background: rgba(255, 230, 241, 0.72);
+      left: -8%;
+      right: -8%;
+      bottom: -20%;
+      height: 38%;
+      background: rgba(255, 232, 242, 0.72);
       border-radius: 50% 50% 0 0;
       z-index: 0;
     }
@@ -139,344 +149,428 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      width: min(100%, 1480px);
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 70px 48px 0;
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 56px;
       align-items: center;
-      gap: 42px;
     }
 
-    .hero-copy {
-      padding-left: 22px;
-      padding-bottom: 58px;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid #f0bfd5;
+      color: #c22c75;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 34px;
+      box-shadow: 0 10px 30px rgba(255,79,154,0.09);
     }
 
     h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 900;
-      font-size: clamp(58px, 5.4vw, 84px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      color: #160d14;
-      max-width: 600px;
+      margin: 0;
+      font-size: clamp(54px, 7vw, 86px);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+      max-width: 720px;
     }
 
-    h1 .pink {
-      color: #f23f8e;
-    }
-
-    .lead {
-      margin-top: 28px;
-      max-width: 560px;
-      font-size: 18px;
+    .hero p.lead {
+      max-width: 690px;
+      margin: 30px 0 0;
+      font-size: 21px;
       line-height: 1.65;
-      color: #1c1420;
-      font-weight: 500;
+      color: #6d4b5b;
+      font-weight: 450;
     }
 
     .actions {
       display: flex;
-      align-items: center;
-      gap: 18px;
+      flex-wrap: wrap;
+      gap: 14px;
       margin-top: 34px;
     }
 
-    .primary {
-      background: #f23f8e;
-      color: white;
-      padding: 16px 32px;
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .pill {
+      background: white;
+      color: #7b5364;
+      padding: 12px 18px;
       border-radius: 999px;
       font-weight: 900;
-      box-shadow: 0 18px 32px rgba(242, 63, 142, 0.22);
-    }
-
-    .secondary {
-      background: rgba(255,255,255,0.7);
-      color: #f23f8e;
-      padding: 15px 30px;
-      border-radius: 999px;
-      border: 1.5px solid #f23f8e;
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .play {
-      font-size: 14px;
-      transform: translateY(1px);
-    }
-
-    .proof-row {
-      margin-top: 74px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px;
-      max-width: 730px;
-    }
-
-    .proof {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .proof-icon {
-      color: #f23f8e;
-      font-size: 34px;
-      line-height: 1;
-      font-weight: 900;
-    }
-
-    .proof strong {
-      display: block;
       font-size: 15px;
-      margin-bottom: 8px;
-      color: #160d14;
+      box-shadow: 0 12px 28px rgba(36,21,29,0.05);
     }
 
-    .proof p {
-      font-size: 15px;
-      line-height: 1.55;
-      color: #1c1420;
-    }
-
-    /* EXACT REQUEST: no box, no text, just the two app visuals like product photography */
-    .phones {
+    /* APP VISUAL AREA ONLY: two real phone frames, no box, no labels */
+    .app-visuals {
       position: relative;
-      min-height: 620px;
-      height: 620px;
+      min-height: 650px;
+      height: 650px;
       overflow: visible;
     }
 
-    .phones::after {
+    .app-visuals::before {
       content: "";
       position: absolute;
-      left: 17%;
-      right: 8%;
-      bottom: 6px;
-      height: 58px;
+      width: 520px;
+      height: 520px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(28, 15, 22, 0.20), rgba(28, 15, 22, 0.06) 46%, transparent 72%);
-      filter: blur(10px);
+      background: radial-gradient(circle, rgba(255,79,154,0.18) 0%, rgba(255,79,154,0.07) 42%, transparent 72%);
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 0;
     }
 
-    .phone {
+    .app-visuals::after {
+      content: "";
       position: absolute;
-      display: block;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 34px 36px rgba(28, 15, 22, 0.22));
+      left: 8%;
+      right: 3%;
+      bottom: 20px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(36,21,29,0.24), rgba(36,21,29,0.06) 48%, transparent 72%);
+      filter: blur(12px);
+      z-index: 0;
+    }
+
+    .phone-frame {
+      position: absolute;
+      width: 310px;
+      aspect-ratio: 390 / 844;
+      border-radius: 46px;
+      background: linear-gradient(145deg, #111, #34343a 42%, #070707);
+      padding: 10px;
+      box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,0.18),
+        inset 0 0 0 6px rgba(0,0,0,0.75),
+        0 34px 42px rgba(36,21,29,0.28);
       transform-origin: bottom center;
       z-index: 2;
-      user-select: none;
-      pointer-events: none;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 104px;
+      height: 29px;
+      background: #050505;
+      border-radius: 999px;
+      z-index: 5;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.12);
+    }
+
+    .phone-frame::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 156px;
+      width: 4px;
+      height: 76px;
+      border-radius: 999px;
+      background: #3a3a3e;
+      opacity: 0.7;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 37px;
+      overflow: hidden;
+      background: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
     }
 
     .phone-home {
-      width: min(365px, 43vw);
-      left: 10%;
-      bottom: -8px;
+      left: 4%;
+      bottom: 18px;
       transform: rotate(-6deg);
       z-index: 3;
     }
 
     .phone-map {
-      width: min(360px, 42vw);
-      right: 4%;
-      bottom: -12px;
+      right: 2%;
+      bottom: 12px;
       transform: rotate(7deg);
       z-index: 2;
     }
 
-    .feature-band {
-      background: #fff;
-      padding: 26px 48px 30px;
-    }
+    section { padding: 76px 24px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .white { background: white; }
 
-    .feature-inner {
-      width: min(100%, 1480px);
-      margin: 0 auto;
+    .cards,
+    .grid3 {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      align-items: stretch;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .feature {
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 18px;
-      padding: 4px 34px;
-      border-right: 1px solid #f2d6e4;
+    .card {
+      background: white;
+      border: 1px solid #f7dbea;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 14px 38px rgba(36,21,29,0.045);
     }
 
-    .feature:last-child {
-      border-right: 0;
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
     }
 
-    .feature-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: #f23f8e;
-      color: white;
+    .card p {
+      margin: 0;
+      color: #6d4b5b;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    .center {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    .kicker {
+      color: #ff4f9a;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 13px;
+      font-weight: 950;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      font-weight: 950;
+    }
+
+    .center p {
+      color: #6d4b5b;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: #fff0f6;
+      color: #ff4f9a;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      font-weight: 900;
-      box-shadow: 0 18px 34px rgba(242, 63, 142, 0.18);
+      margin-bottom: 18px;
+      font-size: 22px;
+      font-weight: 950;
     }
 
-    .feature strong {
-      font-size: 16px;
-      display: block;
-      margin-bottom: 8px;
+    .dark-section { background: #24151d; color: white; }
+
+    .helps-layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
     }
 
-    .feature p {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #1c1420;
-      margin-bottom: 12px;
+    .dark-section p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      font-size: 18px;
     }
 
-    .feature a {
-      color: #f23f8e;
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      padding: 25px;
+    }
+
+    .step-num {
+      color: #ff8fbe;
+      font-size: 38px;
+      font-weight: 950;
+      margin: 0 0 18px;
+    }
+
+    .partner-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .audiences {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .audiences span {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: #6d4b5b;
       font-weight: 850;
+      box-shadow: 0 10px 24px rgba(36,21,29,0.05);
+    }
+
+    .stack {
+      background: white;
+      border-radius: 38px;
+      padding: 22px;
+      box-shadow: 0 30px 80px rgba(255,79,154,0.14);
+    }
+
+    .stack-item {
+      display: flex;
+      gap: 16px;
+      background: #fff8fb;
+      border-radius: 26px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+
+    .stack-item:last-child { margin-bottom: 0; }
+
+    .forum-block {
+      border-radius: 42px;
+      padding: 46px;
+      color: white;
+      background: linear-gradient(135deg, #ff4f9a, #24151d);
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 42px;
+      box-shadow: 0 30px 80px rgba(255,79,154,0.18);
+    }
+
+    .forum-panel {
+      background: rgba(255,255,255,0.14);
+      border-radius: 30px;
+      padding: 28px;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #f8d9e8;
+      padding: 28px 24px;
+      color: #7b5364;
       font-size: 14px;
     }
 
-    @media (max-width: 1100px) {
-      .nav {
-        padding: 0 26px;
-      }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-      .links {
-        gap: 20px;
-      }
+    @media (max-width: 980px) {
+      .brand { min-width: auto; }
+      nav.links { display: none; }
 
-      .hero-inner {
+      .hero-inner,
+      .helps-layout,
+      .partner-section,
+      .forum-block {
         grid-template-columns: 1fr;
-        padding: 60px 26px 0;
       }
 
-      .phones {
-        min-height: 560px;
+      .app-visuals {
+        min-height: 590px;
+      }
+
+      .phone-frame {
+        width: 290px;
       }
 
       .phone-home {
-        left: 22%;
-        width: min(330px, 55vw);
+        left: 18%;
       }
 
       .phone-map {
-        right: 18%;
-        width: min(320px, 54vw);
+        right: 16%;
       }
 
-      .feature-inner {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px 0;
+      .cards,
+      .grid3,
+      .steps {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 760px) {
-      header {
-        height: auto;
+    @media (max-width: 580px) {
+      .nav { padding: 14px 16px; }
+      .brand-rule, .brand-sub { display: none; }
+      .she-word { font-size: 28px; }
+      .header-btn { padding: 12px 16px; }
+      .hero { padding: 58px 18px 64px; }
+      section { padding-left: 18px; padding-right: 18px; }
+      .actions { flex-direction: column; }
+      .btn-pink, .btn-outline { width: 100%; }
+
+      .app-visuals {
+        min-height: 500px;
+        margin-top: 20px;
       }
 
-      .nav {
-        padding: 16px;
-      }
-
-      .brand-copy {
-        display: none;
-      }
-
-      .links {
-        display: none;
-      }
-
-      .brand {
-        min-width: auto;
-      }
-
-      .brand-word {
-        font-size: 34px;
-      }
-
-      .app-btn {
-        padding: 12px 18px;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-copy {
-        padding: 0;
-      }
-
-      h1 {
-        font-size: 54px;
-      }
-
-      .actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .primary,
-      .secondary {
-        justify-content: center;
-      }
-
-      .proof-row {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 42px;
-      }
-
-      .phones {
-        min-height: 420px;
-        height: 420px;
+      .phone-frame {
+        width: 235px;
       }
 
       .phone-home {
-        width: 250px;
-        left: 2%;
-        bottom: 0;
+        left: 0;
+        bottom: 22px;
       }
 
       .phone-map {
-        width: 240px;
         right: 0;
-        bottom: 2px;
+        bottom: 24px;
       }
 
-      .feature-band {
-        padding: 34px 20px;
-      }
-
-      .feature-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .feature {
-        border-right: 0;
-        border-bottom: 1px solid #f2d6e4;
-        padding: 22px 0;
-      }
-
-      .feature:last-child {
-        border-bottom: 0;
-      }
+      .forum-block { padding: 28px; }
     }
   </style>
 </head>
@@ -486,8 +580,11 @@
     <div class="nav">
       <a class="brand" href="index.html">
         <img src="./assets/logo.png" alt="SHE logo">
-        <span class="brand-word">SHE</span>
-        <span class="brand-copy">Women’s Health<br>Strategy &amp; Support</span>
+        <div class="brand-name">
+          <span class="she-word">SHE</span>
+          <span class="brand-rule"></span>
+          <span class="brand-sub">Women’s Health<br>Strategy &amp; Support</span>
+        </div>
       </a>
 
       <nav class="links">
@@ -500,97 +597,155 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="app-btn" href="partners.html">Get the app</a>
+      <a class="header-btn" href="partners.html">Partner with SHE</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-inner">
-        <div class="hero-copy">
-          <h1>Your health.<br><span class="pink">Your voice.</span><br>Real change.</h1>
-          <p class="lead">
-            SHE is the women’s health platform and strategy engine building stronger systems, better support, and a future where every woman is heard.
-          </p>
+        <div>
+          <div class="badge">✦ The navigation layer for women’s health</div>
+          <h1>Women’s health is not broken. It is fragmented.</h1>
+          <p class="lead">SHE Health helps women move from symptoms, confusion, and scattered information to clear education, practical next steps, trusted products, and support pathways.</p>
 
           <div class="actions">
-            <a class="primary" href="platform.html">Explore the platform</a>
-            <a class="secondary" href="she-helps.html"><span class="play">▶</span> Watch how it works</a>
+            <a class="btn btn-pink" href="partners.html">Partner with SHE</a>
+            <a class="btn btn-outline" href="forum.html">View the SHE Forum</a>
           </div>
 
-          <div class="proof-row">
-            <div class="proof">
-              <div class="proof-icon">♧</div>
-              <div>
-                <strong>Evidence-led</strong>
-                <p>Built on real data and research</p>
-              </div>
-            </div>
-
-            <div class="proof">
-              <div class="proof-icon">♢</div>
-              <div>
-                <strong>Expert backed</strong>
-                <p>Guidance from clinical and policy experts</p>
-              </div>
-            </div>
-
-            <div class="proof">
-              <div class="proof-icon">♡</div>
-              <div>
-                <strong>Woman centred</strong>
-                <p>Designed with lived experience at the core</p>
-              </div>
-            </div>
+          <div class="pills">
+            <span class="pill">Evidence-based</span>
+            <span class="pill">Non-diagnostic</span>
+            <span class="pill">Location-aware</span>
+            <span class="pill">Institution-ready</span>
           </div>
         </div>
 
-        <div class="phones" aria-label="SHE app visuals">
-          <img class="phone phone-home" src="./assets/app-home.png" alt="SHE app homepage screen">
-          <img class="phone phone-map" src="./assets/app-map.png" alt="SHE local support map screen">
+        <div class="app-visuals" aria-label="SHE app visuals">
+          <div class="phone-frame phone-home">
+            <div class="phone-screen">
+              <img src="./assets/app-home.png" alt="SHE app homepage screen">
+            </div>
+          </div>
+
+          <div class="phone-frame phone-map">
+            <div class="phone-screen">
+              <img src="./assets/app-map.png" alt="SHE map view screen">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="feature-band">
-      <div class="feature-inner">
-        <div class="feature">
-          <div class="feature-icon">▥</div>
-          <div>
-            <strong>Understand</strong>
-            <p>Evidence-based information on symptoms, conditions and life stages.</p>
-            <a href="she-facts.html">Explore topics →</a>
+    <section class="white">
+      <div class="section-inner cards">
+        <div class="card">
+          <h3>Information is everywhere</h3>
+          <p>Women are expected to self-navigate Google, social media, waitlists, forums, and fragmented services.</p>
+        </div>
+        <div class="card">
+          <h3>Pathways are unclear</h3>
+          <p>Symptoms are often normalised, dismissed, or left without a practical next step.</p>
+        </div>
+        <div class="card">
+          <h3>SHE creates direction</h3>
+          <p>Education, products, community, and services are connected into one usable navigation layer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="center">
+          <p class="kicker">The platform</p>
+          <h2>One umbrella. Six connected layers.</h2>
+          <p>SHE is not just content, not just a tracker, and not just a community. It is a connected women’s health navigation system.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card"><div class="icon">◇</div><h3>SHE Helps</h3><p>Guided symptom-to-action support that helps women understand possible routes, next steps, and local services.</p></div>
+          <div class="card"><div class="icon">✓</div><h3>SHE Facts</h3><p>Evidence-based education across periods, PCOS, endometriosis, contraception, fertility, menopause, and more.</p></div>
+          <div class="card"><div class="icon">★</div><h3>SHE Finds</h3><p>Structured product guidance for period care and women-centric health products, without the overwhelm.</p></div>
+          <div class="card"><div class="icon">◌</div><h3>SHE Asks</h3><p>A safer community layer for questions, lived experience, and real conversations around women’s health.</p></div>
+          <div class="card"><div class="icon">◉</div><h3>SHE Tells</h3><p>Curated insights, interviews, and masterclasses with professionals across healthcare, science, sport, and innovation.</p></div>
+          <div class="card"><div class="icon">▤</div><h3>SHE News</h3><p>Policy, research, femtech, and public health updates translated into clear, useful takeaways.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <div class="helps-layout">
+        <div>
+          <p class="kicker" style="color:#ff8fbe;">SHE Helps</p>
+          <h2>From symptom to action.</h2>
+          <p>A guided experience that helps users choose a topic, understand patterns, explore possible causes educationally, and find clear next steps.</p>
+          <a class="btn btn-outline" href="she-helps.html">See how it works</a>
+        </div>
+        <div class="steps">
+          <div class="step"><p class="step-num">01</p><h3>Choose a topic</h3><p>Periods, pain, hormones, fertility, menopause, sexual health, and more.</p></div>
+          <div class="step"><p class="step-num">02</p><h3>Select symptoms</h3><p>Users log relevant symptoms, context, and patterns without double-entry clutter.</p></div>
+          <div class="step"><p class="step-num">03</p><h3>Find next steps</h3><p>Education, services, SHE Facts, SHE Finds, and practical support routes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner partner-section">
+        <div>
+          <p class="kicker">For institutions</p>
+          <h2>A support layer for the places women already are.</h2>
+          <p class="lead">SHE can be offered through universities, workplaces, clinics, councils, charities, and sponsored access partners — keeping the platform accessible while creating sustainable revenue.</p>
+          <div class="audiences">
+            <span>Universities</span><span>Workplaces</span><span>Private clinics</span><span>Councils</span><span>Charities</span><span>Health partners</span>
           </div>
         </div>
 
-        <div class="feature">
-          <div class="feature-icon">⌖</div>
-          <div>
-            <strong>Find support</strong>
-            <p>Discover trusted local services, specialists and community support.</p>
-            <a href="she-helps.html">Find services →</a>
-          </div>
+        <div class="stack">
+          <div class="stack-item"><div class="icon">▥</div><div><h3>B2B2C access</h3><p>Organisations fund access for students, employees, patients, or local communities.</p></div></div>
+          <div class="stack-item"><div class="icon">▴</div><div><h3>Aggregated insight</h3><p>Institutions understand education gaps, topic demand, and anonymised health-navigation trends.</p></div></div>
+          <div class="stack-item"><div class="icon">∞</div><div><h3>Sponsored access</h3><p>Partners fund equitable access for underserved groups and public health education cohorts.</p></div></div>
         </div>
+      </div>
+    </section>
 
-        <div class="feature">
-          <div class="feature-icon">◉</div>
-          <div>
-            <strong>Join the community</strong>
-            <p>Connect, share and learn in a safe, inclusive community.</p>
-            <a href="she-asks.html">Join the forum →</a>
-          </div>
+    <section class="white">
+      <div class="section-inner forum-block">
+        <div>
+          <div class="badge" style="background:rgba(255,255,255,0.16); color:white; border-color:rgba(255,255,255,0.25);">□ Wednesday 9 September 2026 · Parliament Buildings, Stormont</div>
+          <h2>SHE Women’s Health Forum 2026</h2>
+          <p>SHE Health is also a convener — bringing together government, healthcare, public health, academia, innovation, advocacy, and industry to advance women’s health across Northern Ireland and beyond.</p>
+          <h3>Policy changes the rules. Infrastructure changes outcomes.</h3>
         </div>
+        <div class="forum-panel">
+          <h3>Partnership opportunities</h3>
+          <p>• University and academic partnerships</p>
+          <p>• Corporate and workplace partnerships</p>
+          <p>• Women’s Wellness Partner category</p>
+          <p>• Forum sponsorship and speaker travel support</p>
+          <p>• Local business and community sponsorship</p>
+          <a class="btn btn-outline" href="forum.html">Request the programme</a>
+        </div>
+      </div>
+    </section>
 
-        <div class="feature">
-          <div class="feature-icon">▴</div>
-          <div>
-            <strong>Drive change</strong>
-            <p>We work with partners and policy makers to improve women’s health systems.</p>
-            <a href="partners.html">Our strategy →</a>
-          </div>
+    <section>
+      <div class="center">
+        <h2>Build the missing infrastructure for women’s health.</h2>
+        <p>For women, SHE makes health easier to understand. For institutions, SHE turns fragmentation into structured support, education, and insight.</p>
+        <div class="actions" style="justify-content:center;">
+          <a class="btn btn-pink" href="partners.html">Partner with SHE</a>
+          <a class="btn btn-outline" href="contact.html">Start a conversation</a>
         </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <strong>SHE Health · Women’s Health, Made Easy</strong>
+      <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
+    </div>
+  </footer>
 </body>
 </html>
