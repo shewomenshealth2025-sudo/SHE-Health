@@ -21,7 +21,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid #f4d7e4;
     }
@@ -129,7 +129,7 @@
       overflow: hidden;
       padding: 86px 24px 80px;
       background:
-        radial-gradient(circle at 74% 30%, rgba(255,79,154,0.18), transparent 34%),
+        radial-gradient(circle at 76% 35%, rgba(255,79,154,0.17), transparent 35%),
         radial-gradient(circle at 12% 70%, rgba(255,200,224,0.28), transparent 32%),
         #fff8fb;
     }
@@ -139,7 +139,7 @@
       position: absolute;
       left: -8%;
       right: -8%;
-      bottom: -20%;
+      bottom: -21%;
       height: 38%;
       background: rgba(255, 232, 242, 0.72);
       border-radius: 50% 50% 0 0;
@@ -214,7 +214,13 @@
       box-shadow: 0 12px 28px rgba(36,21,29,0.05);
     }
 
-    /* APP VISUAL AREA ONLY: two real phone frames, no box, no labels */
+    /* FIXED APP VISUALS:
+       - no surrounding card
+       - no text
+       - no phone-in-phone
+       - app-home gets a phone frame because it is a raw screen
+       - app-map is used as-is because your uploaded map image is already a phone mockup
+    */
     .app-visuals {
       position: relative;
       min-height: 650px;
@@ -239,28 +245,31 @@
       content: "";
       position: absolute;
       left: 8%;
-      right: 3%;
-      bottom: 20px;
-      height: 60px;
+      right: 4%;
+      bottom: 22px;
+      height: 62px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(36,21,29,0.24), rgba(36,21,29,0.06) 48%, transparent 72%);
-      filter: blur(12px);
+      background: radial-gradient(ellipse, rgba(36,21,29,0.22), rgba(36,21,29,0.06) 48%, transparent 72%);
+      filter: blur(13px);
       z-index: 0;
     }
 
     .phone-frame {
       position: absolute;
-      width: 310px;
+      width: 330px;
       aspect-ratio: 390 / 844;
-      border-radius: 46px;
-      background: linear-gradient(145deg, #111, #34343a 42%, #070707);
+      border-radius: 48px;
+      background: linear-gradient(145deg, #0a0a0c, #3b3b42 42%, #050505);
       padding: 10px;
       box-shadow:
         inset 0 0 0 2px rgba(255,255,255,0.18),
-        inset 0 0 0 6px rgba(0,0,0,0.75),
-        0 34px 42px rgba(36,21,29,0.28);
+        inset 0 0 0 6px rgba(0,0,0,0.82),
+        0 36px 44px rgba(36,21,29,0.28);
       transform-origin: bottom center;
-      z-index: 2;
+      left: 4%;
+      bottom: 18px;
+      transform: rotate(-6deg);
+      z-index: 3;
     }
 
     .phone-frame::before {
@@ -292,7 +301,7 @@
     .phone-screen {
       width: 100%;
       height: 100%;
-      border-radius: 37px;
+      border-radius: 38px;
       overflow: hidden;
       background: white;
       position: relative;
@@ -307,18 +316,16 @@
       display: block;
     }
 
-    .phone-home {
-      left: 4%;
-      bottom: 18px;
-      transform: rotate(-6deg);
-      z-index: 3;
-    }
-
-    .phone-map {
+    .map-phone-raw {
+      position: absolute;
+      width: 330px;
       right: 2%;
-      bottom: 12px;
+      bottom: 10px;
       transform: rotate(7deg);
       z-index: 2;
+      filter: drop-shadow(0 36px 38px rgba(36,21,29,0.26));
+      user-select: none;
+      pointer-events: none;
     }
 
     section { padding: 76px 24px; }
@@ -523,15 +530,13 @@
       }
 
       .phone-frame {
-        width: 290px;
+        width: 300px;
+        left: 16%;
       }
 
-      .phone-home {
-        left: 18%;
-      }
-
-      .phone-map {
-        right: 16%;
+      .map-phone-raw {
+        width: 300px;
+        right: 15%;
       }
 
       .cards,
@@ -558,16 +563,14 @@
 
       .phone-frame {
         width: 235px;
-      }
-
-      .phone-home {
         left: 0;
         bottom: 22px;
       }
 
-      .phone-map {
+      .map-phone-raw {
+        width: 245px;
         right: 0;
-        bottom: 24px;
+        bottom: 22px;
       }
 
       .forum-block { padding: 28px; }
@@ -623,17 +626,13 @@
         </div>
 
         <div class="app-visuals" aria-label="SHE app visuals">
-          <div class="phone-frame phone-home">
+          <div class="phone-frame">
             <div class="phone-screen">
               <img src="./assets/app-home.png" alt="SHE app homepage screen">
             </div>
           </div>
 
-          <div class="phone-frame phone-map">
-            <div class="phone-screen">
-              <img src="./assets/app-map.png" alt="SHE map view screen">
-            </div>
-          </div>
+          <img class="map-phone-raw" src="./assets/app-map.png" alt="SHE app map phone mockup">
         </div>
       </div>
     </section>
