@@ -88,9 +88,7 @@
     }
 
     nav.links a.active,
-    nav.links a:hover {
-      color: #ff4f9a;
-    }
+    nav.links a:hover { color: #ff4f9a; }
 
     .header-btn,
     .btn {
@@ -129,7 +127,7 @@
       overflow: hidden;
       padding: 86px 24px 80px;
       background:
-        radial-gradient(circle at 76% 35%, rgba(255,79,154,0.17), transparent 35%),
+        radial-gradient(circle at 74% 30%, rgba(255,79,154,0.18), transparent 34%),
         radial-gradient(circle at 12% 70%, rgba(255,200,224,0.28), transparent 32%),
         #fff8fb;
     }
@@ -181,6 +179,8 @@
       max-width: 720px;
     }
 
+    .pink-word { color: #ff4f9a; }
+
     .hero p.lead {
       max-width: 690px;
       margin: 30px 0 0;
@@ -214,118 +214,22 @@
       box-shadow: 0 12px 28px rgba(36,21,29,0.05);
     }
 
-    /* FIXED APP VISUALS:
-       - no surrounding card
-       - no text
-       - no phone-in-phone
-       - app-home gets a phone frame because it is a raw screen
-       - app-map is used as-is because your uploaded map image is already a phone mockup
-    */
     .app-visuals {
       position: relative;
       min-height: 650px;
       height: 650px;
       overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .app-visuals::before {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,79,154,0.18) 0%, rgba(255,79,154,0.07) 42%, transparent 72%);
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-    }
-
-    .app-visuals::after {
-      content: "";
-      position: absolute;
-      left: 8%;
-      right: 4%;
-      bottom: 22px;
-      height: 62px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(36,21,29,0.22), rgba(36,21,29,0.06) 48%, transparent 72%);
-      filter: blur(13px);
-      z-index: 0;
-    }
-
-    .phone-frame {
-      position: absolute;
-      width: 330px;
-      aspect-ratio: 390 / 844;
-      border-radius: 48px;
-      background: linear-gradient(145deg, #0a0a0c, #3b3b42 42%, #050505);
-      padding: 10px;
-      box-shadow:
-        inset 0 0 0 2px rgba(255,255,255,0.18),
-        inset 0 0 0 6px rgba(0,0,0,0.82),
-        0 36px 44px rgba(36,21,29,0.28);
-      transform-origin: bottom center;
-      left: 4%;
-      bottom: 18px;
-      transform: rotate(-6deg);
-      z-index: 3;
-    }
-
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      top: 13px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 104px;
-      height: 29px;
-      background: #050505;
-      border-radius: 999px;
-      z-index: 5;
-      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.12);
-    }
-
-    .phone-frame::after {
-      content: "";
-      position: absolute;
-      right: -4px;
-      top: 156px;
-      width: 4px;
-      height: 76px;
-      border-radius: 999px;
-      background: #3a3a3e;
-      opacity: 0.7;
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 38px;
-      overflow: hidden;
-      background: white;
-      position: relative;
-      z-index: 1;
-    }
-
-    .phone-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+    .hero-phones {
+      width: min(720px, 58vw);
+      max-width: none;
       display: block;
-    }
-
-    .map-phone-raw {
-      position: absolute;
-      width: 330px;
-      right: 2%;
-      bottom: 10px;
-      transform: rotate(7deg);
-      z-index: 2;
-      filter: drop-shadow(0 36px 38px rgba(36,21,29,0.26));
-      user-select: none;
-      pointer-events: none;
+      transform: translateX(-28px);
+      filter: drop-shadow(0 28px 34px rgba(36,21,29,0.08));
     }
 
     section { padding: 76px 24px; }
@@ -526,17 +430,14 @@
       }
 
       .app-visuals {
-        min-height: 590px;
+        min-height: auto;
+        height: auto;
+        margin-top: 32px;
       }
 
-      .phone-frame {
-        width: 300px;
-        left: 16%;
-      }
-
-      .map-phone-raw {
-        width: 300px;
-        right: 15%;
+      .hero-phones {
+        width: min(760px, 100vw);
+        transform: none;
       }
 
       .cards,
@@ -555,24 +456,6 @@
       section { padding-left: 18px; padding-right: 18px; }
       .actions { flex-direction: column; }
       .btn-pink, .btn-outline { width: 100%; }
-
-      .app-visuals {
-        min-height: 500px;
-        margin-top: 20px;
-      }
-
-      .phone-frame {
-        width: 235px;
-        left: 0;
-        bottom: 22px;
-      }
-
-      .map-phone-raw {
-        width: 245px;
-        right: 0;
-        bottom: 22px;
-      }
-
       .forum-block { padding: 28px; }
     }
   </style>
@@ -609,7 +492,7 @@
       <div class="hero-inner">
         <div>
           <div class="badge">✦ The navigation layer for women’s health</div>
-          <h1>Women’s health is not broken. It is fragmented.</h1>
+          <h1>Women’s health is not broken. It is <span class="pink-word">fragmented.</span></h1>
           <p class="lead">SHE Health helps women move from symptoms, confusion, and scattered information to clear education, practical next steps, trusted products, and support pathways.</p>
 
           <div class="actions">
@@ -626,13 +509,7 @@
         </div>
 
         <div class="app-visuals" aria-label="SHE app visuals">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img src="./assets/app-home.png" alt="SHE app homepage screen">
-            </div>
-          </div>
-
-          <img class="map-phone-raw" src="./assets/app-map.png" alt="SHE app map phone mockup">
+          <img class="hero-phones" src="./assets/hero-phones.png" alt="SHE app phone visuals">
         </div>
       </div>
     </section>
