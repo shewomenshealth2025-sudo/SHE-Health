@@ -504,6 +504,13 @@
   .pills {
     margin-bottom: 20px;
   }
+      const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.querySelector('.links');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('mobile-open');
+    });
 }
   </style>
 </head>
