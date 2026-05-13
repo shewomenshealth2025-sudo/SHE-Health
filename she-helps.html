@@ -109,6 +109,30 @@
       .cta-row{max-width:none}
       .mini-demo-card{padding:16px;border-radius:26px}
       .app-preview-section{padding:56px 18px}
+      /* Fix rogue sidebar text on desktop */
+.mobile-menu {
+  left: -285px !important;
+}
+
+/* Keep sidebar hidden unless opened */
+.mobile-menu.open {
+  left: 0 !important;
+}
+
+/* Fix logo text overlap */
+.brand-sub {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+
+/* Hide the sidebar completely on desktop */
+@media (min-width: 901px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
     }
   </style>
 </head>
