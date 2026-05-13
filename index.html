@@ -561,6 +561,64 @@
   .header-btn {
     display: none;
   }
+  .mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background: white;
+  box-shadow: 10px 0 40px rgba(0,0,0,0.12);
+  padding: 30px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: left 0.3s ease;
+  z-index: 3000;
+}
+
+.mobile-menu.open {
+  left: 0;
+}
+
+.mobile-menu a {
+  font-size: 18px;
+  font-weight: 800;
+  color: #24151d;
+}
+
+.close-btn {
+  font-size: 28px;
+  border: none;
+  background: none;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #ff4f9a;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .menu-btn {
+    display: block;
+  }
+
+  nav.links {
+    display: none !important;
+  }
+
+  .header-btn {
+    display: inline-flex !important;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
 }
   </style>
 </head>
