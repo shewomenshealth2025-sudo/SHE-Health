@@ -512,6 +512,45 @@
     toggle.addEventListener('click', () => {
       menu.classList.toggle('mobile-open');
     });
+        .mobile-menu-toggle {
+  display: none;
+  border: none;
+  background: #fff0f6;
+  color: #ff4f9a;
+  font-size: 28px;
+  font-weight: 900;
+  border-radius: 14px;
+  padding: 8px 12px;
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  nav.links {
+    display: none;
+  }
+
+  nav.links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 82px;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    gap: 18px;
+    background: white;
+    border: 1px solid #f4d7e4;
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 24px 60px rgba(36,21,29,0.12);
+    z-index: 999;
+  }
+
+  nav.links.mobile-open a {
+    padding: 10px 0;
+  }
 }
   </style>
 </head>
