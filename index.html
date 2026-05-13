@@ -27,7 +27,7 @@
     }
 
     .nav {
-      <button class="mobile-menu-toggle" type="button">☰</button>
+      <button class="menu-btn" onclick="openMenu()">☰</button>
       max-width: 1180px;
       margin: 0 auto;
       padding: 18px 24px;
@@ -505,26 +505,52 @@
   .pills {
     margin-bottom: 20px;
   }
-      const toggle = document.querySelector('.mobile-menu-toggle');
-  const menu = document.querySelector('.links');
-
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('mobile-open');
-    });
-        .mobile-menu-toggle {
+    .menu-btn {
   display: none;
-  border: none;
-  background: #fff0f6;
-  color: #ff4f9a;
   font-size: 28px;
-  font-weight: 900;
-  border-radius: 14px;
-  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: #ff4f9a;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: white;
+  box-shadow: 10px 0 40px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: left 0.3s ease;
+  z-index: 2000;
+}
+
+.mobile-menu a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #24151d;
+  text-decoration: none;
+}
+
+.mobile-menu.open {
+  left: 0;
+}
+
+.close-btn {
+  font-size: 26px;
+  border: none;
+  background: none;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
-  .mobile-menu-toggle {
+  .menu-btn {
     display: block;
   }
 
@@ -532,24 +558,8 @@
     display: none;
   }
 
-  nav.links.mobile-open {
-    display: flex;
-    position: absolute;
-    top: 82px;
-    left: 16px;
-    right: 16px;
-    flex-direction: column;
-    gap: 18px;
-    background: white;
-    border: 1px solid #f4d7e4;
-    border-radius: 24px;
-    padding: 22px;
-    box-shadow: 0 24px 60px rgba(36,21,29,0.12);
-    z-index: 999;
-  }
-
-  nav.links.mobile-open a {
-    padding: 10px 0;
+  .header-btn {
+    display: none;
   }
 }
   </style>
@@ -557,6 +567,17 @@
 
 <body>
   <header>
+    <div id="mobileMenu" class="mobile-menu">
+  <button class="close-btn" onclick="closeMenu()">×</button>
+
+  <a href="index.html">Home</a>
+  <a href="platform.html">Platform</a>
+  <a href="she-helps.html">SHE Helps</a>
+  <a href="partners.html">Partners</a>
+  <a href="forum.html">Forum</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
     <div class="nav">
       <a class="brand" href="index.html">
         <img src="./assets/logo.png" alt="SHE logo">
@@ -717,5 +738,14 @@
       <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
     </div>
   </footer>
+  <script>
+  function openMenu() {
+    document.getElementById("mobileMenu").classList.add("open");
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").classList.remove("open");
+  }
+</script>
 </body>
 </html>
