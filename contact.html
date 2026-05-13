@@ -1,21 +1,287 @@
-<form action="https://formspree.io/f/xdabbbbz" method="POST" class="contact-form">
-
-  <input type="hidden" name="_subject" value="New SHE enquiry">
-  <input type="hidden" name="_captcha" value="false">
-
-  <input type="text" name="name" placeholder="Your name" required>
-  <input type="email" name="email" placeholder="Your email" required>
-  <input type="text" name="organisation" placeholder="Organisation">
-
-  <select name="enquiry">
-    <option value="Partnership">Partnership</option>
-    <option value="Forum">Forum</option>
-    <option value="Press">Press & Speaking</option>
-    <option value="General">General</option>
-  </select>
-
-  <textarea name="message" placeholder="Your message" required></textarea>
-
-  <button type="submit" class="primary-btn">Send message</button>
-
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | SHE Health</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff8fb;
+      color: #24151d;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #f4d7e4;
+    }
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 280px;
+    }
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(255,79,154,0.18);
+    }
+    .brand-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .she-word {
+      color: #ff4f9a;
+      font-size: 34px;
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .brand-rule {
+      width: 1px;
+      height: 34px;
+      background: #c9a6b7;
+    }
+    .brand-sub {
+      font-size: 14px;
+      line-height: 1.25;
+      color: #24151d;
+      font-weight: 500;
+    }
+    nav.links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-weight: 800;
+      color: #24151d;
+      white-space: nowrap;
+    }
+    nav.links a.active,
+    nav.links a:hover { color: #ff4f9a; }
+    .header-btn {
+      background: #ff4f9a;
+      color: white;
+      padding: 16px 30px;
+      border-radius: 999px;
+      font-weight: 900;
+      box-shadow: 0 20px 40px rgba(255,79,154,0.22);
+      white-space: nowrap;
+    }
+    .page-hero {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 74px 24px 48px;
+    }
+    .page-hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      font-weight: 950;
+    }
+    .page-hero p {
+      margin: 22px auto 0;
+      max-width: 720px;
+      color: #6d4b5b;
+      font-size: 19px;
+      line-height: 1.65;
+    }
+    .contact-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 24px 82px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .info-card {
+      background: white;
+      border: 1px solid #f7dbea;
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 145px;
+      box-shadow: 0 14px 38px rgba(36,21,29,0.04);
+    }
+    .info-card h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+    .info-card p {
+      margin: 0;
+      color: #6d4b5b;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    .form-card {
+      background: white;
+      border: 1px solid #f7dbea;
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 22px 60px rgba(255,79,154,0.1);
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      display: block;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      border: 1.5px solid #f1bed5;
+      background: white;
+      color: #24151d;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: #ff4f9a;
+      box-shadow: 0 0 0 4px rgba(255,79,154,0.12);
+    }
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .primary-btn {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 17px 24px;
+      background: #ff4f9a;
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 18px 36px rgba(255,79,154,0.22);
+    }
+    .primary-btn:hover { opacity: 0.92; }
+    footer {
+      background: white;
+      border-top: 1px solid #f8d9e8;
+      padding: 28px 24px;
+      color: #7b5364;
+      font-size: 14px;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 900px) {
+      .brand { min-width: auto; }
+      nav.links { display: none; }
+      .contact-section { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .nav { padding: 14px 16px; }
+      .brand-rule, .brand-sub { display: none; }
+      .she-word { font-size: 28px; }
+      .header-btn { padding: 12px 16px; }
+      .page-hero { padding-top: 46px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="./assets/logo.png" alt="SHE logo">
+        <div class="brand-name">
+          <span class="she-word">SHE</span>
+          <span class="brand-rule"></span>
+          <span class="brand-sub">Women’s Health<br>Strategy &amp; Support</span>
+        </div>
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="she-helps.html">SHE Helps</a>
+        <a href="partners.html">Partners</a>
+        <a href="forum.html">Forum</a>
+        <a href="about.html">About</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+      <a class="header-btn" href="partners.html">Partner with SHE</a>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero">
+      <h1>Contact SHE</h1>
+      <p>Whether you’re interested in partnering, sponsoring the forum, collaborating or learning more, we’d love to hear from you.</p>
+    </section>
+    <section class="contact-section">
+      <div class="contact-cards">
+        <div class="info-card">
+          <h3>Partnerships</h3>
+          <p>Institutional access, sponsored access and collaborations.</p>
+        </div>
+        <div class="info-card">
+          <h3>Forum</h3>
+          <p>Sponsorship, programme requests and speaker enquiries.</p>
+        </div>
+        <div class="info-card">
+          <h3>Press & Speaking</h3>
+          <p>Media, panels and public health commentary.</p>
+        </div>
+        <div class="info-card">
+          <h3>General</h3>
+          <p>Everything else SHE-related.</p>
+        </div>
+      </div>
+      <div class="form-card">
+        <form action="https://formspree.io/f/xdabbbbz" method="POST" class="contact-form">
+          <input type="hidden" name="_subject" value="New SHE enquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="organisation" placeholder="Organisation">
+          <select name="enquiry">
+            <option value="Partnership">Partnership</option>
+            <option value="Forum">Forum</option>
+            <option value="Press">Press & Speaking</option>
+            <option value="General">General</option>
+          </select>
+          <textarea name="message" placeholder="Your message" required></textarea>
+          <button type="submit" class="primary-btn">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <strong>SHE Health · Women’s Health, Made Easy</strong>
+      <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
+    </div>
+  </footer>
+</body>
+</html>
