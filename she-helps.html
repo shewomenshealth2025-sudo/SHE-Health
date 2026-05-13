@@ -1,1 +1,176 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHE Helps</title><link rel="stylesheet" href="style.css"></head><body><header class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SHE Health logo"><div class="brand-name">SHE</div><div class="brand-tag">Women’s Health<br>Strategy & Support</div></a><nav class="links"><a href="index.html" >Home</a><a href="platform.html">Platform</a><a href="she-helps.html" class="active">SHE Helps</a><a href="partners.html">Partners</a><a href="forum.html">Forum</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a class="btn" href="partners.html">Partner with SHE</a></div></header><main><section class="mini-hero"><div class="wrap"><h1>From symptom to action.</h1><p>SHE Helps supports women to understand patterns, access education, and find practical next steps without replacing medical care.</p></div></section><section class="section"><div class="wrap grid2"><div class="card"><h3>Choose a topic</h3><p>Start with the area of women’s health that feels most relevant.</p></div><div class="card"><h3>Select symptoms</h3><p>Log context and patterns without double-entry clutter.</p></div><div class="card"><h3>Understand what may be happening</h3><p>Get clear, educational explanations and links to trusted SHE content.</p></div><div class="card"><h3>Find next steps</h3><p>Connect to local services, product guidance and support routes.</p></div></div></section><section class="section" style="padding-top:20px"><div class="wrap" style="text-align:center"><h2 class="section-title" style="font-size:48px">Women’s health topics SHE Helps can support</h2><div class="pill-cloud"><span class="pill">Periods</span><span class="pill">Pelvic pain</span><span class="pill">PCOS</span><span class="pill">Endometriosis</span><span class="pill">Adenomyosis</span><span class="pill">Fibroids</span><span class="pill">PMS & PMDD</span><span class="pill">Contraception</span><span class="pill">Fertility</span><span class="pill">Pregnancy</span><span class="pill">Motherhood</span><span class="pill">Postnatal health</span><span class="pill">Perimenopause</span><span class="pill">Menopause</span><span class="pill">Sexual health</span><span class="pill">UTIs & STIs</span><span class="pill">Breast health</span><span class="pill">Heart health</span><span class="pill">Autoimmune diseases</span><span class="pill">Mental wellbeing</span></div></div></section><section class="section"><div class="wrap split"><div><h2 class="section-title">Location-aware support</h2><p class="section-copy">SHE Helps is designed to guide users from symptoms and confusion towards relevant education, support services, practical actions and local pathways.</p></div><img src="assets/app-map.png" alt="SHE support map" style="max-height:680px;width:auto;margin:auto;display:block;filter:drop-shadow(0 30px 50px rgba(33,17,29,.22))"></div></section><section class="section"><div class="wrap notice"><strong>Educational support only.</strong> SHE Helps does not diagnose, treat, or replace medical advice. It is designed to improve understanding and signposting.</div></section></main><footer class="footer"><div class="wrap footer-inner"><strong>SHE Health · Women’s Health, Made Easy</strong><span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SHE Helps | SHE Health</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff8fb;color:#24151d}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid #f4d7e4}
+    .nav{max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:280px}
+    .brand img{width:54px;height:54px;object-fit:contain;border-radius:999px;box-shadow:0 10px 30px rgba(255,79,154,.18)}
+    .brand-name{display:flex;align-items:center;gap:12px}
+    .she-word{color:#ff4f9a;font-size:34px;font-weight:950;line-height:1;letter-spacing:-.04em}
+    .brand-rule{width:1px;height:34px;background:#c9a6b7}
+    .brand-sub{font-size:14px;line-height:1.25;color:#24151d;font-weight:500}
+    nav.links{display:flex;align-items:center;gap:26px;font-weight:800;color:#24151d;white-space:nowrap}
+    nav.links a.active,nav.links a:hover{color:#ff4f9a}
+    .header-btn{background:#ff4f9a;color:white;padding:16px 30px;border-radius:999px;font-weight:900;box-shadow:0 20px 40px rgba(255,79,154,.22);white-space:nowrap}
+    .menu-btn{display:none;font-size:28px;background:none;border:none;color:#ff4f9a;cursor:pointer}
+    .mobile-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:white;box-shadow:10px 0 40px rgba(0,0,0,.12);padding:30px 22px;display:flex;flex-direction:column;gap:20px;transition:left .3s ease;z-index:3000}
+    .mobile-menu.open{left:0}.mobile-menu a{font-size:18px;font-weight:800}.close-btn{font-size:28px;border:none;background:none;align-self:flex-end;cursor:pointer}
+
+    .hero{position:relative;overflow:hidden;padding:86px 24px 92px;background:radial-gradient(circle at 72% 38%,rgba(255,79,154,.13),transparent 34%),radial-gradient(circle at 14% 74%,rgba(255,200,224,.25),transparent 32%),#fff8fb}
+    .hero::after{content:"";position:absolute;left:-8%;right:-8%;bottom:-21%;height:38%;background:rgba(255,232,242,.72);border-radius:50% 50% 0 0;z-index:0}
+    .hero-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+    .copy h1{margin:0;font-size:clamp(42px,5vw,66px);line-height:1.02;letter-spacing:-.055em;font-weight:950;max-width:620px}
+    .copy p{max-width:650px;margin:22px 0 0;font-size:20px;line-height:1.65;color:#6d4b5b}
+    .demo-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .demo-tags span{background:white;border-radius:999px;padding:10px 15px;font-weight:850;color:#7b5364;box-shadow:0 12px 28px rgba(36,21,29,.05)}
+    .cta-row{display:flex;justify-content:center;margin-top:34px;max-width:650px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;border-radius:999px;padding:15px 28px;font-weight:900;white-space:nowrap}
+    .btn-pink{background:#ff4f9a;color:white;box-shadow:0 18px 36px rgba(255,79,154,.22)}
+
+    .demo-card{background:rgba(255,255,255,.72);border:1px solid #f7dbea;border-radius:42px;padding:28px;box-shadow:0 30px 80px rgba(255,79,154,.14);backdrop-filter:blur(10px)}
+    .slider{display:grid;grid-template-columns:54px 1fr 54px;align-items:center;gap:14px}
+    .slide-btn{border:none;width:48px;height:48px;border-radius:999px;background:#ff4f9a;color:white;font-size:28px;cursor:pointer;box-shadow:0 18px 34px rgba(255,79,154,.22)}
+    .slide{display:none;text-align:center}.slide.active{display:block}
+    .slide-visual{min-height:465px;display:flex;align-items:center;justify-content:center}
+    .slide img{max-height:455px;max-width:100%;object-fit:contain;filter:drop-shadow(0 28px 35px rgba(36,21,29,.14))}
+    .slide h2{margin:18px 0 8px;font-size:28px;letter-spacing:-.035em;line-height:1.06}
+    .slide p{max-width:560px;margin:0 auto;color:#6d4b5b;line-height:1.55;font-size:16px}
+    .dots{display:flex;justify-content:center;gap:9px;margin-top:22px}
+    .dot{width:10px;height:10px;border-radius:999px;border:none;background:#f3bfd6;cursor:pointer}
+    .dot.active{background:#ff4f9a;width:26px}
+
+    .process-section{padding:78px 24px 50px;background:#fff8fb}
+    .process-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .process-card{background:white;border-radius:28px;padding:30px;border:1px solid #f7dbea;box-shadow:0 14px 38px rgba(36,21,29,.04)}
+    .process-card h3{margin:0 0 14px;font-size:23px}
+    .process-card p{margin:0;color:#6d4b5b;font-size:18px;line-height:1.55}
+
+    .topics-section{padding:52px 24px 76px;background:#fff8fb;text-align:center}
+    .topics-section h2{max-width:1050px;margin:0 auto 30px;font-family:Georgia,serif;font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-.04em}
+    .topic-chips{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+    .topic-chips span{background:white;border-radius:999px;padding:12px 22px;color:#7b5364;font-weight:900;box-shadow:0 12px 28px rgba(36,21,29,.04)}
+
+    .app-preview-section{padding:76px 24px;background:white}
+    .section-head{max-width:760px;margin:0 auto 34px;text-align:center}
+    .section-head h2{margin:0;font-size:clamp(36px,5vw,54px);line-height:1.05;letter-spacing:-.05em;font-weight:950}
+    .section-head p{color:#6d4b5b;font-size:18px;line-height:1.65}
+    .mini-demo-card{max-width:900px;margin:0 auto;background:#fff8fb;border:1px solid #f7dbea;border-radius:34px;padding:24px;box-shadow:0 20px 55px rgba(36,21,29,.055)}
+    .mini-slider{display:grid;grid-template-columns:46px 1fr 46px;align-items:center;gap:12px}
+    .mini-slide{display:none;text-align:center}.mini-slide.active{display:block}
+    .mini-slide img{max-height:310px;max-width:100%;object-fit:contain;border-radius:24px;filter:drop-shadow(0 20px 28px rgba(36,21,29,.10))}
+    .mini-slide h3{margin:18px 0 8px;font-size:24px;letter-spacing:-.03em}
+    .mini-slide p{margin:0 auto;max-width:560px;color:#6d4b5b;line-height:1.55}
+    .mini-btn{border:none;width:40px;height:40px;border-radius:999px;background:#ff4f9a;color:#fff;font-size:24px;cursor:pointer}
+    .mini-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+    .mini-dot{width:9px;height:9px;border:none;border-radius:999px;background:#f3bfd6;cursor:pointer}
+    .mini-dot.active{background:#ff4f9a;width:24px}
+
+    .below{padding:72px 24px;background:#fff8fb}
+    .below-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .info-card{background:white;border:1px solid #f7dbea;border-radius:30px;padding:28px;box-shadow:0 14px 38px rgba(36,21,29,.045)}
+    .info-card h3{margin:0 0 12px;font-size:22px}
+    .info-card p{margin:0;color:#6d4b5b;line-height:1.65}
+    footer{background:white;border-top:1px solid #f8d9e8;padding:28px 24px;color:#7b5364;font-size:14px}
+    .footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    @media(max-width:900px){
+      .menu-btn{display:block}
+      nav.links{display:none!important}
+      .header-btn{display:inline-flex!important;padding:12px 18px;font-size:14px}
+      .brand{min-width:auto}
+      .hero{padding:46px 18px 56px}
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .copy h1{font-size:clamp(44px,12vw,62px)}
+      .copy p{font-size:18px}
+      .demo-card{padding:18px;border-radius:30px}
+      .slider{grid-template-columns:42px 1fr 42px;gap:6px}
+      .slide-btn{width:38px;height:38px;font-size:24px}
+      .slide-visual{min-height:360px}
+      .slide img{max-height:350px}
+      .process-grid,.below-inner{grid-template-columns:1fr}
+      .mini-slider{grid-template-columns:38px 1fr 38px}
+      .mini-slide img{max-height:260px}
+    }
+    @media(max-width:580px){
+      .nav{padding:14px 16px}
+      .brand-rule,.brand-sub{display:none}
+      .she-word{font-size:28px}
+      .header-btn{font-size:13px;padding:11px 14px}
+      .btn{width:100%}
+      .cta-row{max-width:none}
+      .mini-demo-card{padding:16px;border-radius:26px}
+      .app-preview-section{padding:56px 18px}
+    }
+  </style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="index.html"><img src="./assets/logo.png" alt="SHE logo"><div class="brand-name"><span class="she-word">SHE</span><span class="brand-rule"></span><span class="brand-sub">Women’s Health<br>Strategy &amp; Support</span></div></a><nav class="links"><a href="index.html">Home</a><a href="platform.html">Platform</a><a class="active" href="she-helps.html">SHE Helps</a><a href="partners.html">Partners</a><a href="forum.html">Forum</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="menu-btn" onclick="openMenu()">☰</button><a class="header-btn" href="she-helps.html">View demo</a></div></header>
+
+<div id="mobileMenu" class="mobile-menu"><button class="close-btn" onclick="closeMenu()">×</button><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="she-helps.html">SHE Helps</a><a href="partners.html">Partners</a><a href="forum.html">Forum</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+
+<main>
+<section class="hero"><div class="hero-inner"><div class="copy"><h1>See how SHE Helps works.</h1><p>SHE Helps guides users from symptoms and confusion towards relevant education, support services, practical actions and local pathways.</p><div class="demo-tags"><span>Guided support</span><span>Non-diagnostic</span><span>Location-aware</span><span>Educational</span></div><div class="cta-row"><a class="btn btn-pink" href="early-access.html">Join early access</a></div></div>
+<div class="demo-card"><div class="slider"><button class="slide-btn" onclick="prevSlide()">‹</button><div>
+<div class="slide active"><div class="slide-visual"><img src="./assets/app-home.png" alt="SHE Helps search"></div><h2>1. Start with what you know</h2><p>Users can search symptoms, topics or questions without needing clinical language first.</p></div>
+<div class="slide"><div class="slide-visual"><img src="./assets/app-home.png" alt="SHE Helps topics"></div><h2>2. Choose a topic</h2><p>Explore areas such as pelvic pain, periods, PCOS, endometriosis, fertility, menopause and more.</p></div>
+<div class="slide"><div class="slide-visual"><img src="./assets/app-map.png" alt="SHE Helps local support"></div><h2>3. Explore local support</h2><p>Connect to relevant support options nearby, including clinics, services and practical pathways.</p></div>
+<div class="slide"><div class="slide-visual"><img src="./assets/app-map.png" alt="SHE Helps next steps"></div><h2>4. Find a practical route</h2><p>Move from scattered information to clear education, local services and support options.</p></div>
+<div class="slide"><div class="slide-visual"><img src="./assets/app-home.png" alt="SHE Helps linked education"></div><h2>5. Link back to learning</h2><p>Connect into SHE Facts, SHE Finds and SHE News for deeper education and next-step support.</p></div>
+<div class="dots"><button class="dot active" onclick="goToSlide(0)"></button><button class="dot" onclick="goToSlide(1)"></button><button class="dot" onclick="goToSlide(2)"></button><button class="dot" onclick="goToSlide(3)"></button><button class="dot" onclick="goToSlide(4)"></button></div>
+</div><button class="slide-btn" onclick="nextSlide()">›</button></div></div></div></section>
+
+<section class="process-section">
+  <div class="process-grid">
+    <div class="process-card"><h3>Choose a topic</h3><p>Start with the area of women’s health that feels most relevant.</p></div>
+    <div class="process-card"><h3>Select symptoms</h3><p>Log context and patterns without double-entry clutter.</p></div>
+    <div class="process-card"><h3>Understand what may be happening</h3><p>Get clear, educational explanations and links to trusted SHE content.</p></div>
+    <div class="process-card"><h3>Find next steps</h3><p>Connect to local services, product guidance and support routes.</p></div>
+  </div>
+</section>
+
+<section class="topics-section">
+  <h2>Women’s health topics SHE Helps can support</h2>
+  <div class="topic-chips">
+    <span>Periods</span><span>Pelvic pain</span><span>PCOS</span><span>Endometriosis</span><span>Adenomyosis</span><span>Fibroids</span><span>PMS & PMDD</span><span>Contraception</span><span>Fertility</span><span>Pregnancy</span><span>Motherhood</span><span>Postnatal health</span><span>Perimenopause</span><span>Menopause</span><span>Sexual health</span><span>UTIs & STIs</span><span>Breast health</span><span>Heart health</span><span>Autoimmune diseases</span><span>Mental wellbeing</span>
+  </div>
+</section>
+
+<section class="app-preview-section">
+  <div class="section-head"><h2>Explore the rest of SHE.</h2><p>SHE Helps connects into education, product guidance and health news so users can keep learning after their first step.</p></div>
+  <div class="mini-demo-card"><div class="mini-slider"><button class="mini-btn" onclick="prevMiniSlide()">‹</button><div>
+    <div class="mini-slide active"><img src="./assets/app-home.png" alt="SHE Facts"><h3>SHE Facts</h3><p>Evidence-based education across symptoms, conditions and life stages.</p></div>
+    <div class="mini-slide"><img src="./assets/app-home.png" alt="SHE Finds"><h3>SHE Finds</h3><p>Structured product guidance for period care and women-centred health products.</p></div>
+    <div class="mini-slide"><img src="./assets/app-home.png" alt="SHE News"><h3>SHE News</h3><p>Policy, research and women’s health updates translated into useful takeaways.</p></div>
+    <div class="mini-dots"><button class="mini-dot active" onclick="goToMiniSlide(0)"></button><button class="mini-dot" onclick="goToMiniSlide(1)"></button><button class="mini-dot" onclick="goToMiniSlide(2)"></button></div>
+  </div><button class="mini-btn" onclick="nextMiniSlide()">›</button></div></div>
+</section>
+
+<section class="below"><div class="below-inner"><div class="info-card"><h3>Designed for users</h3><p>Simple, plain-language journeys that help women understand what might be relevant and where to go next.</p></div><div class="info-card"><h3>Designed for institutions</h3><p>A support layer for universities, workplaces and clinics that need structured women’s health navigation.</p></div><div class="info-card"><h3>Built with boundaries</h3><p>SHE Helps is educational and non-diagnostic. It supports navigation without replacing clinical care.</p></div></div></section>
+</main>
+
+<footer><div class="footer-inner"><strong>SHE Health · Women’s Health, Made Easy</strong><span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span></div></footer>
+
+<script>
+let currentSlide=0;const slides=document.querySelectorAll(".slide");const dots=document.querySelectorAll(".dot");
+function showSlide(index){slides.forEach(s=>s.classList.remove("active"));dots.forEach(d=>d.classList.remove("active"));slides[index].classList.add("active");dots[index].classList.add("active")}
+function nextSlide(){currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide)}
+function prevSlide(){currentSlide=(currentSlide-1+slides.length)%slides.length;showSlide(currentSlide)}
+function goToSlide(index){currentSlide=index;showSlide(currentSlide)}
+let currentMiniSlide=0;const miniSlides=document.querySelectorAll(".mini-slide");const miniDots=document.querySelectorAll(".mini-dot");
+function showMiniSlide(index){miniSlides.forEach(s=>s.classList.remove("active"));miniDots.forEach(d=>d.classList.remove("active"));miniSlides[index].classList.add("active");miniDots[index].classList.add("active")}
+function nextMiniSlide(){currentMiniSlide=(currentMiniSlide+1)%miniSlides.length;showMiniSlide(currentMiniSlide)}
+function prevMiniSlide(){currentMiniSlide=(currentMiniSlide-1+miniSlides.length)%miniSlides.length;showMiniSlide(currentMiniSlide)}
+function goToMiniSlide(index){currentMiniSlide=index;showMiniSlide(currentMiniSlide)}
+function openMenu(){document.getElementById("mobileMenu").classList.add("open")}
+function closeMenu(){document.getElementById("mobileMenu").classList.remove("open")}
+</script>
+</body>
+</html>
