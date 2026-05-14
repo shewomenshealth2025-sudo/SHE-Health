@@ -1,1 +1,9 @@
-document.querySelectorAll('form').forEach((form)=>{form.addEventListener('submit',(e)=>{e.preventDefault();const s=form.querySelector('.success');if(s)s.style.display='block';form.reset();});});
+const navToggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.main-nav');
+
+if (navToggle && nav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
