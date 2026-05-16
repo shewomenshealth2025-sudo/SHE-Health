@@ -101,7 +101,7 @@ function factsTemplate(item) {
         <ul>${item.know.map(x => `<li>${x}</li>`).join("")}</ul>
       </div>
 
-      <div class="she-info-block is-wide">
+     <div class="she-info-block she-block-next">
         <h4>What next</h4>
         <p>${item.next}</p>
       </div>
