@@ -845,3 +845,38 @@ header {
     margin-top: -80px !important;
   }
 }
+/* ===== MOBILE HERO CTA FIX ===== */
+@media (max-width: 768px) {
+
+  /* Hide header CTA */
+  .join-btn {
+    display: none !important;
+  }
+
+  /* Put buttons side by side */
+  .hero-copy .button.primary {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+  }
+
+  /* Add second button via CSS (hack but clean for now) */
+  .hero-copy::after {
+    content: '';
+    display: block;
+  }
+
+  /* Wrap buttons */
+  .hero-copy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Style both buttons equally */
+  .hero-copy a.button {
+    flex: 1;
+    min-width: 45%;
+  }
+
+}
