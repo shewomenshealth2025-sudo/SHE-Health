@@ -77,7 +77,7 @@ function factsTemplate(item) {
     <div class="she-content-grid">
 
       <div class="she-pattern-card">
-       <span class="she-pattern-label">Your pattern TEST</span>
+     <span class="she-pattern-label">Your pattern</span>
         <h4>If this sounds familiar...</h4>
         <p>
           SHE would help you connect symptoms, timing, severity and impact — then guide you towards relevant education, product support and possible next steps.
