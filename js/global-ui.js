@@ -283,3 +283,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.head.appendChild(mobileFix);
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const navInner = document.querySelector(".nav-inner");
+
+  if (!navInner) return;
+
+  if (!document.getElementById("menuToggle")) {
+    const menuBtn = document.createElement("button");
+    menuBtn.id = "menuToggle";
+    menuBtn.className = "mobile-menu-btn";
+    menuBtn.innerHTML = "☰";
+    navInner.appendChild(menuBtn);
+  }
+
+  if (!document.getElementById("mobileSidebar")) {
+    const sidebar = document.createElement("div");
+    sidebar.id = "mobileSidebar";
+    sidebar.className = "mobile-sidebar";
+
+    sidebar.innerHTML = `
+      <div class="mobile-sidebar-inner">
+        <button class="close-btn" id="menuClose">✕</button>
+
+        <nav class="mobile-links">
+          <a href="index.html">Home</a>
+          <a href="platform.html">Platform</a>
+          <a href="she-helps.html">SHE Helps</a>
+          <a href="she-facts.html">SHE Facts</a>
+          <a href="she-finds.html">SHE Finds</a>
+          <a href="partners.html">Partners</a>
+          <a href="forum.html">Forum</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    `;
+
+    document.body.appendChild(sidebar);
+  }
+
+  if (!document.getElementById("mobileOverlay")) {
+    const overlay = document.createElement("div");
+    overlay.id = "mobileOverlay";
+    overlay.className = "mobile-overlay";
+    document.body.appendChild(overlay);
+  }
+
+  const toggle = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("mobileSidebar");
+  const overlay = document.getElementById("mobileOverlay");
+  const closeBtn = document.getElementById("menuClose");
+
+  function openMenu() {
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+  toggle.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+});
