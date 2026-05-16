@@ -116,3 +116,48 @@ a:hover {
 .she-topic-meta {
   color: #3b1230 !important;
 }
+/* SHE FACTS PREMIUM PATTERN LAYER */
+.she-symptom-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.she-symptom-pill {
+  background: #fff3f8;
+  color: #3b1230;
+  border: 1px solid #efd5df;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.she-pattern-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff3f8, #ffffff);
+  border: 1px solid #efd5df;
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.she-pattern-card h4 {
+  margin: 0 0 8px;
+  color: #3b1230;
+}
+
+.she-pattern-card p {
+  margin: 0;
+  color: #6f5b66;
+  line-height: 1.6;
+}
+
+.she-pattern-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #e83e7c;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
