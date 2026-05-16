@@ -880,3 +880,20 @@ header {
   }
 
 }
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.hero-buttons .button {
+  flex: 1;
+  text-align: center;
+}
+
+/* Mobile stack fix if needed */
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
