@@ -818,3 +818,30 @@ header.nav .btn {
 body.home section:first-of-type {
   padding-top: 60px !important;
 }
+/* ===== HOMEPAGE HERO POSITION FIX ===== */
+
+/* Reduce overall top spacing of hero */
+.hero.section-shell {
+  padding-top: 60px !important;
+}
+
+/* Lift the actual text block */
+.hero-copy {
+  margin-top: -60px !important;
+}
+
+/* Tighten spacing under header */
+header {
+  margin-bottom: 0 !important;
+}
+
+/* Optional: make it even tighter on desktop */
+@media (min-width: 1024px) {
+  .hero.section-shell {
+    padding-top: 40px !important;
+  }
+
+  .hero-copy {
+    margin-top: -80px !important;
+  }
+}
