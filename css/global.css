@@ -246,3 +246,25 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+/* ===== SHE FACTS GRID FIX (GLOBAL) ===== */
+
+.she-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "pattern pattern"
+    "symptoms what"
+    "know next"
+    "linkedfacts linkedfinds";
+  gap: 14px;
+}
+
+/* Assign layout */
+.she-pattern-card { grid-area: pattern; }
+
+.she-info-block:nth-of-type(1) { grid-area: symptoms; }
+.she-info-block:nth-of-type(2) { grid-area: what; }
+.she-info-block:nth-of-type(3) { grid-area: know; }
+.she-block-next { grid-area: next; }
+.she-info-block:nth-of-type(5) { grid-area: linkedfacts; }
+.she-info-block:nth-of-type(6) { grid-area: linkedfinds; }
