@@ -74,51 +74,49 @@ function factsTemplate(item) {
       <button class="she-action-button" type="button">Explore full fact</button>
     </div>
 
-    <div class="she-content-grid">
+   <div class="she-content-grid">
 
-      <div class="she-pattern-card">
-     <span class="she-pattern-label">Your pattern</span>
-        <h4>If this sounds familiar...</h4>
-        <p>
-          SHE would help you connect symptoms, timing, severity and impact — then guide you towards relevant education, product support and possible next steps.
-        </p>
-      </div>
+  <div class="she-pattern-card">
+    <span class="she-pattern-label">Your pattern</span>
+    <h4>If this sounds familiar...</h4>
+    <p>${item.pattern || "SHE helps connect symptoms, timing and impact into clear next steps."}</p>
+  </div>
 
-      <div class="she-info-block">
-        <h4>Symptoms</h4>
-        <div class="she-symptom-pills">
-          ${symptoms.map(x => `<span class="she-symptom-pill">${x}</span>`).join("")}
-        </div>
-      </div>
+  <div class="she-info-block she-block-symptoms">
+    <h4>Symptoms</h4>
+    <div class="she-symptom-pills">
+      ${symptoms.map(x => `<span class="she-symptom-pill">${x}</span>`).join("")}
+    </div>
+  </div>
 
-      <div class="she-info-block">
-        <h4>What is this?</h4>
-        <p>${item.what}</p>
-      </div>
+  <div class="she-info-block she-block-what">
+    <h4>What is this?</h4>
+    <p>${item.what}</p>
+  </div>
 
-      <div class="she-info-block">
-        <h4>What to know</h4>
-        <ul>${item.know.map(x => `<li>${x}</li>`).join("")}</ul>
-      </div>
+  <div class="she-info-block she-block-know">
+    <h4>What to know</h4>
+    <ul>${item.know.map(x => `<li>${x}</li>`).join("")}</ul>
+  </div>
 
-     <div class="she-info-block she-block-next">
-        <h4>What next</h4>
-        <p>${item.next}</p>
-      </div>
+  <div class="she-info-block she-block-next">
+    <h4>What next</h4>
+    <p>${item.next}</p>
+  </div>
 
-      <div class="she-info-block">
-        <h4>Linked SHE Facts</h4>
-        <div class="she-mini-links">
-          ${item.linkedFacts.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
-        </div>
-      </div>
+  <div class="she-info-block she-block-facts">
+    <h4>Linked SHE Facts</h4>
+    <div class="she-mini-links">
+      ${item.linkedFacts.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
+    </div>
+  </div>
 
-      <div class="she-info-block">
-        <h4>Linked SHE Finds</h4>
-        <div class="she-mini-links">
-          ${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
-        </div>
-      </div>
+  <div class="she-info-block she-block-finds">
+    <h4>Linked SHE Finds</h4>
+    <div class="she-mini-links">
+      ${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
+    </div>
+  </div>
 
     </div>
 
