@@ -357,44 +357,48 @@ const DATA = {
     symptoms: ["Painful periods", "Heavy bleeding", "Irregular cycles", "Fatigue", "Clotting"],
     pattern: "Your pattern may relate to painful periods, heavy menstrual bleeding or an underlying gynaecological condition.",
     next: "Track pain, bleeding, timing and impact. If symptoms are severe, worsening or disrupting daily life, speak to a GP.",
-    facts: "she-facts.html?topic=painful-periods",
-    finds: "she-finds.html?topic=heat-therapy",
+    factsTopic: "painful-periods",
+    findsTopic: "heat-therapy",
     services: ["GP appointment", "Gynaecology clinic", "Pelvic health support"]
   },
+
   "Hormones": {
     desc: "Skin, hair, cycle, weight or fertility patterns.",
     symptoms: ["Irregular periods", "Acne", "Hair growth", "Weight changes", "Difficulty conceiving"],
     pattern: "Your pattern may relate to PMOS or another hormone/metabolic concern.",
     next: "Track cycles, skin/hair changes, weight patterns and family history before seeking support.",
-    facts: "she-facts.html?topic=pmos",
-    finds: "she-finds.html?topic=pcos-supplements",
+    factsTopic: "pmos",
+    findsTopic: "pcos-supplements",
     services: ["GP appointment", "Endocrinology support", "Fertility support"]
   },
+
   "Pelvic pain": {
     desc: "Pelvic pain, pain during sex, bowel or bladder symptoms.",
     symptoms: ["Pelvic pain", "Pain during sex", "Bowel symptoms", "Bladder symptoms", "Fatigue"],
     pattern: "Your pattern may relate to endometriosis, pelvic pain conditions or another gynaecological concern.",
     next: "Track pain location, timing, triggers and bowel/bladder symptoms. Persistent or severe pelvic pain should be reviewed.",
-    facts: "she-facts.html?topic=endometriosis",
-    finds: "she-finds.html?topic=heat-therapy",
+    factsTopic: "endometriosis",
+    findsTopic: "heat-therapy",
     services: ["GP appointment", "Gynaecology clinic", "Pelvic pain support"]
   },
+
   "Menopause": {
     desc: "Cycle changes, mood, sleep, temperature or body changes.",
     symptoms: ["Hot flushes", "Sleep issues", "Mood changes", "Brain fog", "Cycle changes"],
     pattern: "Your pattern may relate to perimenopause or menopause transition.",
     next: "Track symptoms and bleeding changes. Seek support if symptoms affect quality of life.",
-    facts: "she-facts.html?topic=perimenopause",
-    finds: "she-finds.html?topic=symptom-tracking",
+    factsTopic: "perimenopause",
+    findsTopic: "symptom-tracking",
     services: ["GP appointment", "Menopause clinic", "Workplace wellbeing support"]
   },
+
   "UTI": {
     desc: "Burning, urgency, frequency or urinary discomfort.",
     symptoms: ["Burning", "Urgency", "Frequency", "Lower abdominal discomfort", "Back pain"],
     pattern: "Your pattern may relate to a urinary tract infection, though some symptoms can overlap with other concerns.",
     next: "Seek urgent advice if symptoms include fever, back pain, blood in urine, pregnancy or rapid worsening.",
-    facts: "she-facts.html?topic=uti",
-    finds: "she-finds.html?topic=symptom-tracking",
+    factsTopic: "uti",
+    findsTopic: "symptom-tracking",
     services: ["Pharmacy", "GP appointment", "Urgent care if red flags"]
   }
 };
@@ -402,8 +406,17 @@ const DATA = {
 let selectedTopic = "Periods";
 let selectedSymptoms = [];
 
+/* Restore saved pattern */
+const savedPattern = JSON.parse(localStorage.getItem("shePattern") || "null");
+
+if (savedPattern) {
+  selectedTopic = savedPattern.topic || "Periods";
+  selectedSymptoms = savedPattern.symptoms || [];
+}
+
 function renderTopics() {
   const container = document.getElementById("topicOptions");
+
   container.innerHTML = Object.keys(DATA).map(topic => `
     <div class="helps-option ${topic === selectedTopic ? "active" : ""}" onclick="selectTopic('${topic}')">
       <strong>${topic}</strong>
@@ -415,12 +428,14 @@ function renderTopics() {
 function selectTopic(topic) {
   selectedTopic = topic;
   selectedSymptoms = [];
+  savePattern();
   renderTopics();
   renderSymptoms();
 }
 
 function renderSymptoms() {
   const container = document.getElementById("symptomOptions");
+
   container.innerHTML = DATA[selectedTopic].symptoms.map(symptom => `
     <div class="helps-option ${selectedSymptoms.includes(symptom) ? "active" : ""}" onclick="toggleSymptom('${symptom}')">
       <strong>${symptom}</strong>
@@ -435,7 +450,17 @@ function toggleSymptom(symptom) {
   } else {
     selectedSymptoms.push(symptom);
   }
+
+  savePattern();
   renderSymptoms();
+}
+
+function savePattern() {
+  localStorage.setItem("shePattern", JSON.stringify({
+    topic: selectedTopic,
+    symptoms: selectedSymptoms,
+    savedAt: new Date().toISOString()
+  }));
 }
 
 function goToStep(step) {
@@ -446,18 +471,29 @@ function goToStep(step) {
   document.getElementById("progress" + step).classList.add("active");
 
   if (step === 2) renderSymptoms();
-  if (step === 3) renderResults();
+  if (step === 3) {
+    savePattern();
+    renderResults();
+  }
+}
+
+function buildUrl(page, topic) {
+  const symptomsParam = selectedSymptoms.map(s => encodeURIComponent(s)).join(",");
+  return `${page}?topic=${encodeURIComponent(topic)}&symptoms=${symptomsParam}`;
 }
 
 function renderResults() {
   const item = DATA[selectedTopic];
   const symptoms = selectedSymptoms.length ? selectedSymptoms : ["No symptoms selected"];
 
+  const factsUrl = buildUrl("she-facts.html", item.factsTopic);
+  const findsUrl = buildUrl("she-finds.html", item.findsTopic);
+
   document.getElementById("resultOutput").innerHTML = `
     <div class="result-grid">
 
       <div class="result-box wide">
-        <h4>Your pattern</h4>
+        <h4>Your pattern saved</h4>
         <p>${item.pattern}</p>
       </div>
 
@@ -472,11 +508,12 @@ function renderResults() {
       </div>
 
       <div class="result-box">
-        <h4>Explore more</h4>
-        <p>Continue into SHE Facts or SHE Finds for connected support.</p>
+        <h4>Continue your journey</h4>
+        <p>Your selected pattern can now open connected SHE pages with context.</p>
+
         <div class="result-links">
-          <a href="${item.facts}">SHE Facts</a>
-          <a href="${item.finds}">SHE Finds</a>
+          <a href="${factsUrl}">Open SHE Facts</a>
+          <a href="${findsUrl}">Open SHE Finds</a>
         </div>
       </div>
 
@@ -499,8 +536,15 @@ function renderResults() {
   `;
 }
 
-renderTopics();
-</script>
+function clearPattern() {
+  localStorage.removeItem("shePattern");
+  selectedTopic = "Periods";
+  selectedSymptoms = [];
+  renderTopics();
+  renderSymptoms();
+  goToStep(1);
+}
 
-</body>
-</html>
+renderTopics();
+renderSymptoms();
+</script>
