@@ -1,1 +1,90 @@
+/* ===== SHE GLOBAL DESIGN SYSTEM ===== */
 
+:root {
+  --she-pink: #e83e7c;
+  --she-pink-dark: #c92f68;
+  --she-pink-soft: #fff3f8;
+
+  --she-black: #111111;
+  --she-grey: #555;
+  --she-border: #f3dbe6;
+}
+
+/* ===== GLOBAL OVERRIDE (FOR EXISTING MESSY STYLES) ===== */
+
+/* Force ALL pinks to match */
+button,
+.btn,
+a.button,
+.cta,
+.primary-btn {
+  background: var(--she-pink) !important;
+  border-color: var(--she-pink) !important;
+  color: white !important;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--she-pink-dark) !important;
+}
+
+/* Text highlights */
+span,
+.highlight,
+.pink {
+  color: var(--she-pink) !important;
+}
+
+/* Links */
+a {
+  color: var(--she-black);
+}
+
+a:hover {
+  color: var(--she-pink);
+}
+
+/* Icons / circles */
+.icon-circle,
+.circle,
+.badge {
+  background: var(--she-pink) !important;
+}
+
+/* Soft background sections */
+.soft-bg,
+.section-light {
+  background: var(--she-pink-soft) !important;
+}
+
+/* Borders */
+* {
+  border-color: var(--she-border);
+}
+
+/* ===== HEADER (FOR CONSISTENCY ACROSS ALL PAGES) ===== */
+
+.site-header {
+  height: 92px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--she-border);
+  background: #fff;
+}
+
+.logo span {
+  color: var(--she-pink) !important;
+}
+
+/* ===== FORCE OVERRIDE RANDOM INLINE STYLES ===== */
+
+[style*="#e91e63"],
+[style*="#ec4899"],
+[style*="#d9166f"],
+[style*="#ff4d8d"] {
+  color: var(--she-pink) !important;
+  background: var(--she-pink) !important;
+  border-color: var(--she-pink) !important;
+}
