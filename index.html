@@ -137,25 +137,27 @@ header.nav .links a {
   font-weight: 900 !important;
 }
 </style>
-  <style>
-  /* FORCE HOMEPAGE HERO HIGHER */
-  body.home .hero.section-shell,
-  .hero.section-shell {
-    min-height: auto !important;
-    height: auto !important;
-    padding-top: 40px !important;
-    padding-bottom: 80px !important;
-    align-items: flex-start !important;
-  }
+ /* ===== FIX HERO POSITION PROPERLY ===== */
 
-  body.home .hero-copy,
-  .hero .hero-copy {
-    transform: translateY(-90px) !important;
-  }
+/* 1. Give space for fixed header */
+body {
+  padding-top: 90px; /* adjust if header taller */
+}
 
-  body.home .hero {
-    margin-top: 0 !important;
-  }
+/* 2. Reset hero positioning */
+.hero.section-shell {
+  padding-top: 40px !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* 3. Clean hero text positioning */
+.hero-copy {
+  margin-top: 0 !important;
+  transform: none !important;
+  position: relative;
+  top: 0;
+}
 </style>
 </head>
 <body class="home">
