@@ -1,26 +1,25 @@
-
 const SHE_FACTS_CONTENT = [
   {
     id: "painful-periods",
     topic: "Menstrual Health",
     title: "Painful periods",
     meta: "Pain, cramps, heavy bleeding, disruption",
-    summary: "SHE Facts explains painful periods in a way that separates common symptoms from signs that may need further support.",
-    meaning: "Period pain is common, but pain that repeatedly disrupts work, study, sleep or daily life should not be dismissed as simply normal.",
-    know: ["Track pain timing, severity and bleeding pattern.", "Note whether pain responds to usual pain relief or heat.", "Look for patterns such as bowel, bladder or pelvic symptoms."],
-    next: "Consider speaking to a GP or healthcare professional if pain is severe, worsening, new, one-sided or stopping normal activities.",
+    summary: "SHE Facts explains painful periods by separating common period pain from symptoms that may need further support.",
+    what: "Painful periods can range from common menstrual cramps to pain linked with conditions such as endometriosis, adenomyosis, fibroids, pelvic inflammatory disease or heavy menstrual bleeding. The key issue is impact: if pain repeatedly disrupts your work, study, sleep, relationships or daily routine, it should not be brushed off as normal.",
+    know: ["Track when the pain starts, where it is felt and how long it lasts.", "Note bleeding pattern, clotting, bowel/bladder symptoms and fatigue.", "Record whether pain relief, heat or rest actually helps."],
+    next: "Speak to a GP or healthcare professional if the pain is severe, worsening, new, one-sided, associated with very heavy bleeding, or stopping normal activities.",
     linkedFacts: ["Endometriosis", "Adenomyosis", "Heavy menstrual bleeding"],
     linkedFinds: ["Heat therapy", "TENS devices", "Period care", "Symptom tracking"]
   },
   {
-    id: "pcos",
+    id: "pmos",
     topic: "Hormones",
-    title: "PCOS",
+    title: "PMOS",
     meta: "Irregular periods, skin, hair, metabolic health",
-    summary: "SHE Facts turns PCOS information into clear education across symptoms, hormones, fertility and long-term health.",
-    meaning: "PCOS can affect cycles, skin, hair growth, weight patterns, fertility and metabolic health, but presentation varies between women.",
-    know: ["Irregular periods can be a key sign.", "Symptoms can include acne, excess hair growth or scalp hair thinning.", "Long-term support may include lifestyle, medical review and symptom-specific care."],
-    next: "Seek medical advice if periods are very irregular, symptoms are worsening, or you are trying to conceive.",
+    summary: "PMOS, previously known as PCOS, is a hormone and metabolic condition that can affect cycles, skin, hair growth, weight patterns, fertility and long-term health.",
+    what: "PMOS stands for Polyendocrine Metabolic Ovarian Syndrome. It reflects that the condition is not simply about ovarian cysts. It can involve hormone changes, irregular ovulation, androgen-related symptoms such as acne or excess hair growth, insulin resistance, metabolic risk, fertility concerns and emotional wellbeing.",
+    know: ["Irregular or infrequent periods can be a key sign.", "Symptoms may include acne, excess facial/body hair, scalp hair thinning, weight changes or difficulty conceiving.", "Support may involve cycle management, metabolic health, skin/hair symptoms, fertility planning and long-term risk monitoring."],
+    next: "Seek medical advice if periods are very irregular, symptoms are worsening, or you are trying to conceive. It can help to track cycles, skin/hair changes, weight patterns and family history before an appointment.",
     linkedFacts: ["Insulin resistance", "Irregular periods", "Acne and hormones"],
     linkedFinds: ["Cycle tracking", "Inositol guidance", "Appointment prep"]
   },
@@ -29,9 +28,9 @@ const SHE_FACTS_CONTENT = [
     topic: "Gynaecological Conditions",
     title: "Endometriosis",
     meta: "Pelvic pain, fatigue, bowel/bladder symptoms",
-    summary: "SHE Facts helps users understand possible symptom patterns and what to raise during an appointment.",
-    meaning: "Endometriosis can involve pelvic pain, painful periods, pain during sex, fatigue and bowel or bladder symptoms.",
-    know: ["Pain that affects daily life should not be normalised.", "Symptoms may not always match disease severity.", "Documenting patterns can support better conversations with clinicians."],
+    summary: "SHE Facts helps users understand endometriosis symptom patterns and what to raise during an appointment.",
+    what: "Endometriosis is a long-term inflammatory gynaecological condition where tissue similar to the lining of the womb grows outside the womb. It can cause pelvic pain, painful periods, pain during sex, fatigue, bowel symptoms, bladder symptoms and fertility concerns. Symptoms can vary widely and severity does not always match how much disease is present.",
+    know: ["Pain that affects daily life should not be normalised.", "Symptoms may flare around periods but can also occur throughout the cycle.", "Tracking pain, bowel/bladder symptoms and fatigue can support better clinical conversations."],
     next: "Speak to a GP if pelvic pain is persistent, severe, worsening, or affecting your daily life.",
     linkedFacts: ["Painful periods", "Pelvic pain", "Fertility"],
     linkedFinds: ["Heat patches", "TENS", "Pain diary", "Appointment checklist"]
@@ -42,9 +41,9 @@ const SHE_FACTS_CONTENT = [
     title: "Perimenopause",
     meta: "Cycle changes, mood, sleep, hot flushes",
     summary: "SHE Facts explains perimenopause beyond hot flushes, including mood, sleep, cognition, periods and workplace impact.",
-    meaning: "Perimenopause can begin before periods stop and may involve cycle changes, hot flushes, mood shifts, sleep disruption and brain fog.",
-    know: ["Symptoms vary widely.", "Periods may become heavier, lighter, closer together or further apart.", "Support can involve lifestyle, medical advice and workplace adjustments."],
-    next: "Speak to a healthcare professional if symptoms are affecting quality of life or bleeding patterns are concerning.",
+    what: "Perimenopause is the transition leading up to menopause, when hormone levels fluctuate and periods may become irregular. It can involve hot flushes, night sweats, mood changes, anxiety, sleep disruption, brain fog, vaginal dryness, libido changes, joint aches and heavier or changing periods.",
+    know: ["Symptoms can begin before periods stop completely.", "Periods may become heavier, lighter, closer together or further apart.", "Support can include lifestyle changes, medical advice, HRT discussions and workplace adjustments."],
+    next: "Speak to a healthcare professional if symptoms affect quality of life or if bleeding becomes very heavy, unusual or concerning.",
     linkedFacts: ["HRT basics", "Heavy bleeding", "Sleep and hormones"],
     linkedFinds: ["Symptom trackers", "Menopause resources", "Workplace support"]
   },
@@ -54,8 +53,8 @@ const SHE_FACTS_CONTENT = [
     title: "UTI symptoms",
     meta: "Burning, urgency, frequency, discomfort",
     summary: "SHE Facts helps users identify common UTI symptoms and when symptoms may need urgent attention.",
-    meaning: "UTIs can cause burning when peeing, urgency, frequency and lower abdominal discomfort.",
-    know: ["Symptoms can escalate.", "Recurrent UTIs may need proper review.", "Pregnancy, fever or back pain changes the level of urgency."],
+    what: "A urinary tract infection can cause burning when peeing, urgency, needing to pee more often, cloudy or strong-smelling urine and lower abdominal discomfort. Some symptoms can overlap with vaginal infections, STIs or bladder conditions, so repeated or unusual symptoms should be reviewed properly.",
+    know: ["Symptoms can escalate if infection spreads.", "Recurrent UTIs may need proper review.", "Pregnancy, fever, back pain or blood in urine changes the level of urgency."],
     next: "Seek urgent advice if there is fever, back pain, blood in urine, pregnancy, or worsening symptoms.",
     linkedFacts: ["Recurrent UTIs", "Vaginal health", "STIs"],
     linkedFinds: ["Pharmacy navigation", "Hydration support", "Symptom logging"]
@@ -75,8 +74,8 @@ function factsTemplate(item) {
 
     <div class="she-content-grid">
       <div class="she-info-block">
-        <h4>What it could mean</h4>
-        <p>${item.meaning}</p>
+        <h4>What is this?</h4>
+        <p>${item.what}</p>
       </div>
       <div class="she-info-block">
         <h4>What to know</h4>
@@ -101,12 +100,17 @@ function factsTemplate(item) {
 }
 
 function renderFacts(item) {
-  document.querySelectorAll("[data-facts-item]").forEach(btn => btn.classList.toggle("is-active", btn.dataset.factsItem === item.id));
+  document.querySelectorAll("[data-facts-item]").forEach(btn =>
+    btn.classList.toggle("is-active", btn.dataset.factsItem === item.id)
+  );
   document.getElementById("she-facts-output").innerHTML = factsTemplate(item);
 }
 
 function factsSearch(query) {
   const q = query.toLowerCase().trim();
+
+  if (q.includes("pcos")) return SHE_FACTS_CONTENT.find(item => item.id === "pmos");
+
   return SHE_FACTS_CONTENT.find(item =>
     item.title.toLowerCase().includes(q) ||
     item.topic.toLowerCase().includes(q) ||
@@ -117,6 +121,7 @@ function factsSearch(query) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("she-facts-list");
+
   list.innerHTML = SHE_FACTS_CONTENT.map(item => `
     <button class="she-topic-btn" type="button" data-facts-item="${item.id}">
       <span class="she-topic-name">${item.title}</span>
@@ -132,5 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const input = document.getElementById("she-facts-search");
   input.addEventListener("input", () => renderFacts(factsSearch(input.value)));
-  renderFacts(SHE_FACTS_CONTENT[0]);
+
+  renderFacts(SHE_FACTS_CONTENT[1]);
 });
