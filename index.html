@@ -95,19 +95,60 @@
       padding: 12px 18px !important;
     }
   }
+    /* FINAL HOMEPAGE HEADER FIX */
+header.nav .brand {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+header.nav .brand-logo {
+  width: 46px !important;
+  height: 46px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+header.nav .brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+header.nav .brand-name {
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  color: #e83e7c !important;
+  line-height: 0.9 !important;
+}
+
+header.nav .brand-tag {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #3b1230 !important;
+  line-height: 1.2 !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+header.nav .links a {
+  font-size: 16px !important;
+  font-weight: 900 !important;
+}
 </style>
 </head>
 <body class="home">
-  <header class="nav">
+ <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="index.html">
-  <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
 
-  <div class="brand-text">
-    <div class="brand-name">SHE</div>
-    <div class="brand-tag">Women’s Health, Made Easy.</div>
-  </div>
-</a>
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
 
     <nav class="links">
       <a href="index.html" class="active">Home</a>
