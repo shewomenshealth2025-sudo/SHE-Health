@@ -9,28 +9,6 @@
   <link rel="stylesheet" href="css/global.css">
 
   <style>
-    .mini-hero {
-      padding: 34px 20px 24px !important;
-      text-align: center;
-      background: #fff7fb;
-    }
-
-    .mini-hero h1 {
-      font-size: 34px !important;
-      line-height: 1.05 !important;
-      margin: 0 0 8px !important;
-      color: #2b1025;
-      letter-spacing: -0.03em;
-    }
-
-    .mini-hero p {
-      max-width: 520px;
-      margin: 0 auto !important;
-      font-size: 15.5px !important;
-      line-height: 1.45 !important;
-      color: #6f5b66;
-    }
-
     .she-product-demo {
       padding: 42px 22px 70px !important;
       background: linear-gradient(180deg, #fff7fb 0%, #fff 100%);
@@ -388,14 +366,6 @@
 </header>
 
 <main>
-
-  <section class="mini-hero">
-    <div class="wrap">
-      <h1>SHE Facts</h1>
-      <p>Clear women’s health explanations, connected to patterns, support and next steps.</p>
-    </div>
-  </section>
-
   <section class="she-product-demo" id="she-facts-demo">
     <div class="she-demo-shell">
 
@@ -437,13 +407,52 @@
 
     </div>
   </section>
-
 </main>
 
 <footer class="footer">
   <div class="wrap footer-inner">
     <strong>SHE Health · Women’s Health, Made Easy</strong>
     <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
+  </div>
+</footer>
+
+<footer class="site-footer secondary-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>SHE<span>.</span></h2>
+      <p>Womens Health,<br>Made Easy.</p>
+    </div>
+
+    <div>
+      <h4>Platform</h4>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="she-facts.html">SHE Facts</a>
+      <a href="she-finds.html">SHE Finds</a>
+      <a href="platform.html">SHE Asks</a>
+      <a href="platform.html">SHE Tells</a>
+      <a href="platform.html">SHE News</a>
+    </div>
+
+    <div>
+      <h4>Partners</h4>
+      <a href="partners.html">For Institutions</a>
+      <a href="partners.html">For Organisations</a>
+      <a href="partners.html">For Healthcare</a>
+    </div>
+
+    <div>
+      <h4>Forum</h4>
+      <a href="forum.html">About the Forum</a>
+      <a href="forum.html">Events</a>
+    </div>
+
+    <div>
+      <h4>Stay Connected</h4>
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">→</button>
+      </form>
+    </div>
   </div>
 </footer>
 
@@ -530,7 +539,6 @@ function factsTemplate(item) {
     </div>
 
     <div class="she-content-grid">
-
       <div class="she-pattern-card">
         <span class="she-pattern-label">Your pattern</span>
         <h4>If this sounds familiar...</h4>
@@ -572,7 +580,6 @@ function factsTemplate(item) {
           ${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
         </div>
       </div>
-
     </div>
 
     <p class="she-demo-disclaimer">
@@ -625,46 +632,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFacts(SHE_FACTS_CONTENT[1]);
 });
 </script>
-<footer class="site-footer secondary-footer">
-  <div class="footer-grid">
 
-    <div class="footer-brand">
-      <h2>SHE<span>.</span></h2>
-      <p>Womens Health,<br>Made Easy.</p>
-    </div>
-
-    <div>
-      <h4>Platform</h4>
-      <a href="she-helps.html">SHE Helps</a>
-      <a href="she-facts.html">SHE Facts</a>
-      <a href="she-finds.html">SHE Finds</a>
-      <a href="platform.html">SHE Asks</a>
-      <a href="platform.html">SHE Tells</a>
-      <a href="platform.html">SHE News</a>
-    </div>
-
-    <div>
-      <h4>Partners</h4>
-      <a href="partners.html">For Institutions</a>
-      <a href="partners.html">For Organisations</a>
-      <a href="partners.html">For Healthcare</a>
-    </div>
-
-    <div>
-      <h4>Forum</h4>
-      <a href="forum.html">About the Forum</a>
-      <a href="forum.html">Events</a>
-    </div>
-
-    <div>
-      <h4>Stay Connected</h4>
-      <form class="footer-form">
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">→</button>
-      </form>
-    </div>
-
-  </div>
-</footer>
 </body>
 </html>
