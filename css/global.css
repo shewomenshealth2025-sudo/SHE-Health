@@ -800,3 +800,21 @@ header.nav .btn {
   font-size: 17px;
   font-weight: 900;
 }
+/* ===== SHE HOMEPAGE HERO FIX ===== */
+
+/* Lift the hero section up */
+.hero,
+.home-hero,
+.hero-section {
+  padding-top: 60px !important;
+}
+
+/* Move the text higher without breaking layout */
+.hero-content {
+  margin-top: -40px !important;
+}
+
+/* Override big default section padding */
+body.home section:first-of-type {
+  padding-top: 60px !important;
+}
