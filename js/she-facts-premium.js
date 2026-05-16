@@ -62,6 +62,8 @@ const SHE_FACTS_CONTENT = [
 ];
 
 function factsTemplate(item) {
+  const symptoms = item.meta.split(",").map(x => x.trim());
+
   return `
     <div class="she-content-top">
       <div>
@@ -73,30 +75,58 @@ function factsTemplate(item) {
     </div>
 
     <div class="she-content-grid">
+
+      <div class="she-pattern-card">
+        <span class="she-pattern-label">Your pattern</span>
+        <h4>If this sounds familiar...</h4>
+        <p>
+          SHE would help you connect symptoms, timing, severity and impact — then guide you towards relevant education, product support and possible next steps.
+        </p>
+      </div>
+
+      <div class="she-info-block">
+        <h4>Symptoms</h4>
+        <div class="she-symptom-pills">
+          ${symptoms.map(x => `<span class="she-symptom-pill">${x}</span>`).join("")}
+        </div>
+      </div>
+
       <div class="she-info-block">
         <h4>What is this?</h4>
         <p>${item.what}</p>
       </div>
+
       <div class="she-info-block">
         <h4>What to know</h4>
         <ul>${item.know.map(x => `<li>${x}</li>`).join("")}</ul>
       </div>
+
       <div class="she-info-block is-wide">
         <h4>What next</h4>
         <p>${item.next}</p>
       </div>
+
       <div class="she-info-block">
         <h4>Linked SHE Facts</h4>
-        <div class="she-mini-links">${item.linkedFacts.map(x => `<span class="she-mini-link">${x}</span>`).join("")}</div>
+        <div class="she-mini-links">
+          ${item.linkedFacts.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
+        </div>
       </div>
+
       <div class="she-info-block">
         <h4>Linked SHE Finds</h4>
-        <div class="she-mini-links">${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}</div>
+        <div class="she-mini-links">
+          ${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
+        </div>
       </div>
+
     </div>
 
-    <p class="she-demo-disclaimer">Educational preview only. SHE is not a diagnostic or emergency medical service.</p>
+    <p class="she-demo-disclaimer">
+      Educational preview only. SHE is not a diagnostic or emergency medical service.
+    </p>
   `;
+}
 }
 
 function renderFacts(item) {
