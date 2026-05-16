@@ -137,6 +137,26 @@ header.nav .links a {
   font-weight: 900 !important;
 }
 </style>
+  <style>
+  /* FORCE HOMEPAGE HERO HIGHER */
+  body.home .hero.section-shell,
+  .hero.section-shell {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 80px !important;
+    align-items: flex-start !important;
+  }
+
+  body.home .hero-copy,
+  .hero .hero-copy {
+    transform: translateY(-90px) !important;
+  }
+
+  body.home .hero {
+    margin-top: 0 !important;
+  }
+</style>
 </head>
 <body class="home">
  <header class="nav">
