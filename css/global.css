@@ -643,3 +643,22 @@ a:hover {
     margin-left: auto;
   }
 }
+/* REMOVE SEARCH ICON ON HOMEPAGE ONLY */
+.home .search-icon,
+.home .nav .search,
+.home .nav .search-btn {
+  display: none !important;
+}
+/* FORCE MENU BUTTON TO TOP RIGHT */
+@media (max-width: 900px) {
+
+  .nav-inner {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .mobile-menu-btn {
+    margin-left: auto !important;
+  }
+
+}
