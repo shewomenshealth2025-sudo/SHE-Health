@@ -246,7 +246,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
-/* ===== SHE FACTS GRID FIX (GLOBAL) ===== */
+/* ===== SHE FACTS GRID (FIXED) ===== */
 
 .she-content-grid {
   display: grid;
@@ -255,16 +255,15 @@ a:hover {
     "pattern pattern"
     "symptoms what"
     "know next"
-    "linkedfacts linkedfinds";
+    "facts finds";
   gap: 14px;
 }
 
-/* Assign layout */
 .she-pattern-card { grid-area: pattern; }
 
-.she-info-block:nth-of-type(1) { grid-area: symptoms; }
-.she-info-block:nth-of-type(2) { grid-area: what; }
-.she-info-block:nth-of-type(3) { grid-area: know; }
+.she-block-symptoms { grid-area: symptoms; }
+.she-block-what { grid-area: what; }
+.she-block-know { grid-area: know; }
 .she-block-next { grid-area: next; }
-.she-info-block:nth-of-type(5) { grid-area: linkedfacts; }
-.she-info-block:nth-of-type(6) { grid-area: linkedfinds; }
+.she-block-facts { grid-area: facts; }
+.she-block-finds { grid-area: finds; }
