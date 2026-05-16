@@ -662,42 +662,106 @@ a:hover {
   }
 
 }
-/* SAFE HEADER ALIGNMENT - DOES NOT AFFECT PAGE IMAGES */
-.nav > .nav-inner,
-.nav .wrap.nav-inner {
+/* HOMEPAGE HEADER RESET TO MATCH REST OF SITE */
+header.nav {
+  width: 100% !important;
+  background: #fff !important;
+  border-bottom: 1px solid #efd5df !important;
+}
+
+header.nav .wrap.nav-inner {
   max-width: 1180px !important;
   margin: 0 auto !important;
   min-height: 86px !important;
+  padding: 0 24px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  gap: 28px !important;
 }
 
-.nav .brand {
+header.nav .brand {
   display: flex !important;
   align-items: center !important;
   gap: 10px !important;
   text-decoration: none !important;
 }
 
-.nav .brand > .brand-logo {
-  width: 42px !important;
-  height: 42px !important;
+header.nav .brand-logo {
+  width: 44px !important;
+  height: 44px !important;
   object-fit: contain !important;
+  flex: 0 0 44px !important;
 }
 
-.nav .brand > .brand-name {
+header.nav .brand-name {
   font-size: 34px !important;
+  line-height: 1 !important;
   font-weight: 900 !important;
   color: #e83e7c !important;
-  line-height: 1 !important;
 }
 
-.nav .brand > .brand-tag {
-  color: #3b1230 !important;
+header.nav .brand-tag {
   font-size: 12px !important;
   line-height: 1.15 !important;
-  font-weight: 500 !important;
+  color: #3b1230 !important;
   border-left: 1px solid #efd5df !important;
   padding-left: 10px !important;
+  font-weight: 500 !important;
+}
+
+header.nav .links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+}
+
+header.nav .links a {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #111 !important;
+  text-decoration: none !important;
+}
+
+header.nav .links a.active {
+  color: #e83e7c !important;
+}
+
+header.nav .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #e83e7c !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 14px 28px !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  header.nav .wrap.nav-inner {
+    min-height: 86px !important;
+    padding: 12px 18px !important;
+  }
+
+  header.nav .links,
+  header.nav .btn {
+    display: none !important;
+  }
+
+  header.nav .brand-logo {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  header.nav .brand-name {
+    font-size: 34px !important;
+  }
+
+  header.nav .brand-tag {
+    font-size: 11px !important;
+  }
 }
