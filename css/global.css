@@ -1215,3 +1215,104 @@ header {
     grid-column: span 1;
   }
 }
+.clean-header {
+  width: 100%;
+  height: 92px;
+  padding: 0 8%;
+  background: #ffffff;
+  border-bottom: 1px solid #f7d8e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  position: relative;
+  z-index: 50;
+}
+
+.clean-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #050012;
+}
+
+.logo-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e83e8c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.clean-logo strong {
+  font-size: 2rem;
+  color: #e83e8c;
+  line-height: 1;
+  display: block;
+}
+
+.clean-logo span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  display: block;
+}
+
+.clean-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.clean-nav a {
+  text-decoration: none;
+  color: #050012;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.clean-nav a:hover {
+  color: #e83e8c;
+}
+
+.clean-cta {
+  background: #e83e8c;
+  color: white;
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(232, 62, 140, 0.25);
+}
+
+/* fixes the giant empty space */
+.interactive-page {
+  padding-top: 80px !important;
+}
+
+/* stop any old huge logo image affecting layout */
+.clean-header img {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .clean-header {
+    height: 76px;
+    padding: 0 5%;
+  }
+
+  .clean-nav,
+  .clean-cta {
+    display: none;
+  }
+
+  .clean-logo strong {
+    font-size: 1.7rem;
+  }
+}
