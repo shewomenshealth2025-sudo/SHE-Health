@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/global.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHE News | SHE Health</title>
@@ -9,45 +8,66 @@
 </head>
 
 <body>
-  <main class="pillar-page news-page">
-    <section class="pillar-hero">
+  <!-- paste your normal header here -->
+
+  <main class="interactive-page">
+    <section class="interactive-hero">
       <p class="eyebrow">SHE News</p>
       <h1>Women’s health is moving. Stay with it.</h1>
-      <p>
-        Research, policy, innovation and public health updates — explained clearly,
-        with why it matters for women.
-      </p>
+      <p>Research, policy, innovation and public health updates — explained clearly, with why it matters.</p>
     </section>
 
-    <section class="news-grid">
-      <article class="news-feature">
-        <span class="tag">Policy</span>
+    <section class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="policy">Policy</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="innovation">Innovation</button>
+      <button class="filter-btn" data-filter="public-health">Public Health</button>
+    </section>
+
+    <section class="interactive-grid">
+      <article class="interactive-card featured filter-item" data-category="policy">
+        <span>Policy</span>
         <h2>Women’s health strategies are changing across the UK and Ireland</h2>
-        <p>
-          SHE News tracks the shifts shaping women’s health — from national strategies
-          to local policy gaps and public health priorities.
-        </p>
-        <a href="#">Read the SHE Takeaway</a>
+        <p>SHE tracks the policy shifts shaping access, education and outcomes.</p>
+        <button class="expand-btn">SHE Takeaway</button>
+        <div class="hidden-content">
+          <p>Northern Ireland still needs clearer women’s health infrastructure. SHE News connects the wider policy movement back to local action.</p>
+        </div>
       </article>
 
-      <article class="news-card">
-        <span class="tag">Research</span>
+      <article class="interactive-card filter-item" data-category="research">
+        <span>Research</span>
         <h3>New evidence in menstrual health</h3>
-        <p>Clear summaries of emerging research without the jargon.</p>
+        <p>Clear summaries of research without the jargon.</p>
+        <button class="expand-btn">Read more</button>
+        <div class="hidden-content">
+          <p>Designed to help women understand what new findings actually mean in everyday language.</p>
+        </div>
       </article>
 
-      <article class="news-card">
-        <span class="tag">Innovation</span>
+      <article class="interactive-card filter-item" data-category="innovation">
+        <span>Innovation</span>
         <h3>Femtech and digital health</h3>
-        <p>Spotlighting tools, companies and ideas changing women’s health navigation.</p>
+        <p>Spotlighting the tools changing women’s health navigation.</p>
+        <button class="expand-btn">Read more</button>
+        <div class="hidden-content">
+          <p>From symptom support to product guidance, innovation is reshaping how women access information.</p>
+        </div>
       </article>
 
-      <article class="news-card">
-        <span class="tag">Public Health</span>
+      <article class="interactive-card filter-item" data-category="public-health">
+        <span>Public Health</span>
         <h3>What this means locally</h3>
-        <p>Connecting wider health developments back to women in Northern Ireland and Ireland.</p>
+        <p>Connecting wider developments back to women in NI and Ireland.</p>
+        <button class="expand-btn">Read more</button>
+        <div class="hidden-content">
+          <p>SHE looks at how policy, services and education translate into real-world support.</p>
+        </div>
       </article>
     </section>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
