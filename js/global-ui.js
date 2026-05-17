@@ -348,3 +348,41 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const filterItems = document.querySelectorAll(".filter-item");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      filterItems.forEach((item) => {
+        const category = item.dataset.category;
+
+        if (filter === "all" || category === filter) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+
+  const expandButtons = document.querySelectorAll(".expand-btn");
+
+  expandButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const hiddenContent = button.nextElementSibling;
+      hiddenContent.classList.toggle("open");
+
+      button.textContent = hiddenContent.classList.contains("open")
+        ? "Close"
+        : button.dataset.originalText || button.textContent;
+    });
+
+    button.dataset.originalText = button.textContent;
+  });
+});
