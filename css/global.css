@@ -1030,3 +1030,188 @@ header {
     grid-template-columns: 1fr;
   }
 }
+.interactive-page {
+  min-height: 100vh;
+  background: #fff7fb;
+  padding: 110px 6% 90px;
+}
+
+.interactive-hero {
+  max-width: 900px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #ffe1ef;
+  color: #e83e8c;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.interactive-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 22px;
+  color: #050012;
+}
+
+.interactive-hero p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #5b3448;
+}
+
+.filter-bar {
+  max-width: 1000px;
+  margin: 0 auto 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.filter-btn {
+  border: 1px solid #f4b7d2;
+  background: white;
+  color: #e83e8c;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #e83e8c;
+  color: white;
+}
+
+.interactive-grid {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.single-column {
+  max-width: 850px;
+  grid-template-columns: 1fr;
+}
+
+.interactive-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow: 0 18px 45px rgba(232, 62, 140, 0.08);
+  transition: 0.25s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+}
+
+.interactive-card.featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #ffffff, #ffeaf4);
+}
+
+.interactive-card span {
+  display: inline-block;
+  color: #e83e8c;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.interactive-card h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+.interactive-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.interactive-card p {
+  color: #3d2231;
+  line-height: 1.6;
+}
+
+.expand-btn,
+.ask-box button {
+  margin-top: 18px;
+  border: none;
+  background: #e83e8c;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.hidden-content {
+  display: none;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #f4c8dc;
+}
+
+.hidden-content.open {
+  display: block;
+}
+
+.ask-box {
+  max-width: 850px;
+  margin: 0 auto 35px;
+  background: white;
+  border-radius: 30px;
+  padding: 34px;
+  box-shadow: 0 18px 45px rgba(232, 62, 140, 0.08);
+}
+
+.ask-box h2 {
+  margin-bottom: 16px;
+}
+
+.ask-box input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 999px;
+  border: 1px solid #f4b7d2;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.ask-box small {
+  display: block;
+  margin-top: 12px;
+  color: #7a5267;
+}
+
+@media (max-width: 900px) {
+  .interactive-page {
+    padding: 85px 5% 70px;
+  }
+
+  .interactive-hero {
+    text-align: left;
+  }
+
+  .filter-bar {
+    justify-content: flex-start;
+  }
+
+  .interactive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interactive-card.featured {
+    grid-column: span 1;
+  }
+}
