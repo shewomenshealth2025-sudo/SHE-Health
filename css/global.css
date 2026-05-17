@@ -966,3 +966,67 @@ header {
     min-height: 210px;
   }
 }
+.platform-section {
+  padding: 80px 6%;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #f6f3f5;
+  border-radius: 22px;
+  padding: 32px;
+  text-decoration: none;
+  color: inherit;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ICON — THIS MUST MATCH */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e83e8c;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+/* TEXT — MATCHES YOUR TOP CARDS */
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
