@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/global.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHE Tells | SHE Health</title>
@@ -9,45 +8,66 @@
 </head>
 
 <body>
-  <main class="pillar-page tells-page">
-    <section class="pillar-hero">
+  <!-- paste your normal header here -->
+
+  <main class="interactive-page">
+    <section class="interactive-hero">
       <p class="eyebrow">SHE Tells</p>
       <h1>Expert insight, made understandable.</h1>
-      <p>
-        Conversations with clinicians, researchers, founders, advocates and women’s health leaders —
-        curated by SHE Health.
-      </p>
+      <p>Conversations with clinicians, researchers, founders, advocates and women’s health leaders.</p>
     </section>
 
-    <section class="tells-grid">
-      <article class="tell-feature">
-        <span class="tag">Featured insight</span>
+    <section class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="clinician">Clinician</button>
+      <button class="filter-btn" data-filter="founder">Founder</button>
+      <button class="filter-btn" data-filter="advocate">Advocate</button>
+      <button class="filter-btn" data-filter="lived">Lived Experience</button>
+    </section>
+
+    <section class="interactive-grid">
+      <article class="interactive-card featured filter-item" data-category="clinician">
+        <span>Featured insight</span>
         <h2>When symptoms are common, but not normal</h2>
-        <p>
-          Expert-led conversations helping women understand what to notice, what to ask,
-          and where to go next.
-        </p>
-        <a href="#">Watch / Read insight</a>
+        <p>Expert-led conversations helping women know what to notice and what to ask.</p>
+        <button class="expand-btn">Key insight</button>
+        <div class="hidden-content">
+          <p>Many symptoms become invisible because they are common. SHE Tells brings expert clarity into everyday language.</p>
+        </div>
       </article>
 
-      <article class="tell-card">
-        <span class="tag">Clinician voice</span>
+      <article class="interactive-card filter-item" data-category="clinician">
+        <span>Clinician voice</span>
         <h3>Understanding pelvic pain</h3>
         <p>Clear guidance from professionals working across women’s health.</p>
+        <button class="expand-btn">Open insight</button>
+        <div class="hidden-content">
+          <p>Pelvic pain can have multiple causes. The aim is not self-diagnosis, but knowing when and how to seek support.</p>
+        </div>
       </article>
 
-      <article class="tell-card">
-        <span class="tag">Founder voice</span>
+      <article class="interactive-card filter-item" data-category="founder">
+        <span>Founder voice</span>
         <h3>The future of femtech</h3>
-        <p>Insights from people building solutions for women’s health.</p>
+        <p>Insights from people building women’s health solutions.</p>
+        <button class="expand-btn">Open insight</button>
+        <div class="hidden-content">
+          <p>Femtech is moving beyond tracking into navigation, prevention, access and system-level support.</p>
+        </div>
       </article>
 
-      <article class="tell-card">
-        <span class="tag">Lived experience</span>
+      <article class="interactive-card filter-item" data-category="lived">
+        <span>Lived experience</span>
         <h3>Stories that shape better systems</h3>
         <p>Women’s voices connected to education, policy and practical support.</p>
+        <button class="expand-btn">Open insight</button>
+        <div class="hidden-content">
+          <p>Lived experience helps reveal what systems miss: confusion, delays, dismissal and unclear next steps.</p>
+        </div>
       </article>
     </section>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
