@@ -897,3 +897,190 @@ header {
     flex-direction: row;
   }
 }
+/* SHE Pillar Pages: News, Asks, Tells */
+
+.pillar-page {
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  background: #fff7fb;
+  color: #25121d;
+}
+
+.pillar-hero {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #ffe1ef;
+  color: #d63384;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pillar-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin-bottom: 24px;
+  letter-spacing: -0.05em;
+}
+
+.pillar-hero p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #6d5261;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Shared cards */
+
+.news-grid,
+.asks-feed,
+.tells-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.news-grid,
+.tells-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.news-feature,
+.tell-feature {
+  grid-column: span 3;
+}
+
+.news-card,
+.news-feature,
+.ask-card,
+.tell-card,
+.tell-feature {
+  background: white;
+  border: 1px solid #f4c8dc;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 18px 40px rgba(214, 51, 132, 0.08);
+}
+
+.news-feature,
+.tell-feature,
+.featured-ask {
+  background: linear-gradient(135deg, #ffffff, #ffe8f3);
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #fce0ee;
+  color: #c2186a;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.news-card h3,
+.ask-card h3,
+.tell-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.news-feature h2,
+.tell-feature h2,
+.featured-ask h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.news-card p,
+.news-feature p,
+.ask-card p,
+.tell-card p,
+.tell-feature p {
+  color: #6d5261;
+  line-height: 1.6;
+}
+
+.news-feature a,
+.tell-feature a,
+.featured-ask a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: #d63384;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* SHE Asks feed style */
+
+.asks-feed {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
+
+.ask-card {
+  position: relative;
+}
+
+.ask-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 5px;
+  border-radius: 999px;
+  background: #d63384;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .pillar-page {
+    padding: 90px 5% 60px;
+  }
+
+  .pillar-hero {
+    text-align: left;
+    margin-bottom: 36px;
+  }
+
+  .pillar-hero p {
+    margin: 0;
+  }
+
+  .news-grid,
+  .tells-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-feature,
+  .tell-feature {
+    grid-column: span 1;
+  }
+
+  .news-card,
+  .news-feature,
+  .ask-card,
+  .tell-card,
+  .tell-feature {
+    padding: 24px;
+    border-radius: 24px;
+  }
+}
