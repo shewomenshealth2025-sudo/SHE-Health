@@ -386,3 +386,45 @@ document.addEventListener("DOMContentLoaded", () => {
     button.dataset.originalText = button.textContent;
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
+
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener("click", () => {
+      siteNav.classList.toggle("open");
+      menuToggle.textContent = siteNav.classList.contains("open") ? "×" : "☰";
+    });
+  }
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const filterItems = document.querySelectorAll(".filter-item");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      filterItems.forEach((item) => {
+        item.style.display =
+          filter === "all" || item.dataset.category === filter ? "" : "none";
+      });
+    });
+  });
+
+  const expandButtons = document.querySelectorAll(".expand-btn");
+
+  expandButtons.forEach((button) => {
+    const originalText = button.textContent;
+
+    button.addEventListener("click", () => {
+      const hiddenContent = button.nextElementSibling;
+      hiddenContent.classList.toggle("open");
+      button.textContent = hiddenContent.classList.contains("open")
+        ? "Close"
+        : originalText;
+    });
+  });
+});
