@@ -1,20 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHE Health | Women’s Health, Made Easy</title>
 
   <style>
     :root {
       --pink: #ec3d86;
       --pink-dark: #d82f75;
-      --pink-soft: #fff3f8;
-      --plum: #3b1230;
-      --muted: #6f5b66;
-      --border: #f3d6e4;
+      --pink-soft: #fff2f8;
+      --pink-light: #ffe7f1;
+      --plum: #36102d;
+      --muted: #6d5363;
+      --border: #f3cddd;
       --white: #ffffff;
-      --shadow: 0 22px 60px rgba(59, 18, 48, 0.10);
+      --purple: #8057d8;
+      --orange: #ff9b55;
+      --shadow: 0 18px 50px rgba(54, 16, 45, 0.12);
     }
 
     * {
@@ -29,14 +32,16 @@
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
+
+    /* HEADER */
 
     .header {
       height: 88px;
@@ -48,7 +53,7 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 99;
     }
 
     .brand {
@@ -58,39 +63,41 @@
     }
 
     .brand-icon {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--pink);
       color: white;
       display: grid;
       place-items: center;
-      font-size: 24px;
       font-weight: 900;
+      font-size: 24px;
+      box-shadow: 0 12px 28px rgba(236, 61, 134, 0.25);
     }
 
     .brand-word {
-      font-size: 34px;
+      font-size: 36px;
       font-weight: 900;
       color: var(--pink);
       line-height: 1;
+      letter-spacing: -0.05em;
     }
 
-    .brand-line {
+    .brand-tagline {
       font-size: 13px;
+      line-height: 1.2;
       font-weight: 700;
-      color: #111;
+      color: #1d1520;
       border-left: 1px solid var(--border);
       padding-left: 14px;
-      line-height: 1.2;
     }
 
     .nav {
       display: flex;
-      gap: 30px;
       align-items: center;
-      font-weight: 800;
+      gap: 34px;
       font-size: 15px;
+      font-weight: 900;
     }
 
     .nav a.active {
@@ -102,57 +109,72 @@
     .header-cta {
       background: var(--pink);
       color: white;
-      padding: 16px 28px;
+      padding: 16px 30px;
       border-radius: 999px;
       font-weight: 900;
-      box-shadow: 0 14px 32px rgba(236, 61, 134, 0.24);
+      box-shadow: 0 12px 30px rgba(236, 61, 134, 0.25);
     }
 
-    .menu {
+    .menu-btn {
       width: 42px;
       height: 42px;
-      border: 1px solid #ccc;
+      border-radius: 8px;
+      border: 1px solid #cfcfcf;
       background: white;
-      border-radius: 6px;
       font-size: 20px;
-      display: none;
+      display: grid;
+      place-items: center;
     }
 
-    .mobile-nav {
-      display: none;
-      background: white;
-      padding: 22px 6%;
-      border-bottom: 1px solid var(--border);
-      flex-direction: column;
-      gap: 18px;
-      font-weight: 800;
-    }
-
-    .mobile-nav.open {
-      display: flex;
-    }
+    /* HERO */
 
     .hero {
+      position: relative;
+      overflow: hidden;
       min-height: 620px;
       padding: 70px 8% 40px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 70px;
       align-items: center;
       background:
-        radial-gradient(circle at 84% 48%, rgba(236, 61, 134, 0.28) 0 22%, transparent 23%),
-        radial-gradient(circle at 5% 95%, rgba(236, 61, 134, 0.08), transparent 35%),
-        #fff7fb;
+        radial-gradient(circle at 76% 44%, rgba(236, 61, 134, 0.24) 0 20%, transparent 21%),
+        radial-gradient(circle at 9% 87%, rgba(236, 61, 134, 0.08), transparent 32%),
+        linear-gradient(135deg, #fff9fc 0%, #fff0f7 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      bottom: -20%;
+      width: 55%;
+      height: 55%;
+      background: rgba(236, 61, 134, 0.07);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 auto;
+      width: 60%;
+      height: 35%;
+      background: rgba(236, 61, 134, 0.06);
+      border-radius: 60% 0 0 0;
+    }
+
+    .hero-copy,
+    .hero-visual {
       position: relative;
-      overflow: hidden;
+      z-index: 2;
     }
 
     .hero h1 {
-      font-size: clamp(56px, 7vw, 96px);
-      line-height: 0.92;
+      font-size: clamp(54px, 6.5vw, 92px);
+      line-height: 0.93;
       letter-spacing: -0.07em;
       margin: 0 0 28px;
-      color: var(--plum);
     }
 
     .hero h1 span {
@@ -161,10 +183,10 @@
 
     .hero p {
       max-width: 560px;
-      font-size: 19px;
-      line-height: 1.7;
       color: var(--muted);
-      margin-bottom: 34px;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0 0 34px;
     }
 
     .hero-actions {
@@ -174,247 +196,344 @@
     }
 
     .btn {
-      padding: 16px 30px;
-      border-radius: 999px;
-      font-weight: 900;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: 16px 32px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
     }
 
-    .btn.primary {
+    .btn-primary {
       background: var(--pink);
       color: white;
+      box-shadow: 0 12px 28px rgba(236, 61, 134, 0.25);
     }
 
-    .btn.secondary {
+    .btn-outline {
       background: white;
       color: var(--pink);
       border: 1.5px solid var(--pink);
     }
 
     .phone-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .phone-wrap::before {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      background: rgba(236, 61, 134, 0.25);
+      border-radius: 50%;
+      z-index: -1;
     }
 
     .phone {
       max-height: 580px;
-      filter: drop-shadow(0 25px 40px rgba(59, 18, 48, 0.18));
+      transform: rotate(4deg);
+      filter: drop-shadow(0 28px 45px rgba(54, 16, 45, 0.22));
     }
 
-    .platform {
-      width: min(1180px, 92%);
-      margin: 0 auto 40px;
+    .quote-card {
+      position: absolute;
+      right: 2%;
+      top: 34%;
+      width: 240px;
       background: white;
-      border-radius: 26px;
-      padding: 46px 70px 62px;
+      border-radius: 20px;
+      padding: 24px;
       box-shadow: var(--shadow);
-      transform: translateY(-18px);
+      z-index: 3;
+    }
+
+    .quote-card strong {
+      display: block;
+      color: var(--pink);
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .quote-card p {
+      margin: 0 0 16px;
+      color: var(--plum);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .quote-person {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffc1d9, var(--pink));
+    }
+
+    /* PLATFORM */
+
+    .platform {
+      width: min(1260px, 92%);
+      margin: -18px auto 28px;
+      background: white;
+      border-radius: 28px;
+      padding: 38px 36px 48px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 4;
     }
 
     .section-label {
       text-align: center;
       color: var(--pink);
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      font-weight: 900;
+      margin-bottom: 8px;
     }
 
     .platform h2 {
       text-align: center;
-      font-size: clamp(34px, 4vw, 48px);
+      font-size: clamp(30px, 3.5vw, 44px);
       line-height: 1;
-      margin: 0 0 42px;
-      color: var(--plum);
+      margin: 0 0 34px;
     }
 
     .platform h2 span {
       color: var(--pink);
-      display: block;
     }
 
-    .grid {
+    .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
     }
 
-    .card {
+    .feature-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
+      border-radius: 18px;
+      padding: 22px;
       min-height: 170px;
-      box-shadow: 0 14px 40px rgba(59, 18, 48, 0.06);
+      box-shadow: 0 14px 36px rgba(54, 16, 45, 0.07);
       transition: 0.25s ease;
     }
 
-    .card:hover {
+    .feature-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(59, 18, 48, 0.11);
     }
 
-    .icon {
-      width: 56px;
-      height: 56px;
+    .feature-icon {
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       background: var(--pink);
       color: white;
       display: grid;
       place-items: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 14px 28px rgba(236, 61, 134, 0.25);
+      font-size: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 12px 26px rgba(236, 61, 134, 0.28);
     }
 
-    .card h3 {
+    .feature-card h3 {
       margin: 0 0 8px;
-      font-size: 20px;
-      color: var(--plum);
+      font-size: 17px;
     }
 
-    .card p {
+    .feature-card p {
       margin: 0 0 12px;
       color: var(--muted);
-      line-height: 1.55;
-      font-size: 15px;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .arrow {
       color: var(--pink);
       font-weight: 900;
-      font-size: 22px;
+      font-size: 20px;
     }
 
-    .journey,
-    .forum,
-    .newsletter,
-    .footer {
-      width: min(1180px, 92%);
-      margin: 0 auto 32px;
-    }
+    /* LOWER CARDS */
 
-    .journey {
-      background: linear-gradient(135deg, #ffe5f1, #fff7fb);
-      border-radius: 24px;
+    .lower-grid {
+      width: min(1260px, 92%);
+      margin: 0 auto 28px;
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      align-items: center;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .journey img {
-      height: 300px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .journey-copy {
-      padding: 40px 48px;
-    }
-
-    .kicker {
-      color: var(--pink);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .journey h2,
-    .forum h2 {
-      font-size: clamp(34px, 4vw, 48px);
-      line-height: 1.02;
-      margin: 0 0 18px;
-      color: var(--plum);
-    }
-
-    .journey h2 span,
-    .forum h2 span {
-      color: var(--pink);
-    }
-
-    .journey p,
-    .forum p {
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .forum {
-      background: linear-gradient(135deg, #fbf3ff, #fff7fb);
-      border-radius: 24px;
-      padding: 44px 54px;
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 36px;
-      align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .forum .btn {
-      background: #8e55dc;
-      color: white;
-      width: max-content;
-    }
-
-    .forum-mock {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 1fr 1fr;
       gap: 18px;
     }
 
-    .bubble {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 14px 35px rgba(59, 18, 48, 0.10);
-      font-size: 15px;
-      color: var(--plum);
+    .journey-card,
+    .community-card,
+    .impact-card {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 250px;
     }
 
-    .bubble span {
-      display: block;
-      margin-top: 14px;
+    .journey-card {
+      background: linear-gradient(135deg, #ffe1ee, #fff7fb);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .journey-copy {
+      padding: 30px;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      color: var(--pink);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .journey-card h2,
+    .community-card h2,
+    .impact-card h2 {
+      margin: 0 0 16px;
+      font-size: clamp(26px, 2.5vw, 36px);
+      line-height: 1.05;
+    }
+
+    .journey-card h2 span {
+      color: var(--pink);
+    }
+
+    .journey-card p,
+    .community-card p,
+    .impact-card p {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .forum-icons {
-      grid-column: 1 / -1;
+    .journey-image {
+      background: linear-gradient(135deg, #ffc7da, #fff);
+      display: flex;
+      align-items: end;
+      justify-content: center;
+    }
+
+    .journey-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .community-card {
+      background: linear-gradient(135deg, #faf2ff, #fff7fb);
+      padding: 30px;
+      position: relative;
+    }
+
+    .community-card .btn {
+      background: var(--purple);
+      color: white;
+      padding: 13px 22px;
+      margin-top: 8px;
+    }
+
+    .mini-posts {
+      position: absolute;
+      right: 22px;
+      top: 24px;
+      width: 220px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-post {
+      background: white;
+      padding: 14px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(54, 16, 45, 0.12);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .mini-post span {
+      display: block;
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .community-icons {
+      margin-top: 24px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      text-align: center;
-      color: #8e55dc;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--purple);
       font-weight: 800;
-      font-size: 13px;
+      text-align: center;
     }
+
+    .impact-card {
+      background: linear-gradient(135deg, #fff8f0, #fff);
+      padding: 30px;
+      position: relative;
+    }
+
+    .impact-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: white;
+      color: var(--orange);
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .impact-card a {
+      color: var(--pink);
+      font-weight: 900;
+    }
+
+    /* NEWSLETTER */
 
     .newsletter {
-      background: linear-gradient(135deg, #ffe5f1, #fff3f8);
-      border-radius: 22px;
-      padding: 24px 36px;
+      width: min(1260px, 92%);
+      margin: 0 auto 28px;
+      background: linear-gradient(135deg, #ffe1ee, #fff3f8);
+      border-radius: 20px;
+      padding: 22px 34px;
       display: grid;
       grid-template-columns: auto 1fr auto;
-      align-items: center;
       gap: 24px;
+      align-items: center;
     }
 
-    .mail {
+    .mail-icon {
       width: 62px;
       height: 62px;
       border-radius: 50%;
       background: white;
+      color: var(--pink);
       display: grid;
       place-items: center;
-      color: var(--pink);
       font-size: 28px;
       box-shadow: var(--shadow);
     }
@@ -426,39 +545,42 @@
     .newsletter p {
       margin: 0;
       color: var(--muted);
+      font-size: 14px;
     }
 
     .newsletter form {
+      width: 440px;
       display: flex;
       background: white;
       border-radius: 10px;
       overflow: hidden;
-      width: 420px;
     }
 
     .newsletter input {
-      border: none;
-      padding: 16px;
       flex: 1;
+      border: 0;
+      padding: 16px;
       outline: none;
     }
 
     .newsletter button {
-      border: none;
+      width: 62px;
+      border: 0;
       background: var(--pink);
       color: white;
-      width: 64px;
       font-size: 24px;
-      cursor: pointer;
     }
 
+    /* FOOTER */
+
     .footer {
-      padding: 32px 0 42px;
+      width: min(1260px, 92%);
+      margin: 0 auto;
+      padding: 28px 0 40px;
       display: grid;
       grid-template-columns: 1.4fr repeat(4, 1fr);
       gap: 32px;
-      font-size: 14px;
-      color: var(--plum);
+      font-size: 13px;
     }
 
     .footer-brand {
@@ -469,7 +591,6 @@
 
     .footer h4 {
       margin: 0 0 10px;
-      font-size: 14px;
     }
 
     .footer a {
@@ -480,39 +601,75 @@
 
     .socials {
       display: flex;
-      gap: 12px;
-      font-size: 22px;
+      gap: 14px;
       color: var(--pink);
+      font-size: 24px;
     }
 
-    @media (max-width: 900px) {
-      .header {
-        height: 78px;
-        padding: 0 5%;
-      }
+    /* MOBILE */
 
-      .brand-line,
+    @media (max-width: 1050px) {
       .nav,
-      .header-cta {
+      .header-cta,
+      .brand-tagline,
+      .quote-card {
         display: none;
       }
 
-      .menu {
-        display: block;
+      .hero,
+      .lower-grid,
+      .newsletter,
+      .footer {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .hero {
-        grid-template-columns: 1fr;
-        padding: 52px 6% 40px;
+        padding: 50px 6%;
         gap: 40px;
       }
 
-      .hero h1 {
-        font-size: clamp(46px, 13vw, 74px);
+      .phone {
+        max-height: 450px;
       }
 
-      .hero p {
-        font-size: 17px;
+      .lower-grid {
+        width: min(720px, 92%);
+      }
+
+      .mini-posts {
+        position: static;
+        width: auto;
+        margin-top: 20px;
+      }
+
+      .newsletter form {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        height: 78px;
+      }
+
+      .brand-word {
+        font-size: 32px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-card {
+        grid-template-columns: 1fr;
       }
 
       .hero-actions {
@@ -520,45 +677,9 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .phone {
-        max-height: 440px;
-      }
-
-      .platform {
-        padding: 36px 22px;
-      }
-
-      .grid,
-      .journey,
-      .forum,
-      .newsletter,
-      .footer {
-        grid-template-columns: 1fr;
-      }
-
-      .journey img {
-        height: 250px;
-      }
-
-      .journey-copy,
-      .forum {
-        padding: 30px;
-      }
-
-      .forum-mock {
-        grid-template-columns: 1fr;
-      }
-
-      .forum-icons {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .newsletter form {
-        width: 100%;
-      }
-
-      .footer {
-        padding: 28px 0;
+      .btn {
+        padding: 14px 18px;
+        font-size: 13px;
       }
     }
   </style>
@@ -566,209 +687,217 @@
 
 <body>
 
-  <header class="header">
-    <a href="index.html" class="brand">
-      <div class="brand-icon">♀</div>
-      <div class="brand-word">SHE</div>
-      <div class="brand-line">Women’s Health<br>Strategy & Support</div>
-    </a>
+<header class="header">
+  <a href="index.html" class="brand">
+    <div class="brand-icon">♀</div>
+    <div class="brand-word">SHE</div>
+    <div class="brand-tagline">Women’s Health<br>Strategy & Support</div>
+  </a>
 
-    <nav class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="platform.html">Platform</a>
-      <a href="she-helps.html">SHE Helps</a>
-      <a href="partners.html">Partners</a>
-      <a href="forum.html">Forum</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="platform.html">Platform</a>
+    <a href="she-helps.html">SHE Helps</a>
+    <a href="she-asks.html">SHE Community</a>
+    <a href="partners.html">Partners</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <a href="partners.html" class="header-cta">Partner with SHE</a>
-    <button class="menu">☰</button>
-  </header>
+  <a href="partners.html" class="header-cta">Partner with SHE</a>
+  <button class="menu-btn">☰</button>
+</header>
 
-  <main>
+<main>
 
-    <section class="hero">
-      <div>
-        <h1>
-          Women’s<br>
-          health is<br>
-          not broken.<br>
-          <span>It is fragmented.</span>
-        </h1>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>
+        Women’s health<br>
+        is not broken.<br>
+        <span>It is fragmented.</span>
+      </h1>
 
-        <p>
-          SHE brings everything women need into one trusted platform — so every woman can find the right help, at the right time.
-        </p>
+      <p>
+        SHE brings everything women need into one trusted platform — so every woman can find the right help, at the right time.
+      </p>
 
-        <div class="hero-actions">
-          <a href="platform.html" class="btn primary">Explore SHE</a>
-          <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank" class="btn secondary">Join Early Access</a>
+      <div class="hero-actions">
+        <a href="platform.html" class="btn btn-primary">Explore SHE</a>
+        <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank" class="btn btn-outline">Join Early Access</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone-wrap">
+        <img src="assets/app-map.png" alt="SHE app preview" class="phone">
+      </div>
+
+      <div class="quote-card">
+        <strong>“</strong>
+        <p>SHE has completely changed how I approach my health. I finally feel heard and supported.</p>
+        <div class="quote-person">
+          <div class="avatar"></div>
+          <div>Emma, 34<br><span>Melbourne</span></div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="phone-wrap">
-        <img class="phone" src="assets/app-map.png" alt="SHE app preview">
-      </div>
-    </section>
+  <section class="platform">
+    <div class="section-label">The SHE Platform</div>
+    <h2>One umbrella. <span>Six connected layers.</span></h2>
 
-    <section class="platform">
-      <div class="section-label">The SHE Platform</div>
-      <h2>One umbrella.<span>Six connected layers.</span></h2>
+    <div class="features">
+      <a href="she-helps.html" class="feature-card">
+        <div class="feature-icon">◒</div>
+        <h3>SHE Helps</h3>
+        <p>From symptoms to next steps. Personalised guidance that puts you in control.</p>
+        <div class="arrow">→</div>
+      </a>
 
-      <div class="grid">
-        <a class="card" href="she-helps.html">
-          <div class="icon">◒</div>
-          <h3>SHE Helps</h3>
-          <p>From symptoms to next steps. Personalised guidance that puts you in control.</p>
-          <div class="arrow">→</div>
-        </a>
+      <a href="platform.html" class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>SHE Facts</h3>
+        <p>Evidence-based education across every stage of life.</p>
+        <div class="arrow">→</div>
+      </a>
 
-        <a class="card" href="platform.html">
-          <div class="icon">📖</div>
-          <h3>SHE Facts</h3>
-          <p>Evidence-based education across every stage of life.</p>
-          <div class="arrow">→</div>
-        </a>
+      <a href="platform.html" class="feature-card">
+        <div class="feature-icon">♡</div>
+        <h3>SHE Finds</h3>
+        <p>Curated products and services that support your journey.</p>
+        <div class="arrow">→</div>
+      </a>
 
-        <a class="card" href="platform.html">
-          <div class="icon">♡</div>
-          <h3>SHE Finds</h3>
-          <p>Curated products and services that support your journey.</p>
-          <div class="arrow">→</div>
-        </a>
+      <a href="she-news.html" class="feature-card">
+        <div class="feature-icon">▤</div>
+        <h3>SHE News</h3>
+        <p>The latest research, policy and innovation — explained clearly.</p>
+        <div class="arrow">→</div>
+      </a>
 
-        <a class="card" href="she-news.html">
-          <div class="icon">▤</div>
-          <h3>SHE News</h3>
-          <p>The latest research, policy and innovation — explained clearly.</p>
-          <div class="arrow">→</div>
-        </a>
+      <a href="she-asks.html" class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>SHE Asks</h3>
+        <p>Real questions. Real women. Real conversations.</p>
+        <div class="arrow">→</div>
+      </a>
 
-        <a class="card" href="she-asks.html">
-          <div class="icon">💬</div>
-          <h3>SHE Asks</h3>
-          <p>Real questions. Real women. Real conversations.</p>
-          <div class="arrow">→</div>
-        </a>
+      <a href="she-tells.html" class="feature-card">
+        <div class="feature-icon">🎙</div>
+        <h3>SHE Tells</h3>
+        <p>Expert voices and stories that inspire, inform and empower.</p>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </section>
 
-        <a class="card" href="she-tells.html">
-          <div class="icon">🎙</div>
-          <h3>SHE Tells</h3>
-          <p>Expert voices and stories that inspire, inform and empower.</p>
-          <div class="arrow">→</div>
-        </a>
-      </div>
-    </section>
+  <section class="lower-grid">
 
-    <section class="journey">
-      <img src="assets/woman-navigating-health.jpg" alt="Women supported by SHE">
-
+    <article class="journey-card">
       <div class="journey-copy">
         <div class="kicker">You’re not alone</div>
         <h2>Your health journey,<br><span>supported every step.</span></h2>
         <p>SHE is here to help you navigate the noise, find clarity and take confident steps towards better health.</p>
-        <a class="btn primary" href="she-helps.html">Start your journey</a>
-      </div>
-    </section>
-
-    <section class="forum">
-      <div>
-        <div class="kicker">SHE Forum</div>
-        <h2>Real women.<br>Real conversations.</h2>
-        <p>A safe space to ask questions, share experiences and support each other through every stage.</p>
-        <a href="forum.html" class="btn">Visit SHE Forum</a>
+        <a href="she-helps.html" class="btn btn-primary">Start your journey</a>
       </div>
 
-      <div class="forum-mock">
-        <div class="bubble">Has anyone found something that really helped with low energy?<span>2h ago · ♥ 12</span></div>
-        <div class="bubble">Yes! Iron and B12 made such a difference for me.<span>1h ago · ♥ 8</span></div>
-
-        <div class="forum-icons">
-          <div>Ask questions</div>
-          <div>Share experiences</div>
-          <div>Get support</div>
-          <div>Feel less alone</div>
-        </div>
+      <div class="journey-image">
+        <img src="assets/woman-navigating-health.jpg" alt="Women supported by SHE">
       </div>
-    </section>
+    </article>
 
-    <section class="newsletter">
-      <div class="mail">✉</div>
-      <div>
-        <h3>Stay in the loop</h3>
-        <p>News, updates and women’s health insights.</p>
+    <article class="community-card">
+      <div class="kicker" style="color: var(--purple);">SHE Community</div>
+      <h2>Real women.<br>Real conversations.</h2>
+      <p>A safe space to ask questions, share experiences and support each other through every stage.</p>
+      <a href="she-asks.html" class="btn">Visit SHE Community</a>
+
+      <div class="mini-posts">
+        <div class="mini-post">Has anyone found something that really helped with low energy?<span>2h ago · ♥ 12</span></div>
+        <div class="mini-post">Yes! Iron and B12 made such a difference for me.<span>1h ago · ♥ 8</span></div>
       </div>
 
-      <form>
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">→</button>
-      </form>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-brand">
-      <div class="brand-icon">♀</div>
-      <div>
-        <div class="brand-word">SHE</div>
-        <p>Women’s Health<br>Strategy & Support</p>
+      <div class="community-icons">
+        <div>Ask questions</div>
+        <div>Share experiences</div>
+        <div>Get support</div>
+        <div>Feel less alone</div>
       </div>
-    </div>
+    </article>
+
+    <article class="impact-card">
+      <div class="kicker" style="color: var(--orange);">Built for impact</div>
+      <div class="impact-icon">👥</div>
+      <h2>Together, we can improve women’s health outcomes.</h2>
+      <p>SHE collaborates with partners, health leaders and innovators to drive real change.</p>
+      <a href="partners.html">Partner with SHE →</a>
+    </article>
+
+  </section>
+
+  <section class="newsletter">
+    <div class="mail-icon">✉</div>
 
     <div>
-      <h4>Platform</h4>
-      <a href="she-helps.html">SHE Helps</a>
-      <a href="platform.html">SHE Facts</a>
-      <a href="platform.html">SHE Finds</a>
-      <a href="she-news.html">SHE News</a>
-      <a href="she-asks.html">SHE Asks</a>
-      <a href="she-tells.html">SHE Tells</a>
+      <h3>Stay in the loop</h3>
+      <p>News, updates and women’s health insights.</p>
     </div>
 
+    <form>
+      <input type="email" placeholder="Enter your email address">
+      <button type="submit">→</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <div class="brand-icon">♀</div>
     <div>
-      <h4>Navigate</h4>
-      <a href="index.html">Home</a>
-      <a href="partners.html">Partners</a>
-      <a href="forum.html">Forum</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <div class="brand-word">SHE</div>
+      <p>Women’s Health<br>Strategy & Support</p>
     </div>
+  </div>
 
-    <div>
-      <h4>Legal</h4>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+  <div>
+    <h4>Platform</h4>
+    <a href="she-helps.html">SHE Helps</a>
+    <a href="platform.html">SHE Facts</a>
+    <a href="platform.html">SHE Finds</a>
+    <a href="she-news.html">SHE News</a>
+    <a href="she-asks.html">SHE Asks</a>
+    <a href="she-tells.html">SHE Tells</a>
+  </div>
+
+  <div>
+    <h4>Navigate</h4>
+    <a href="index.html">Home</a>
+    <a href="she-asks.html">SHE Community</a>
+    <a href="partners.html">Partners</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div>
+    <h4>Legal</h4>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+
+  <div>
+    <h4>Follow us</h4>
+    <div class="socials">
+      <span>◎</span>
+      <span>f</span>
+      <span>in</span>
+      <span>▶</span>
+      <span>✉</span>
     </div>
-
-    <div>
-      <h4>Follow us</h4>
-      <div class="socials">
-        <span>◎</span>
-        <span>f</span>
-        <span>in</span>
-        <span>✉</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const menu = document.querySelector(".menu");
-    const nav = document.querySelector(".nav");
-
-    menu.addEventListener("click", () => {
-      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
-      nav.style.position = "absolute";
-      nav.style.top = "78px";
-      nav.style.left = "0";
-      nav.style.width = "100%";
-      nav.style.background = "white";
-      nav.style.padding = "24px";
-      nav.style.flexDirection = "column";
-    });
-  </script>
+  </div>
+</footer>
 
 </body>
 </html>
