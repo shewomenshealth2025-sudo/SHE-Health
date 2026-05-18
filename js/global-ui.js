@@ -1,3 +1,14 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector(".she-menu-btn");
+  const nav = document.querySelector(".she-mobile-nav");
+
+  if (btn && nav) {
+    btn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      btn.textContent = nav.classList.contains("open") ? "×" : "☰";
+    });
+  }
+});
 /* SHE GLOBAL MOBILE OVERRIDE — runs after page styles */
 document.addEventListener("DOMContentLoaded", () => {
   const mobileFix = document.createElement("style");
