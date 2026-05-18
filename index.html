@@ -1,188 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/global.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SHE Health | Women’s Health, Made Easy</title>
   <meta name="description" content="SHE is the navigation system for women's health — bringing evidence, services and voices together so every woman can find the right help, at the right time." />
+
+  <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-  /* HOMEPAGE HEADER HARD RESET */
-  header.nav {
-    width: 100% !important;
-    background: #fff !important;
-    border-bottom: 1px solid #efd5df !important;
-    padding: 0 !important;
-  }
-
-  header.nav .wrap.nav-inner {
-    max-width: 1180px !important;
-    margin: 0 auto !important;
-    min-height: 86px !important;
-    padding: 0 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 28px !important;
-  }
-
-  header.nav .brand {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    text-decoration: none !important;
-  }
-
-  header.nav .brand-logo {
-    width: 44px !important;
-    height: 44px !important;
-    object-fit: contain !important;
-  }
-
-  header.nav .brand-name {
-    font-size: 34px !important;
-    font-weight: 900 !important;
-    color: #e83e7c !important;
-    line-height: 1 !important;
-  }
-
-  header.nav .brand-tag {
-    font-size: 12px !important;
-    line-height: 1.15 !important;
-    color: #3b1230 !important;
-    border-left: 1px solid #efd5df !important;
-    padding-left: 10px !important;
-  }
-
-  header.nav .links {
-    display: flex !important;
-    align-items: center !important;
-    gap: 28px !important;
-  }
-
-  header.nav .links a {
-    font-size: 14px !important;
-    font-weight: 800 !important;
-    color: #111 !important;
-    text-decoration: none !important;
-  }
-
-  header.nav .links a.active {
-    color: #e83e7c !important;
-  }
-
-  header.nav .btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #e83e7c !important;
-    color: #fff !important;
-    border-radius: 999px !important;
-    padding: 14px 28px !important;
-    font-weight: 900 !important;
-    text-decoration: none !important;
-    border: 0 !important;
-  }
-
-  @media (max-width: 900px) {
-    header.nav .links,
-    header.nav .btn {
-      display: none !important;
-    }
-
-    header.nav .wrap.nav-inner {
-      padding: 12px 18px !important;
-    }
-  }
-    /* FINAL HOMEPAGE HEADER FIX */
-header.nav .brand {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-header.nav .brand-logo {
-  width: 46px !important;
-  height: 46px !important;
-  object-fit: contain !important;
-  flex-shrink: 0 !important;
-}
-
-header.nav .brand-text {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-}
-
-header.nav .brand-name {
-  font-size: 36px !important;
-  font-weight: 900 !important;
-  color: #e83e7c !important;
-  line-height: 0.9 !important;
-}
-
-header.nav .brand-tag {
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  color: #3b1230 !important;
-  line-height: 1.2 !important;
-  border-left: none !important;
-  padding-left: 0 !important;
-}
-
-header.nav .links a {
-  font-size: 16px !important;
-  font-weight: 900 !important;
-}
-    /* CTA visibility */
-.hero-early-access {
-  display: none !important;
-}
-
-@media (max-width: 900px) {
-  .header-early-access {
-    display: none !important;
-  }
-
-  .hero-early-access {
-    display: inline-flex !important;
-  }
-
-  .hero-buttons {
-    display: flex !important;
-    gap: 10px !important;
-    margin-top: 18px !important;
-  }
-
-  .hero-buttons .button {
-    flex: 1 !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 13px 14px !important;
-    font-size: 14px !important;
-    white-space: nowrap !important;
-  }
-}
-
-@media (min-width: 901px) {
-  .header-early-access {
-    display: inline-flex !important;
-  }
-
-  .hero-early-access {
-    display: none !important;
-  }
-}
-</style>
 </head>
+
 <body class="home">
- <header class="nav">
+
+<header class="nav">
   <div class="wrap nav-inner">
+
     <a class="brand" href="index.html">
       <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
-
       <div class="brand-text">
         <div class="brand-name">SHE</div>
         <div class="brand-tag">Women’s Health, Made Easy.</div>
@@ -198,121 +32,100 @@ header.nav .links a {
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-   <a class="btn header-early-access" href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">
-  Join Early Access
-</a>
-</a>
+
+    <a class="btn header-early-access" href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">
+      Join Early Access
+    </a>
+
+    <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
+
   </div>
 </header>
 
-  <main>
-    <section class="hero section-shell">
-      <div class="hero-copy">
-        <h1>Women’s health<br />is not broken.<br />It is <span>fragmented.</span></h1>
-        <p>SHE is the navigation system for women's health — bringing evidence, services and voices together so every woman can find the right help, at the right time.</p>
+<div class="mobile-overlay"></div>
+
+<aside class="mobile-sidebar">
+  <div class="mobile-sidebar-inner">
+    <button class="close-btn" aria-label="Close menu">×</button>
+
+    <nav class="mobile-links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Platform</a>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">Forum</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+    </nav>
+  </div>
+</aside>
+
+<main>
+
+  <section class="hero section-shell">
+    <div class="hero-copy">
+      <h1>Women’s health<br />is not broken.<br />It is <span>fragmented.</span></h1>
+      <p>SHE is the navigation system for women's health — bringing evidence, services and voices together so every woman can find the right help, at the right time.</p>
+
       <div class="hero-buttons">
-  <a class="button primary" href="platform.html">Explore SHE</a>
-  <a class="button secondary hero-early-access" href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">
-    Join Early Access
-  </a>
-</div>
+        <a class="button primary" href="platform.html">Explore SHE</a>
+        <a class="button secondary hero-early-access" href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">
+          Join Early Access
+        </a>
       </div>
-
-      <div class="phone-visual" aria-label="SHE app phone visuals">
-        <!-- Use your CURRENT website phone image here. Keep the same file from your existing site and put it in /assets/ with this name, or change only this src. -->
-        <img src="assets/app-map.png" alt="SHE app phone visuals" />
-      </div>
-    </section>
-
-    <section class="clarity-band">
-      <div class="clarity-copy left">
-        <h2>Information is everywhere.<br /><span>Clarity is not.</span></h2>
-        <p>Women are left navigating a fragmented system — searching, guessing and waiting for answers.</p>
-      </div>
-
-      <div class="woman-image">
-        <!-- Replace with your current real-woman image if it already exists in your website assets. -->
-        <img src="assets/woman-navigating-health.jpg" alt="Woman using her phone while navigating health information" />
-      </div>
-
-      <div class="clarity-copy right">
-        <h2>SHE brings it<br />all <span>together.</span></h2>
-        <p>One trusted platform.<br />Six connected layers.</p>
-      </div>
-    </section>
-
-    <section class="platform-layers section-shell" id="platform">
-      <h2>One umbrella. <span>Six connected layers.</span></h2>
-      <div class="layer-grid">
-        <article class="layer-card"><div class="icon">◇</div><h3>SHE Helps</h3><p>Your navigation system for women’s health.</p></article>
-        <article class="layer-card"><div class="icon">▤</div><h3>SHE Facts</h3><p>Evidence-based information you can trust.</p></article>
-        <article class="layer-card"><div class="icon">□</div><h3>SHE Finds</h3><p>Products and services, curated with care.</p></article>
-        <article class="layer-card"><div class="icon">◌</div><h3>SHE Asks</h3><p>Real questions. Real women. Real conversations.</p></article>
-        <article class="layer-card"><div class="icon">◉</div><h3>SHE Tells</h3><p>Stories that inspire, inform and empower.</p></article>
-        <article class="layer-card"><div class="icon">▧</div><h3>SHE News</h3><p>The latest in women’s health, policy and research.</p></article>
-      </div>
-    </section>
-
-    <section class="helps-panel" id="she-helps">
-      <div class="helps-copy">
-        <p class="eyebrow">SHE HELPS</p>
-        <h2>Your journey,<br />made simple.</h2>
-        <p>Answer a few questions about your symptoms or concerns. Get clear, personalised next steps — instantly.</p>
-        <a class="button light" href="she-helps.html">Start your journey</a>
-      </div>
-
-      <div class="steps">
-        <div class="step"><span>1</span><p>Choose a topic<br />that fits your concern</p></div>
-        <div class="arrow">→</div>
-        <div class="step"><span>2</span><p>Select symptoms<br />that apply</p></div>
-        <div class="arrow">→</div>
-        <div class="step"><span>3</span><p>Get personalised<br />next steps</p></div>
-      </div>
-
-      <div class="phone-strip">
-        <img src="assets/she-helps-step-1.png" alt="SHE Helps choose a topic screen" />
-        <img src="assets/she-helps-step-2.png" alt="SHE Helps select symptoms screen" />
-        <img src="assets/she-helps-step-3.png" alt="SHE Helps next steps screen" />
-      </div>
-      <div class="line-woman" aria-hidden="true"></div>
-    </section>
-
-    <section class="two-card-section section-shell">
-      <article class="info-card">
-        <p class="eyebrow">FOR INSTITUTIONS</p>
-        <h2>Evidence for decision making and impact.</h2>
-        <p>Data and insights to help organisations understand needs, measure impact and drive change.</p>
-        <a href="partners.html">Learn more →</a>
-      </article>
-      <article class="image-card">
-        <img src="assets/stormont.jpg" alt="Parliament Buildings, Stormont" />
-      </article>
-      <article class="info-card">
-        <p class="eyebrow">SHE FORUM</p>
-        <h2>Where policy, research and real life meet.</h2>
-        <p>We convene the people and conversations that shape a better future for women’s health.</p>
-        <a href="forum.html">Join the conversation →</a>
-      </article>
-      <article class="image-card">
-        <img src="assets/she-forum-panel.jpg" alt="SHE Forum panel discussion" />
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-brand">
-      <span class="brand-word">SHE<span>.</span></span>
-      <span class="brand-tagline">Womens Health,<br />Made Easy.</span>
-      <div class="socials"><a href="#">◎</a><a href="#">in</a><a href="#">✉</a></div>
     </div>
-    <div><h4>Platform</h4><a href="she-helps.html">SHE Helps</a><a href="platform.html#facts">SHE Facts</a><a href="platform.html#finds">SHE Finds</a><a href="platform.html#asks">SHE Asks</a><a href="platform.html#tells">SHE Tells</a><a href="platform.html#news">SHE News</a></div>
-    <div><h4>Partners</h4><a href="partners.html#institutions">For Institutions</a><a href="partners.html#organisations">For Organisations</a><a href="partners.html#healthcare">For Healthcare</a><a href="partners.html#partners">Our Partners</a></div>
-    <div><h4>Forum</h4><a href="forum.html">About the Forum</a><a href="forum.html#events">Events</a><a href="forum.html#conversations">Conversations</a></div>
-    <div><h4>About</h4><a href="about.html#mission">Our Mission</a><a href="about.html#team">Who We Are</a><a href="about.html#careers">Careers</a></div>
-    <div><h4>Stay connected</h4><p>Get the latest updates and insights.</p><form><input type="email" placeholder="Enter your email" /><button aria-label="Submit email">→</button></form></div>
-  </footer>
 
-  <script src="script.js"></script>
-  <script src="js/global-ui.js"></script>
+    <div class="phone-visual">
+      <img src="assets/app-map.png" alt="SHE app phone visuals" />
+    </div>
+  </section>
+
+  <section class="clarity-band">
+    <div class="clarity-copy left">
+      <h2>Information is everywhere.<br /><span>Clarity is not.</span></h2>
+      <p>Women are left navigating a fragmented system — searching, guessing and waiting for answers.</p>
+    </div>
+
+    <div class="woman-image">
+      <img src="assets/woman-navigating-health.jpg" alt="Woman navigating health information" />
+    </div>
+
+    <div class="clarity-copy right">
+      <h2>SHE brings it<br />all <span>together.</span></h2>
+      <p>One trusted platform.<br />Six connected layers.</p>
+    </div>
+  </section>
+
+  <section class="platform-layers section-shell">
+    <h2>One umbrella. <span>Six connected layers.</span></h2>
+
+    <div class="layer-grid">
+      <article class="layer-card"><div class="icon">◇</div><h3>SHE Helps</h3></article>
+      <article class="layer-card"><div class="icon">▤</div><h3>SHE Facts</h3></article>
+      <article class="layer-card"><div class="icon">□</div><h3>SHE Finds</h3></article>
+      <article class="layer-card"><div class="icon">◌</div><h3>SHE Asks</h3></article>
+      <article class="layer-card"><div class="icon">◉</div><h3>SHE Tells</h3></article>
+      <article class="layer-card"><div class="icon">▧</div><h3>SHE News</h3></article>
+    </div>
+  </section>
+
+  <section class="helps-panel">
+    <div class="helps-copy">
+      <p class="eyebrow">SHE HELPS</p>
+      <h2>Your journey,<br />made simple.</h2>
+      <p>Answer a few questions about your symptoms or concerns. Get clear, personalised next steps — instantly.</p>
+      <a class="button light" href="she-helps.html">Start your journey</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>SHE Health · Women’s Health, Made Easy</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
