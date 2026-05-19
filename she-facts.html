@@ -1,363 +1,559 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SHE Facts | SHE Health</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="css/global.css">
+<title>SHE Facts | SHE Health</title>
 
-  <style>
-    .she-product-demo {
-      padding: 42px 22px 70px !important;
-      background: linear-gradient(180deg, #fff7fb 0%, #fff 100%);
-      color: #171017;
-    }
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
 
-    .she-demo-shell {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+}
 
-    .she-demo-header {
-      display: grid;
-      grid-template-columns: 0.8fr 1fr;
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 20px;
-    }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
 
-    .she-demo-kicker {
-      color: #e83e7c;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
+a{ text-decoration:none; color:inherit; }
 
-    .she-demo-title {
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin: 0;
-      color: #3b1230;
-    }
+.she-product-demo{
+  padding:90px 7% 90px;
+  background:linear-gradient(180deg,#fff7fb 0%,#fff 100%);
+}
 
-    .she-demo-title span {
-      color: #e83e7c;
-    }
+.she-demo-shell{
+  max-width:1180px;
+  margin:0 auto;
+}
 
-    .she-demo-intro {
-      max-width: 560px;
-      margin: 0;
-      font-size: 15.5px;
-      line-height: 1.55;
-      color: #6f5b66;
-    }
+.she-demo-header{
+  display:grid;
+  grid-template-columns:.85fr 1fr;
+  gap:34px;
+  align-items:end;
+  margin-bottom:28px;
+}
 
-    .she-demo-card {
-      background: #fff;
-      border: 1px solid #efd5df;
-      box-shadow: 0 18px 50px rgba(59, 18, 48, 0.08);
-      border-radius: 28px;
-      overflow: hidden;
-    }
+.she-demo-kicker{
+  color:var(--pink);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:900;
+  margin-bottom:14px;
+}
 
-    .she-demo-topbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: center;
-      padding: 14px 18px;
-      border-bottom: 1px solid #efd5df;
-      background: #fff7fb;
-    }
+.she-demo-title{
+  font-size:clamp(52px,7vw,88px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  margin:0;
+  color:var(--plum);
+}
 
-    .she-demo-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+.she-demo-title span{ color:var(--pink); }
 
-    .she-demo-pill {
-      border: 1px solid #efd5df;
-      background: white;
-      color: #e83e7c;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 12px;
-      font-weight: 800;
-    }
+.she-demo-intro{
+  max-width:620px;
+  margin:0;
+  font-size:20px;
+  line-height:1.65;
+  color:var(--muted);
+}
 
-    .she-demo-status {
-      color: #e83e7c;
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
+.she-demo-card{
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:34px;
+  overflow:hidden;
+}
 
-    .she-demo-main {
-      display: grid;
-      grid-template-columns: 310px 1fr;
-      min-height: 520px;
-    }
+.she-demo-topbar{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  padding:18px 22px;
+  border-bottom:1px solid var(--border);
+  background:#fff7fb;
+}
 
-    .she-demo-sidebar {
-      padding: 22px;
-      border-right: 1px solid #efd5df;
-      background: #fff;
-    }
+.she-demo-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
 
-    .she-demo-search {
-      position: relative;
-      margin-bottom: 14px;
-    }
+.she-demo-pill{
+  border:1px solid var(--border);
+  background:white;
+  color:var(--pink);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:900;
+}
 
-    .she-demo-search input {
-      width: 100%;
-      border: 1px solid #efd5df;
-      border-radius: 16px;
-      padding: 14px 14px 14px 42px;
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-    }
+.she-demo-status{
+  color:var(--pink);
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
 
-    .she-demo-search input:focus {
-      border-color: #e83e7c;
-      box-shadow: 0 0 0 4px rgba(232, 62, 124, .10);
-    }
+.she-demo-main{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  min-height:540px;
+}
 
-    .she-demo-search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #e83e7c;
-      font-weight: 900;
-    }
+.she-demo-sidebar{
+  padding:24px;
+  border-right:1px solid var(--border);
+  background:#fff;
+}
 
-    .she-topic-list {
-      display: grid;
-      gap: 10px;
-    }
+.she-demo-search{
+  position:relative;
+  margin-bottom:16px;
+}
 
-    .she-topic-btn {
-      width: 100%;
-      border: 1px solid #efd5df !important;
-      background: #ffffff !important;
-      border-radius: 16px;
-      padding: 13px;
-      text-align: left;
-      cursor: pointer;
-      transition: .18s ease;
-      color: #3b1230 !important;
-    }
+.she-demo-search input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:15px 15px 15px 42px;
+  font-size:14px;
+  outline:none;
+  background:#fff;
+}
 
-    .she-topic-btn:hover,
-    .she-topic-btn.is-active {
-      border-color: #e83e7c !important;
-      background: #fff3f8 !important;
-      transform: translateY(-1px);
-    }
+.she-demo-search input:focus{
+  border-color:var(--pink);
+  box-shadow:0 0 0 4px rgba(236,61,134,.1);
+}
 
-    .she-topic-name {
-      display: block;
-      font-size: 14px;
-      font-weight: 900;
-      color: #3b1230 !important;
-      margin-bottom: 4px;
-    }
+.she-demo-search-icon{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--pink);
+  font-weight:900;
+}
 
-    .she-topic-meta {
-      display: block;
-      font-size: 11px;
-      color: #3b1230 !important;
-      line-height: 1.3;
-      opacity: .8;
-    }
+.she-topic-list{
+  display:grid;
+  gap:10px;
+}
 
-    .she-demo-content {
-      padding: 26px;
-      background: #fff;
-    }
+.she-topic-btn{
+  width:100%;
+  border:1px solid var(--border) !important;
+  background:#fff !important;
+  border-radius:18px;
+  padding:14px;
+  text-align:left;
+  cursor:pointer;
+  transition:.18s ease;
+  color:var(--plum) !important;
+}
 
-    .she-content-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: flex-start;
-      margin-bottom: 18px;
-    }
+.she-topic-btn:hover,
+.she-topic-btn.is-active{
+  border-color:var(--pink) !important;
+  background:#fff3f8 !important;
+  transform:translateY(-1px);
+}
 
-    .she-content-label {
-      font-size: 11px;
-      color: #e83e7c;
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
+.she-topic-name{
+  display:block;
+  font-size:14px;
+  font-weight:900;
+  color:var(--plum) !important;
+  margin-bottom:4px;
+}
 
-    .she-content-title {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1;
-      letter-spacing: -.045em;
-      margin: 7px 0 8px;
-      color: #3b1230;
-    }
+.she-topic-meta{
+  display:block;
+  font-size:11px;
+  color:var(--plum) !important;
+  line-height:1.3;
+  opacity:.75;
+}
 
-    .she-content-summary {
-      max-width: 650px;
-      color: #6f5b66;
-      font-size: 15px;
-      line-height: 1.55;
-      margin: 0;
-    }
+.she-demo-content{
+  padding:30px;
+  background:#fff;
+}
 
-    .she-action-button {
-      border: 0;
-      background: #e83e7c;
-      color: #fff;
-      font-weight: 900;
-      border-radius: 999px;
-      padding: 12px 16px;
-      white-space: nowrap;
-      cursor: pointer;
-    }
+.she-content-top{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
 
-    .she-content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+.she-content-label{
+  font-size:11px;
+  color:var(--pink);
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
 
-    .she-info-block {
-      border: 1px solid #efd5df;
-      background: #fff;
-      border-radius: 20px;
-      padding: 16px;
-    }
+.she-content-title{
+  font-size:clamp(34px,4vw,52px);
+  line-height:1;
+  letter-spacing:-.05em;
+  margin:8px 0 10px;
+  color:var(--plum);
+}
 
-    .she-info-block.is-wide {
-      grid-column: 1 / -1;
-    }
+.she-content-summary{
+  max-width:650px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+  margin:0;
+}
 
-    .she-info-block h4 {
-      margin: 0 0 8px;
-      font-size: 14px;
-      color: #3b1230;
-    }
+.she-action-button{
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-weight:900;
+  border-radius:999px;
+  padding:13px 18px;
+  white-space:nowrap;
+  cursor:pointer;
+}
 
-    .she-info-block p,
-    .she-info-block li {
-      color: #6f5b66;
-      font-size: 13.5px;
-      line-height: 1.5;
-    }
+.she-content-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "pattern pattern"
+    "symptoms what"
+    "know next"
+    "facts finds";
+  gap:14px;
+}
 
-    .she-info-block p,
-    .she-info-block ul {
-      margin: 0;
-    }
+.she-pattern-card{ grid-area:pattern; }
+.she-block-symptoms{ grid-area:symptoms; }
+.she-block-what{ grid-area:what; }
+.she-block-know{ grid-area:know; }
+.she-block-next{ grid-area:next; }
+.she-block-facts{ grid-area:facts; }
+.she-block-finds{ grid-area:finds; }
 
-    .she-pattern-card {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, #fff3f8, #ffffff);
-      border: 1px solid #efd5df;
-      border-radius: 20px;
-      padding: 18px;
-    }
+.she-info-block{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+}
 
-    .she-pattern-label {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: #e83e7c;
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
+.she-info-block h4{
+  margin:0 0 9px;
+  font-size:15px;
+  color:var(--plum);
+}
 
-    .she-pattern-card h4 {
-      margin: 0 0 7px;
-      color: #3b1230;
-      font-size: 15px;
-    }
+.she-info-block p,
+.she-info-block li{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+}
 
-    .she-pattern-card p {
-      margin: 0;
-      color: #6f5b66;
-      line-height: 1.5;
-      font-size: 13.5px;
-    }
+.she-info-block p,
+.she-info-block ul{
+  margin:0;
+}
 
-    .she-symptom-pills,
-    .she-mini-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+.she-pattern-card{
+  background:linear-gradient(135deg,#fff3f8,#fff);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:20px;
+}
 
-    .she-symptom-pill,
-    .she-mini-link {
-      display: inline-flex;
-      background: #fff3f8;
-      color: #3b1230;
-      border: 1px solid #efd5df;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 12px;
-      font-weight: 800;
-    }
+.she-pattern-label{
+  display:inline-block;
+  margin-bottom:8px;
+  color:var(--pink);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
 
-    .she-demo-disclaimer {
-      margin-top: 16px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #6f5b66;
-    }
+.she-pattern-card h4{
+  margin:0 0 8px;
+  color:var(--plum);
+  font-size:16px;
+}
 
-    @media (max-width: 900px) {
-      .she-demo-header,
-      .she-demo-main {
-        grid-template-columns: 1fr;
-      }
+.she-pattern-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+  font-size:14px;
+}
 
-      .she-demo-sidebar {
-        border-right: 0;
-        border-bottom: 1px solid #efd5df;
-      }
+.she-symptom-pills,
+.she-mini-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
 
-      .she-content-grid {
-        grid-template-columns: 1fr;
-      }
+.she-symptom-pill,
+.she-mini-link{
+  display:inline-flex;
+  background:#fff3f8;
+  color:var(--plum);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:900;
+}
 
-      .she-content-top {
-        flex-direction: column;
-      }
-    }
-  </style>
+.she-demo-disclaimer{
+  margin-top:18px;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .she-product-demo{
+    padding:60px 24px 70px !important;
+  }
+
+  .she-demo-header,
+  .she-demo-main{
+    grid-template-columns:1fr;
+  }
+
+  .she-demo-title{
+    font-size:clamp(42px,12vw,64px);
+  }
+
+  .she-demo-intro{
+    font-size:17px;
+  }
+
+  .she-demo-sidebar{
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .she-topic-list{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:8px;
+  }
+
+  .she-topic-btn{
+    min-width:230px;
+    flex:0 0 auto;
+  }
+
+  .she-demo-content{
+    padding:22px;
+  }
+
+  .she-content-top{
+    flex-direction:column;
+  }
+
+  .she-action-button{
+    width:100%;
+  }
+
+  .she-content-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "pattern"
+      "symptoms"
+      "what"
+      "know"
+      "next"
+      "facts"
+      "finds";
+  }
+
+  .site-footer{
+    padding:48px 24px;
+    margin-top:30px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .footer-form{
+    max-width:100%;
+  }
+}
+</style>
 </head>
 
 <body>
-<header class="header">
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="SHE logo">
-    <strong>SHE</strong>
-    <span>Women’s Health<br>Made Easy</span>
-  </a>
 
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="platform.html">Platform</a>
-    <a href="she-forum.html">SHE Forum</a>
-    <a href="partners.html">Partners</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="wrap nav-inner">
 
-  <a href="partners.html" class="header-cta">Partner with SHE</a>
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
 </header>
 
 <main>
@@ -383,6 +579,7 @@
             <span class="she-demo-pill">Menopause</span>
             <span class="she-demo-pill">Sexual & urinary health</span>
           </div>
+
           <span class="she-demo-status">Educational preview</span>
         </div>
 
@@ -404,50 +601,52 @@
   </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <strong>SHE Health · Women’s Health, Made Easy</strong>
-    <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
-  </div>
-</footer>
+<footer class="site-footer">
+  <div class="footer-container">
 
-<footer class="site-footer secondary-footer">
-  <div class="footer-grid">
     <div class="footer-brand">
-      <h2>SHE<span>.</span></h2>
-      <p>Womens Health,<br>Made Easy.</p>
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
     </div>
 
-    <div>
+    <div class="footer-column">
       <h4>Platform</h4>
       <a href="she-helps.html">SHE Helps</a>
       <a href="she-facts.html">SHE Facts</a>
       <a href="she-finds.html">SHE Finds</a>
-      <a href="platform.html">SHE Asks</a>
-      <a href="platform.html">SHE Tells</a>
-      <a href="platform.html">SHE News</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
     </div>
 
-    <div>
-      <h4>Partners</h4>
-      <a href="partners.html">For Institutions</a>
-      <a href="partners.html">For Organisations</a>
-      <a href="partners.html">For Healthcare</a>
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <div>
-      <h4>Forum</h4>
-      <a href="forum.html">About the Forum</a>
-      <a href="forum.html">Events</a>
-    </div>
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
 
-    <div>
-      <h4>Stay Connected</h4>
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
       <form class="footer-form">
         <input type="email" placeholder="Enter your email">
         <button type="submit">→</button>
       </form>
     </div>
+
   </div>
 </footer>
 
@@ -534,47 +733,49 @@ function factsTemplate(item) {
     </div>
 
     <div class="she-content-grid">
+
       <div class="she-pattern-card">
         <span class="she-pattern-label">Your pattern</span>
         <h4>If this sounds familiar...</h4>
         <p>${item.pattern}</p>
       </div>
 
-      <div class="she-info-block">
+      <div class="she-info-block she-block-symptoms">
         <h4>Symptoms</h4>
         <div class="she-symptom-pills">
           ${symptoms.map(x => `<span class="she-symptom-pill">${x}</span>`).join("")}
         </div>
       </div>
 
-      <div class="she-info-block">
+      <div class="she-info-block she-block-what">
         <h4>What is this?</h4>
         <p>${item.what}</p>
       </div>
 
-      <div class="she-info-block">
+      <div class="she-info-block she-block-know">
         <h4>What to know</h4>
         <ul>${item.know.map(x => `<li>${x}</li>`).join("")}</ul>
       </div>
 
-      <div class="she-info-block is-wide">
+      <div class="she-info-block she-block-next">
         <h4>What next</h4>
         <p>${item.next}</p>
       </div>
 
-      <div class="she-info-block">
+      <div class="she-info-block she-block-facts">
         <h4>Linked SHE Facts</h4>
         <div class="she-mini-links">
           ${item.linkedFacts.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
         </div>
       </div>
 
-      <div class="she-info-block">
+      <div class="she-info-block she-block-finds">
         <h4>Linked SHE Finds</h4>
         <div class="she-mini-links">
           ${item.linkedFinds.map(x => `<span class="she-mini-link">${x}</span>`).join("")}
         </div>
       </div>
+
     </div>
 
     <p class="she-demo-disclaimer">
@@ -627,6 +828,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFacts(SHE_FACTS_CONTENT[1]);
 });
 </script>
+
 <script src="js/global-ui.js"></script>
+
 </body>
 </html>
