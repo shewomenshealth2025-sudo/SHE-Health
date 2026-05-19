@@ -1,302 +1,775 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHE Tells | SHE Health</title>
-  <link rel="stylesheet" href="global.css" />
-  <style>
-  * {
-    box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHE Tells | SHE Health</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
+
+<style>
+:root{
+  --pink:#ec3d86;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --soft:#fff7fb;
+  --gold:#b88a44;
+  --shadow:0 22px 60px rgba(53,16,45,.07);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
+  color:var(--plum);
+}
+
+a{ text-decoration:none; color:inherit; }
+
+/* HERO */
+
+.tells-hero{
+  padding:96px 7% 64px;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(236,61,134,.08), transparent 28%),
+    linear-gradient(180deg,#fff,#fffafc);
+}
+
+.tells-hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.tells-kicker{
+  color:var(--pink);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.tells-hero h1{
+  font-size:clamp(54px,7vw,92px);
+  line-height:.92;
+  letter-spacing:-.075em;
+  margin:0 0 24px;
+  max-width:1020px;
+}
+
+.tells-hero h1 span{
+  color:var(--pink);
+}
+
+.tells-hero p{
+  max-width:840px;
+  font-size:20px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ELITE PANEL */
+
+.expert-panel-section{
+  padding:0 7% 80px;
+}
+
+.expert-panel{
+  max-width:1180px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:36px;
+  padding:46px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:42px;
+  align-items:start;
+}
+
+.expert-panel h2{
+  margin:0 0 18px;
+  font-size:clamp(38px,5vw,64px);
+  line-height:.98;
+  letter-spacing:-.06em;
+}
+
+.expert-panel h2 span{
+  color:var(--pink);
+}
+
+.expert-panel p,
+.expert-panel li{
+  font-size:18px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.expert-panel ul{
+  margin:0;
+  padding-left:20px;
+}
+
+.expert-box{
+  background:linear-gradient(135deg,#fff,#fff7fb);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:30px;
+}
+
+.expert-box strong{
+  display:block;
+  font-size:28px;
+  line-height:1.15;
+  letter-spacing:-.04em;
+  margin-bottom:14px;
+  color:var(--plum);
+}
+
+/* FILTERS */
+
+.filter-section{
+  padding:0 7% 34px;
+}
+
+.filter-bar{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.filter-btn{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--plum);
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--plum);
+  color:#fff;
+}
+
+/* INSIGHT CARDS */
+
+.tells-section{
+  padding:0 7% 100px;
+}
+
+.tells-grid{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:start;
+}
+
+.tells-stack{
+  display:grid;
+  gap:24px;
+}
+
+.tells-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:34px;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
+}
+
+.tells-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--pink);
+}
+
+.tells-card.featured{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,247,251,.96)),
+    linear-gradient(135deg,#fff,#fff7fb);
+  border:1px solid var(--border);
+}
+
+.tells-label{
+  display:inline-block;
+  color:var(--pink);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:14px;
+}
+
+.tells-card h2{
+  margin:0 0 14px;
+  font-size:clamp(34px,4vw,56px);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+
+.tells-card h3{
+  margin:0 0 12px;
+  font-size:27px;
+  letter-spacing:-.04em;
+  line-height:1.05;
+}
+
+.tells-card p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.7;
+  margin:0 0 20px;
+}
+
+.expert-meta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.meta-pill{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--plum);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.expand-btn{
+  border:0;
+  background:var(--plum);
+  color:#fff;
+  border-radius:999px;
+  padding:13px 20px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.hidden-content{
+  display:none;
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.hidden-content.open{
+  display:block;
+}
+
+/* CONTRIBUTION CTA */
+
+.contribute-section{
+  padding:0 7% 100px;
+}
+
+.contribute-panel{
+  max-width:1180px;
+  margin:0 auto;
+  background:#35102d;
+  color:#fff;
+  border-radius:36px;
+  padding:50px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:34px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+
+.contribute-panel h2{
+  margin:0 0 14px;
+  font-size:clamp(36px,5vw,64px);
+  line-height:1;
+  letter-spacing:-.06em;
+}
+
+.contribute-panel p{
+  margin:0;
+  max-width:760px;
+  color:rgba(255,255,255,.78);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.contribute-panel .btn{
+  background:#fff;
+  color:var(--plum);
+  white-space:nowrap;
+}
+
+/* FOOTER */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .tells-hero{
+    padding:60px 24px 40px;
   }
 
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff7fb;
-    color: #050012;
+  .tells-hero h1{
+    font-size:clamp(42px,12vw,64px);
   }
 
-  .site-header {
-    height: 92px;
-    padding: 0 8%;
-    background: white;
-    border-bottom: 1px solid #f6d8e6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .tells-hero p{
+    font-size:17px;
   }
 
-  .site-header img {
-    width: 250px;
-    max-width: 250px;
-    height: auto;
-    display: block;
+  .expert-panel-section,
+  .filter-section,
+  .tells-section,
+  .contribute-section{
+    padding-left:24px;
+    padding-right:24px;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    align-items: center;
+  .expert-panel,
+  .tells-grid,
+  .contribute-panel{
+    grid-template-columns:1fr;
   }
 
-  .nav-links a {
-    text-decoration: none;
-    color: #050012;
-    font-weight: 700;
+  .expert-panel,
+  .contribute-panel{
+    padding:30px;
+    border-radius:28px;
   }
 
-  .partner-button {
-    background: #e83e8c;
-    color: white;
-    padding: 16px 28px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 800;
+  .site-footer{
+    padding:48px 24px;
+    margin-top:30px;
   }
 
-  .interactive-page {
-    min-height: 100vh;
-    padding: 90px 6%;
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
   }
 
-  .interactive-hero {
-    max-width: 900px;
-    margin: 0 auto 45px;
-    text-align: center;
+  .footer-form{
+    max-width:100%;
   }
-
-  .eyebrow {
-    display: inline-block;
-    background: #ffe1ef;
-    color: #e83e8c;
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    margin-bottom: 18px;
-  }
-
-  .interactive-hero h1 {
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    line-height: 1;
-    margin: 0 0 22px;
-  }
-
-  .interactive-hero p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #5b3448;
-  }
-
-  .ask-box,
-  .interactive-card {
-    background: white;
-    border-radius: 28px;
-    padding: 34px;
-    box-shadow: 0 18px 45px rgba(232, 62, 140, 0.08);
-  }
-
-  .ask-box {
-    max-width: 850px;
-    margin: 0 auto 35px;
-  }
-
-  .ask-box input {
-    width: 100%;
-    padding: 16px 18px;
-    border-radius: 999px;
-    border: 1px solid #f4b7d2;
-    margin: 12px 0;
-    font-size: 1rem;
-  }
-
-  .filter-bar {
-    max-width: 1000px;
-    margin: 0 auto 35px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .filter-btn,
-  .expand-btn,
-  .ask-box button {
-    border: none;
-    background: #e83e8c;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-weight: 800;
-    cursor: pointer;
-  }
-
-  .filter-btn {
-    background: white;
-    color: #e83e8c;
-    border: 1px solid #f4b7d2;
-  }
-
-  .filter-btn.active,
-  .filter-btn:hover {
-    background: #e83e8c;
-    color: white;
-  }
-
-  .interactive-grid {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .single-column {
-    max-width: 850px;
-    grid-template-columns: 1fr;
-  }
-
-  .interactive-card.featured {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #ffffff, #ffeaf4);
-  }
-
-  .interactive-card span {
-    color: #e83e8c;
-    font-weight: 800;
-  }
-
-  .interactive-card h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.1;
-  }
-
-  .interactive-card h3 {
-    font-size: 1.35rem;
-  }
-
-  .interactive-card p {
-    color: #3d2231;
-    line-height: 1.6;
-  }
-
-  .hidden-content {
-    display: none;
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid #f4c8dc;
-  }
-
-  .hidden-content.open {
-    display: block;
-  }
-
-  @media (max-width: 900px) {
-    .site-header {
-      padding: 0 5%;
-    }
-
-    .nav-links,
-    .partner-button {
-      display: none;
-    }
-
-    .site-header img {
-      width: 200px;
-    }
-
-    .interactive-hero {
-      text-align: left;
-    }
-
-    .interactive-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .interactive-card.featured {
-      grid-column: span 1;
-    }
-  }
+}
 </style>
 </head>
 
 <body>
-  <header class="header">
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="SHE logo">
-    <strong>SHE</strong>
-    <span>Women’s Health<br>Made Easy</span>
-  </a>
 
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="platform.html">Platform</a>
-    <a href="she-forum.html">SHE Forum</a>
-    <a href="partners.html">Partners</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="wrap nav-inner">
 
-  <a href="partners.html" class="header-cta">Partner with SHE</a>
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
 </header>
 
-  <main class="interactive-page">
-    <section class="interactive-hero">
-      <p class="eyebrow">SHE Tells</p>
-      <h1>Expert insight, made understandable.</h1>
-      <p>Conversations with clinicians, researchers, founders, advocates and women’s health leaders.</p>
-    </section>
+<main>
 
-    <section class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="clinician">Clinician</button>
-      <button class="filter-btn" data-filter="founder">Founder</button>
-      <button class="filter-btn" data-filter="advocate">Advocate</button>
-      <button class="filter-btn" data-filter="lived">Lived Experience</button>
-    </section>
+<section class="tells-hero">
+  <div class="tells-hero-inner">
 
-    <section class="interactive-grid">
-      <article class="interactive-card featured filter-item" data-category="clinician">
-        <span>Featured insight</span>
-        <h2>When symptoms are common, but not normal</h2>
-        <p>Expert-led conversations helping women know what to notice and what to ask.</p>
-        <button class="expand-btn">Key insight</button>
-        <div class="hidden-content">
-          <p>Many symptoms become invisible because they are common. SHE Tells brings expert clarity into everyday language.</p>
-        </div>
-      </article>
+    <div class="tells-kicker">SHE Tells</div>
 
-      <article class="interactive-card filter-item" data-category="clinician">
-        <span>Clinician voice</span>
+    <h1>
+      Expert voices shaping the women’s health <span>conversation.</span>
+    </h1>
+
+    <p>
+      SHE Tells is a curated space for experts across healthcare, research,
+      public health, innovation and advocacy to contribute advice, recommendations,
+      practical insight and trusted perspective.
+    </p>
+
+  </div>
+</section>
+
+<section class="expert-panel-section">
+  <div class="expert-panel">
+
+    <div>
+      <h2>Not noise. <span>Expert-led clarity.</span></h2>
+
+      <p>
+        Women’s health conversations are often dominated by fragmented advice,
+        social media trends and inconsistent information. SHE Tells creates a more
+        credible space where trusted voices can explain what matters, what to ask,
+        what to consider and where women may need further support.
+      </p>
+
+      <p>
+        It is designed to bring professional insight into everyday language — not
+        as diagnosis, but as education, guidance and conversation.
+      </p>
+    </div>
+
+    <div class="expert-box">
+      <strong>Who contributes?</strong>
+
+      <ul>
+        <li>Clinicians and healthcare professionals</li>
+        <li>Researchers and academics</li>
+        <li>Public health specialists</li>
+        <li>Femtech founders and innovators</li>
+        <li>Advocates, educators and sector leaders</li>
+        <li>Experts with lived and professional insight</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="filter-section">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="clinician">Clinician</button>
+    <button class="filter-btn" data-filter="research">Research</button>
+    <button class="filter-btn" data-filter="innovation">Innovation</button>
+    <button class="filter-btn" data-filter="advocacy">Advocacy</button>
+  </div>
+</section>
+
+<section class="tells-section">
+  <div class="tells-grid">
+
+    <article class="tells-card featured filter-item" data-category="clinician">
+      <span class="tells-label">Featured expert insight</span>
+
+      <h2>When symptoms are common, but not normal.</h2>
+
+      <div class="expert-meta">
+        <span class="meta-pill">Clinical insight</span>
+        <span class="meta-pill">Symptom awareness</span>
+        <span class="meta-pill">Appointment preparation</span>
+      </div>
+
+      <p>
+        Expert-led conversations helping women understand what to notice,
+        what to track and what to raise with a healthcare professional.
+      </p>
+
+      <button class="expand-btn">Key insight</button>
+
+      <div class="hidden-content">
+        Many symptoms become invisible because they are common. SHE Tells helps
+        translate professional guidance into clear, usable language so women feel
+        more prepared and less dismissed.
+      </div>
+    </article>
+
+    <div class="tells-stack">
+
+      <article class="tells-card filter-item" data-category="clinician">
+        <span class="tells-label">Clinician voice</span>
+
         <h3>Understanding pelvic pain</h3>
-        <p>Clear guidance from professionals working across women’s health.</p>
+
+        <p>
+          Clear advice from professionals working across women’s health,
+          gynaecology and pelvic health.
+        </p>
+
         <button class="expand-btn">Open insight</button>
+
         <div class="hidden-content">
-          <p>Pelvic pain can have multiple causes. The aim is not self-diagnosis, but knowing when and how to seek support.</p>
+          Pelvic pain can have multiple causes. The aim is not self-diagnosis, but
+          knowing when symptoms should be reviewed and how to explain them clearly.
         </div>
       </article>
 
-      <article class="interactive-card filter-item" data-category="founder">
-        <span>Founder voice</span>
+      <article class="tells-card filter-item" data-category="research">
+        <span class="tells-label">Research voice</span>
+
+        <h3>What new evidence actually means</h3>
+
+        <p>
+          Research translated into practical takeaways women and institutions can use.
+        </p>
+
+        <button class="expand-btn">Open insight</button>
+
+        <div class="hidden-content">
+          SHE Tells can help bridge academic evidence and everyday understanding,
+          especially where research affects symptoms, care pathways or public health.
+        </div>
+      </article>
+
+      <article class="tells-card filter-item" data-category="innovation">
+        <span class="tells-label">Innovation voice</span>
+
         <h3>The future of femtech</h3>
-        <p>Insights from people building women’s health solutions.</p>
+
+        <p>
+          Insight from people building women’s health solutions across digital health,
+          data, access and navigation.
+        </p>
+
         <button class="expand-btn">Open insight</button>
+
         <div class="hidden-content">
-          <p>Femtech is moving beyond tracking into navigation, prevention, access and system-level support.</p>
+          Femtech is moving beyond tracking into navigation, prevention, access,
+          patient education and system-level support.
         </div>
       </article>
 
-      <article class="interactive-card filter-item" data-category="lived">
-        <span>Lived experience</span>
+      <article class="tells-card filter-item" data-category="advocacy">
+        <span class="tells-label">Advocacy voice</span>
+
         <h3>Stories that shape better systems</h3>
-        <p>Women’s voices connected to education, policy and practical support.</p>
+
+        <p>
+          Advocacy and lived experience connected to education, policy and practical
+          support.
+        </p>
+
         <button class="expand-btn">Open insight</button>
+
         <div class="hidden-content">
-          <p>Lived experience helps reveal what systems miss: confusion, delays, dismissal and unclear next steps.</p>
+          Lived experience helps reveal what systems miss: confusion, delays,
+          dismissal, poor communication and unclear next steps.
         </div>
       </article>
-    </section>
-  </main>
 
-  <script src="script.js"></script>
+    </div>
+
+  </div>
+</section>
+
+<section class="contribute-section">
+  <div class="contribute-panel">
+
+    <div>
+      <h2>Contribute to SHE Tells.</h2>
+
+      <p>
+        SHE Tells is built for credible contributors who want to support better
+        women’s health education and conversation. Clinicians, researchers,
+        innovators and sector experts can share advice, recommendations, explainers,
+        interviews and practical guidance.
+      </p>
+    </div>
+
+    <a class="btn" href="contact.html">Register interest</a>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Platform</h4>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="she-facts.html">SHE Facts</a>
+      <a href="she-finds.html">SHE Finds</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
+
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">→</button>
+      </form>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".filter-item");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    items.forEach(item => {
+      item.style.display =
+        filter === "all" || item.dataset.category === filter ? "" : "none";
+    });
+  });
+});
+
+document.querySelectorAll(".expand-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    button.nextElementSibling.classList.toggle("open");
+  });
+});
+</script>
+
+<script src="js/global-ui.js"></script>
+
 </body>
 </html>
