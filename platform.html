@@ -515,14 +515,17 @@ a{
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.querySelector(".mobile-menu-btn");
 
-  if (!menuButton) return;
-
   const mobileMenu = document.createElement("div");
   mobileMenu.className = "mobile-menu-panel";
-
   mobileMenu.innerHTML = `
     <a href="index.html">Home</a>
     <a href="platform.html">Discover</a>
+    <a href="she-helps.html">SHE Helps</a>
+    <a href="she-facts.html">SHE Facts</a>
+    <a href="she-finds.html">SHE Finds</a>
+    <a href="she-news.html">SHE News</a>
+    <a href="she-asks.html">SHE Asks</a>
+    <a href="she-tells.html">SHE Tells</a>
     <a href="forum.html">SHE Forum</a>
     <a href="partners.html">Partners</a>
     <a href="contact.html">Contact</a>
@@ -531,9 +534,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.body.appendChild(mobileMenu);
 
-  menuButton.addEventListener("click", function () {
-    mobileMenu.classList.toggle("is-open");
-  });
+  if (menuButton) {
+    menuButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      mobileMenu.classList.toggle("is-open");
+    });
+  }
 });
 </script>
 
