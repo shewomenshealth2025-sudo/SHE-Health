@@ -513,6 +513,40 @@ a{ text-decoration:none; color:inherit; }
     cursor:pointer;
     box-shadow:0 10px 24px rgba(236,61,134,.22);
   }
+  .mobile-menu-panel{
+  display:none;
+}
+
+@media(max-width:950px){
+  .mobile-menu-panel{
+    position:fixed;
+    top:82px;
+    left:0;
+    right:0;
+    z-index:9998;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:18px 24px 28px;
+    box-shadow:0 20px 50px rgba(53,16,45,.12);
+  }
+
+  .mobile-menu-panel.is-open{
+    display:block;
+  }
+
+  .mobile-menu-panel a{
+    display:block;
+    padding:14px 0;
+    font-size:18px;
+    font-weight:900;
+    color:var(--plum);
+    border-bottom:1px solid #f7ddea;
+  }
+
+  .mobile-menu-panel a:last-child{
+    border-bottom:none;
+    color:var(--pink);
+  }
 
   .homepage-hero{
     padding:46px 24px 28px;
@@ -751,6 +785,37 @@ a{ text-decoration:none; color:inherit; }
 </footer>
 
 <script src="js/global-ui.js"></script>
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuButton = document.querySelector(".mobile-menu-btn, .menu-toggle");
 
+  if (!menuButton) return;
+
+  const mobileMenu = document.createElement("div");
+  mobileMenu.className = "mobile-menu-panel";
+
+  mobileMenu.innerHTML = `
+    <a href="index.html">Home</a>
+    <a href="platform.html">Discover</a>
+    <a href="she-helps.html">SHE Helps</a>
+    <a href="she-facts.html">SHE Facts</a>
+    <a href="she-finds.html">SHE Finds</a>
+    <a href="she-news.html">SHE News</a>
+    <a href="she-asks.html">SHE Asks</a>
+    <a href="she-tells.html">SHE Tells</a>
+    <a href="forum.html">SHE Forum</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+  `;
+
+  document.body.appendChild(mobileMenu);
+
+  menuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("is-open");
+  });
+});
+</script>
 </body>
 </html>
