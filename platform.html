@@ -308,66 +308,56 @@ body{
 
   </div>
 
-</section>
+ </section>
+
+  <section class="section newsletter">
+    <div class="mail">✉</div>
+    <div>
+      <h3>Stay in the loop</h3>
+      <p>News, updates and women’s health insights.</p>
+    </div>
+
+    <form>
+      <input type="email" placeholder="Enter your email address">
+      <button type="submit">→</button>
+    </form>
+  </section>
 
 </main>
 
 <footer class="footer">
-  <div class="wrap footer-inner">
-    <strong>SHE Health · Women’s Health, Made Easy</strong>
-    <span>
-      Educational support only. SHE does not provide diagnosis or replace medical advice.
-    </span>
-  </div>
-</footer>
-
-<footer class="site-footer secondary-footer">
-
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-      <h2>SHE<span>.</span></h2>
-      <p>Women’s Health,<br>Made Easy.</p>
-    </div>
-
-    <div>
-      <h4>Platform</h4>
-      <a href="she-helps.html">SHE Helps</a>
-      <a href="she-facts.html">SHE Facts</a>
-      <a href="she-finds.html">SHE Finds</a>
-      <a href="she-asks.html">SHE Asks</a>
-      <a href="she-tells.html">SHE Tells</a>
-      <a href="she-news.html">SHE News</a>
-    </div>
-
-    <div>
-      <h4>Partners</h4>
-      <a href="partners.html">For Institutions</a>
-      <a href="partners.html">For Organisations</a>
-      <a href="partners.html">For Healthcare</a>
-    </div>
-
-    <div>
-      <h4>Forum</h4>
-      <a href="forum.html">About the Forum</a>
-      <a href="forum.html">Events</a>
-    </div>
-
-    <div>
-      <h4>Stay Connected</h4>
-
-      <form class="footer-form">
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">→</button>
-      </form>
-
-    </div>
-
+  <div class="footer-brand">
+    <img src="assets/logo.png" alt="SHE logo" style="width:46px;height:46px;">
+    <div><strong style="font-size:34px;color:var(--pink);">SHE</strong><p>Women’s Health<br>Strategy & Support</p></div>
   </div>
 
+  <div><h4>Platform</h4><a>SHE Helps</a><a>SHE Facts</a><a>SHE Finds</a><a>SHE News</a><a>SHE Asks</a><a>SHE Tells</a></div>
+  <div><h4>Navigate</h4><a>Home</a><a>SHE Community</a><a>SHE Forum</a><a>Partners</a><a>About</a><a>Contact</a></div>
+  <div><h4>Legal</h4><a>Privacy</a><a>Terms</a></div>
+  <div><h4>Follow us</h4><div class="socials"><span>◎</span><span>f</span><span>in</span><span>▶</span><span>✉</span></div></div>
 </footer>
 
-<script src="js/global-ui.js"></script>
+<script>
+  const menu = document.querySelector(".menu");
+  const nav = document.querySelector(".nav");
+
+  menu.addEventListener("click", () => {
+    nav.classList.toggle("open");
+
+    if (nav.classList.contains("open")) {
+      nav.style.display = "flex";
+      nav.style.position = "absolute";
+      nav.style.top = "78px";
+      nav.style.left = "0";
+      nav.style.width = "100%";
+      nav.style.background = "white";
+      nav.style.padding = "24px";
+      nav.style.flexDirection = "column";
+    } else {
+      nav.removeAttribute("style");
+    }
+  });
+</script>
 
 </body>
 </html>
