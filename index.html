@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHE Health | Women’s Health, Made Easy</title>
 
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/global.css">
+
   <style>
     :root {
       --pink: #ec3d86;
@@ -32,92 +35,6 @@
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-
-    .header {
-      height: 88px;
-      padding: 0 6%;
-      background: white;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-    }
-
-    .brand strong {
-      font-size: 36px;
-      color: var(--pink);
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-
-    .brand span {
-      font-size: 13px;
-      font-weight: 700;
-      color: #111;
-      border-left: 1px solid var(--border);
-      padding-left: 14px;
-      line-height: 1.2;
-    }
-
-    .nav {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      font-weight: 900;
-      font-size: 15px;
-    }
-
-    .nav a.active {
-      color: var(--pink);
-      border-bottom: 2px solid var(--pink);
-      padding-bottom: 8px;
-    }
-
-    .header-cta {
-      background: var(--pink);
-      color: white;
-      padding: 15px 28px;
-      border-radius: 999px;
-      font-weight: 900;
-      box-shadow: 0 14px 34px rgba(236, 61, 134, 0.25);
-    }
-
-    .menu {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      background: white;
-      font-size: 20px;
-      display: grid;
-      place-items: center;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 16px;
-      padding: 22px 6%;
-      background: white;
-      border-bottom: 1px solid var(--border);
-      font-weight: 900;
-    }
-
-    .mobile-nav.open { display: flex; }
 
     .hero {
       min-height: 620px;
@@ -341,11 +258,6 @@
       align-items: center;
     }
 
-    .community .btn {
-      background: var(--purple);
-      color: white;
-    }
-
     .post {
       background: white;
       border-radius: 18px;
@@ -504,7 +416,7 @@
     }
 
     @media (max-width: 1050px) {
-      .nav, .header-cta, .brand span, .quote { display: none; }
+      .quote { display: none; }
 
       .hero,
       .journey,
@@ -531,6 +443,7 @@
 
     @media (max-width: 600px) {
       .features { grid-template-columns: 1fr; }
+
       .hero h1 { font-size: 48px; }
 
       .hero-actions {
@@ -556,24 +469,35 @@
   </style>
 </head>
 
-<body>
+<body class="home">
 
-<header class="header">
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="SHE logo">
-    <strong>SHE</strong>
-    <span>Women’s Health<br>Made Easy</span>
-  </a>
+<header class="nav">
+  <div class="wrap nav-inner">
 
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="platform.html">Discover</a>
-    <a href="forum.html">SHE Forum</a>
-    <a href="partners.html">Partners</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
 
-  <a href="partners.html" class="header-cta">Partner with SHE</a>
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
 </header>
 
 <main>
@@ -581,11 +505,17 @@
   <section class="hero">
     <div>
       <h1>Women’s health is not broken.<br><span>It is fragmented.</span></h1>
-      <p>SHE brings everything women need into one trusted platform, so every woman can find the right help, at the right time.</p>
+
+      <p>
+        SHE brings everything women need into one trusted platform, so every woman
+        can find the right help, at the right time.
+      </p>
 
       <div class="hero-actions">
         <a href="platform.html" class="btn btn-pink">Explore SHE</a>
-        <a href="https://forms.gle/8C21wsKWfFVxAec66" class="btn btn-outline" target="_blank">Join Early Access</a>
+        <a href="https://forms.gle/8C21wsKWfFVxAec66" class="btn btn-outline" target="_blank">
+          Join Early Access
+        </a>
       </div>
     </div>
 
@@ -605,12 +535,47 @@
     <h2>One umbrella. <span>Six connected layers.</span></h2>
 
     <div class="features">
-      <a href="she-helps.html" class="feature"><div class="icon">◒</div><h3>SHE Helps</h3><p>From symptoms to next steps. Personalised guidance that puts you in control.</p><div class="arrow">→</div></a>
-      <a href="platform.html" class="feature"><div class="icon">📖</div><h3>SHE Facts</h3><p>Evidence-based education across every stage of life.</p><div class="arrow">→</div></a>
-      <a href="platform.html" class="feature"><div class="icon">♡</div><h3>SHE Finds</h3><p>Curated products and services that support your journey.</p><div class="arrow">→</div></a>
-      <a href="she-news.html" class="feature"><div class="icon">▤</div><h3>SHE News</h3><p>The latest research, policy and innovation — explained clearly.</p><div class="arrow">→</div></a>
-      <a href="she-asks.html" class="feature"><div class="icon">💬</div><h3>SHE Asks</h3><p>Real questions. Real women. Real conversations.</p><div class="arrow">→</div></a>
-      <a href="she-tells.html" class="feature"><div class="icon">🎙</div><h3>SHE Tells</h3><p>Expert voices and stories that inspire, inform and empower.</p><div class="arrow">→</div></a>
+      <a href="she-helps.html" class="feature">
+        <div class="icon">◒</div>
+        <h3>SHE Helps</h3>
+        <p>From symptoms to next steps. Personalised guidance that puts you in control.</p>
+        <div class="arrow">→</div>
+      </a>
+
+      <a href="she-facts.html" class="feature">
+        <div class="icon">📖</div>
+        <h3>SHE Facts</h3>
+        <p>Evidence-based education across every stage of life.</p>
+        <div class="arrow">→</div>
+      </a>
+
+      <a href="she-finds.html" class="feature">
+        <div class="icon">♡</div>
+        <h3>SHE Finds</h3>
+        <p>Curated products and services that support your journey.</p>
+        <div class="arrow">→</div>
+      </a>
+
+      <a href="she-news.html" class="feature">
+        <div class="icon">▤</div>
+        <h3>SHE News</h3>
+        <p>The latest research, policy and innovation — explained clearly.</p>
+        <div class="arrow">→</div>
+      </a>
+
+      <a href="she-asks.html" class="feature">
+        <div class="icon">💬</div>
+        <h3>SHE Asks</h3>
+        <p>Real questions. Real women. Real conversations.</p>
+        <div class="arrow">→</div>
+      </a>
+
+      <a href="she-tells.html" class="feature">
+        <div class="icon">🎙</div>
+        <h3>SHE Tells</h3>
+        <p>Expert voices and stories that inspire, inform and empower.</p>
+        <div class="arrow">→</div>
+      </a>
     </div>
   </section>
 
@@ -653,7 +618,7 @@
       <div class="kicker" style="color:var(--green);">SHE Forum</div>
       <h2>A space to connect.<br>A place to belong.</h2>
       <p>Join meaningful conversations, share your story and learn from women who get it.</p>
-      <a href="she-forum.html" class="btn">Visit SHE Forum</a>
+      <a href="forum.html" class="btn">Visit SHE Forum</a>
     </div>
 
     <div class="forum-list">
@@ -662,11 +627,13 @@
       <div class="forum-pill">☁ Workplace</div>
       <div class="forum-pill">🍼 Pregnancy & postpartum</div>
       <div class="forum-pill">♡ Femtech</div>
-  
     </div>
 
     <div>
-      <div class="post">Starting a new chapter at 45 and feeling all the feels. Would love to hear how others navigated this stage.<span>3h ago · 💬 24 · ♥ 18</span></div>
+      <div class="post">
+        Starting a new chapter at 45 and feeling all the feels. Would love to hear how others navigated this stage.
+        <span>3h ago · 💬 24 · ♥ 18</span>
+      </div>
     </div>
   </section>
 
@@ -698,36 +665,50 @@
 <footer class="footer">
   <div class="footer-brand">
     <img src="assets/logo.png" alt="SHE logo" style="width:46px;height:46px;">
-    <div><strong style="font-size:34px;color:var(--pink);">SHE</strong><p>Women’s Health<br>Strategy & Support</p></div>
+    <div>
+      <strong style="font-size:34px;color:var(--pink);">SHE</strong>
+      <p>Women’s Health<br>Made Easy</p>
+    </div>
   </div>
 
-  <div><h4>Platform</h4><a>SHE Helps</a><a>SHE Facts</a><a>SHE Finds</a><a>SHE News</a><a>SHE Asks</a><a>SHE Tells</a></div>
-  <div><h4>Navigate</h4><a>Home</a><a>SHE Community</a><a>SHE Forum</a><a>Partners</a><a>About</a><a>Contact</a></div>
-  <div><h4>Legal</h4><a>Privacy</a><a>Terms</a></div>
-  <div><h4>Follow us</h4><div class="socials"><span>◎</span><span>f</span><span>in</span><span>▶</span><span>✉</span></div></div>
+  <div>
+    <h4>Platform</h4>
+    <a href="she-helps.html">SHE Helps</a>
+    <a href="she-facts.html">SHE Facts</a>
+    <a href="she-finds.html">SHE Finds</a>
+    <a href="she-news.html">SHE News</a>
+    <a href="she-asks.html">SHE Asks</a>
+    <a href="she-tells.html">SHE Tells</a>
+  </div>
+
+  <div>
+    <h4>Navigate</h4>
+    <a href="index.html">Home</a>
+    <a href="platform.html">Discover</a>
+    <a href="forum.html">SHE Forum</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div>
+    <h4>Legal</h4>
+    <a>Privacy</a>
+    <a>Terms</a>
+  </div>
+
+  <div>
+    <h4>Follow us</h4>
+    <div class="socials">
+      <span>◎</span>
+      <span>f</span>
+      <span>in</span>
+      <span>▶</span>
+      <span>✉</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  const menu = document.querySelector(".menu");
-  const nav = document.querySelector(".nav");
-
-  menu.addEventListener("click", () => {
-    nav.classList.toggle("open");
-
-    if (nav.classList.contains("open")) {
-      nav.style.display = "flex";
-      nav.style.position = "absolute";
-      nav.style.top = "78px";
-      nav.style.left = "0";
-      nav.style.width = "100%";
-      nav.style.background = "white";
-      nav.style.padding = "24px";
-      nav.style.flexDirection = "column";
-    } else {
-      nav.removeAttribute("style");
-    }
-  });
-</script>
+<script src="js/global-ui.js"></script>
 
 </body>
 </html>
