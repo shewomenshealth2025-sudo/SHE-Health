@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHE Health | Women’s Health, Made Easy.</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff7fb; font-family: Arial, Helvetica, sans-serif; color: #2b0b27; overflow-x: hidden; }
+    .page-shell { width: 100%; min-height: 100vh; background: #fff7fb; }
+    .image-wrap { width: 100%; max-width: 1536px; margin: 0 auto; background: #fff7fb; position: relative; }
+    .desktop-mockup { width: 100%; display: block; object-fit: cover; }
+
+    /* Invisible clickable hotspots over the mockup */
+    .click-layer { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+    .click-layer a, .menu-button {
+      position: absolute; display: block; pointer-events: auto; cursor: pointer;
+      text-indent: -9999px; overflow: hidden; background: transparent; border: 0;
+    }
+
+    .home-link { left: 31.8%; top: 3.2%; width: 4.5%; height: 3.2%; }
+    .discover-link { left: 38.5%; top: 3.2%; width: 7%; height: 3.2%; }
+    .forum-link { left: 46.7%; top: 3.2%; width: 7.8%; height: 3.2%; }
+    .partners-link { left: 55.2%; top: 3.2%; width: 7.2%; height: 3.2%; }
+    .contact-link { left: 63%; top: 3.2%; width: 6.5%; height: 3.2%; }
+    .early-link { left: 77%; top: 1.8%; width: 12.1%; height: 5.1%; }
+    .menu-button { right: 3.4%; top: 2.25%; width: 2.6%; height: 3.8%; }
+    .learn-link { left: 9.25%; top: 50.4%; width: 12.5%; height: 4%; }
+    .join-link { left: 22.4%; top: 50.4%; width: 11.3%; height: 4%; }
+    .what-anchor { position: absolute; left: 0; top: 62.2%; width: 1px; height: 1px; }
+
+    .mobile-menu {
+      position: fixed; top: 78px; right: 22px; z-index: 50; display: none;
+      width: 230px; padding: 16px; background: rgba(255,255,255,.96);
+      border: 1px solid #ffd3e5; border-radius: 22px; box-shadow: 0 18px 50px rgba(80, 15, 57, .16);
+    }
+    .mobile-menu.is-open { display: grid; gap: 10px; }
+    .mobile-menu a { color: #2b0b27; text-decoration: none; font-weight: 800; padding: 11px 12px; border-radius: 14px; }
+    .mobile-menu a:hover { background: #fff0f7; color: #ee2f83; }
+
+    @media (max-width: 768px) {
+      .image-wrap { width: 1536px; max-width: none; transform: scale(calc(100vw / 1536)); transform-origin: top left; }
+      .page-shell { min-height: calc(1024px * (100vw / 1536)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <div class="image-wrap">
+      <img class="desktop-mockup" src="assets/she-homepage-design.png" alt="SHE Health homepage mockup" />
+      <span id="what-is-she" class="what-anchor"></span>
+
+      <nav class="click-layer" aria-label="SHE homepage navigation">
+        <a class="home-link" href="index.html">Home</a>
+        <a class="discover-link" href="discover.html">Discover</a>
+        <a class="forum-link" href="she-forum.html">SHE Forum</a>
+        <a class="partners-link" href="partners.html">Partners</a>
+        <a class="contact-link" href="contact.html">Contact</a>
+        <a class="early-link" href="join.html">Join Early Access</a>
+        <button class="menu-button" type="button" aria-label="Open menu" onclick="toggleMenu()">Menu</button>
+        <a class="learn-link" href="#what-is-she">Learn more about SHE</a>
+        <a class="join-link" href="join.html">Join Early Access</a>
+      </nav>
+    </div>
+  </main>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Menu">
+    <a href="index.html">Home</a>
+    <a href="discover.html">Discover</a>
+    <a href="she-forum.html">SHE Forum</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Early Access</a>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('is-open');
+    }
+    document.addEventListener('click', function (event) {
+      const menu = document.getElementById('mobileMenu');
+      const clickedMenuButton = event.target.closest('.menu-button');
+      const clickedInsideMenu = event.target.closest('#mobileMenu');
+      if (!clickedMenuButton && !clickedInsideMenu) menu.classList.remove('is-open');
+    });
+  </script>
+</body>
+</html>
