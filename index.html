@@ -139,29 +139,32 @@ a{ text-decoration:none; color:inherit; }
   background:#fff7fb;
 }
 
+/* FIXED IMAGE */
 .hero-background{
   position:absolute;
   top:0;
   right:0;
-  width:72%;
+  width:66%;
   height:100%;
   object-fit:cover;
-  object-position:center right;
+  object-position:center center;
   z-index:0;
 }
 
+/* FIXED SOFT BLEND */
 .hero-fade{
   position:absolute;
   inset:0;
   z-index:1;
+
   background:
     linear-gradient(
       90deg,
       #fff7fb 0%,
-      rgba(255,247,251,.98) 26%,
-      rgba(255,247,251,.88) 42%,
-      rgba(255,247,251,.48) 58%,
-      rgba(255,247,251,0) 74%
+      rgba(255,247,251,.96) 18%,
+      rgba(255,247,251,.72) 34%,
+      rgba(255,247,251,.28) 48%,
+      rgba(255,247,251,0) 60%
     );
 }
 
@@ -173,13 +176,19 @@ a{ text-decoration:none; color:inherit; }
   padding:0 7%;
 }
 
+/* FIXED LAYERING */
 .home-hero-card{
   min-height:720px;
   display:flex;
   align-items:center;
+  position:relative;
+  z-index:3;
 }
 
+/* FIXED TEXT POSITION */
 .home-hero-copy{
+  position:relative;
+  z-index:5;
   max-width:560px;
   padding:72px 0 44px;
 }
