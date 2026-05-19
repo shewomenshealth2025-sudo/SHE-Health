@@ -1,94 +1,549 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHE Health | Women’s Health, Made Easy.</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      background: #fff7fb;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #2b0b27;
-      overflow-x: hidden;
-    }
+<title>SHE Health | Women’s Health, Made Easy.</title>
 
-    .page-shell {
-      width: 100%;
-      min-height: 100vh;
-      background: #fff7fb;
-    }
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
 
-    .desktop-mockup {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+}
 
-    /* This version keeps the page EXACTLY like the final visual mockup.
-       The full design is included as one image so the typography, women, phone,
-       emojis, icons, spacing and lower 'What is SHE?' section stay identical. */
+*{box-sizing:border-box;}
 
-    .image-wrap {
-      width: 100%;
-      max-width: 1536px;
-      margin: 0 auto;
-      background: #fff7fb;
-      position: relative;
-    }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
 
-    .click-layer a {
-      position: absolute;
-      display: block;
-      text-indent: -9999px;
-      overflow: hidden;
-    }
+a{text-decoration:none;color:inherit;}
 
-    .home-link { left: 31.8%; top: 3.4%; width: 4.3%; height: 2.5%; }
-    .discover-link { left: 38%; top: 3.4%; width: 6.8%; height: 2.5%; }
-    .forum-link { left: 46.3%; top: 3.4%; width: 7.8%; height: 2.5%; }
-    .partners-link { left: 54.8%; top: 3.4%; width: 7.2%; height: 2.5%; }
-    .contact-link { left: 62.4%; top: 3.4%; width: 6.5%; height: 2.5%; }
-    .early-link { left: 77.1%; top: 1.85%; width: 11.4%; height: 4.7%; }
-    .learn-link { left: 9.2%; top: 48.8%; width: 12.2%; height: 4%; }
-    .join-link { left: 22.4%; top: 48.8%; width: 11.2%; height: 4%; }
+.hero{
+  padding:90px 7% 80px;
+}
 
-    @media (max-width: 768px) {
-      .image-wrap {
-        width: 1536px;
-        max-width: none;
-        transform: scale(calc(100vw / 1536));
-        transform-origin: top left;
-      }
+.hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:52px;
+  align-items:center;
+}
 
-      .page-shell {
-        min-height: calc(1024px * (100vw / 1536));
-      }
-    }
-  </style>
+.hero-kicker{
+  color:var(--pink);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(52px,7vw,92px);
+  line-height:.92;
+  letter-spacing:-.075em;
+  margin:0 0 24px;
+}
+
+.hero h1 span{color:var(--pink);}
+
+.hero p{
+  max-width:650px;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.65;
+  margin:0 0 30px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-visual{
+  background:linear-gradient(135deg,#fff3f8,#fff);
+  border:1px solid var(--border);
+  border-radius:36px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.hero-visual img{
+  width:100%;
+  border-radius:28px;
+  display:block;
+}
+
+.section{
+  padding:0 7% 90px;
+}
+
+.panel{
+  max-width:1180px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:36px;
+  padding:48px;
+  box-shadow:var(--shadow);
+}
+
+.panel.pink{
+  background:linear-gradient(135deg,#fff3f8,#fff);
+}
+
+.panel h2{
+  font-size:clamp(38px,5vw,68px);
+  line-height:.98;
+  letter-spacing:-.065em;
+  margin:0 0 18px;
+}
+
+.panel h2 span{color:var(--pink);}
+
+.panel p{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  max-width:880px;
+}
+
+.platform-grid{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.platform-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:32px;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
+}
+
+.platform-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--pink);
+}
+
+.card-icon{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:#fff3f8;
+  color:var(--pink);
+  font-size:26px;
+  margin-bottom:22px;
+}
+
+.platform-card h3{
+  margin:0 0 10px;
+  font-size:28px;
+  letter-spacing:-.04em;
+}
+
+.platform-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.forum-strip{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:30px;
+  align-items:center;
+  background:#35102d;
+  color:white;
+  border-radius:36px;
+  padding:48px;
+  box-shadow:var(--shadow);
+}
+
+.forum-strip p{
+  color:rgba(255,255,255,.78);
+  line-height:1.7;
+  font-size:18px;
+}
+
+.forum-strip h2{
+  font-size:clamp(36px,5vw,64px);
+  line-height:1;
+  letter-spacing:-.06em;
+  margin:0 0 16px;
+}
+
+.forum-list{
+  display:grid;
+  gap:12px;
+}
+
+.forum-pill{
+  background:white;
+  color:var(--plum);
+  border-radius:999px;
+  padding:14px 18px;
+  font-weight:900;
+}
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p,
+.footer-text{
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.footer-column a:hover{color:var(--pink);}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:white;
+  font-size:18px;
+}
+
+@media(max-width:950px){
+  .hero{
+    padding:60px 24px 70px;
+  }
+
+  .hero-inner,
+  .platform-grid,
+  .forum-strip,
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:clamp(46px,12vw,68px);
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .section{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .panel,
+  .forum-strip{
+    padding:30px;
+    border-radius:28px;
+  }
+
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero-actions .btn{
+    padding:13px 14px;
+    font-size:13px;
+    text-align:center;
+  }
+
+  .site-footer{
+    padding:48px 24px;
+  }
+}
+</style>
 </head>
-<body>
-  <main class="page-shell">
-    <div class="image-wrap">
-      <img class="desktop-mockup" src="assets/she-homepage-design.png" alt="SHE Health homepage mockup showing hero section and What is SHE segment" />
 
-      <!-- Optional clickable areas over the exact image mockup. Change hrefs to your actual pages. -->
-      <nav class="click-layer" aria-label="SHE homepage navigation">
-        <a class="home-link" href="index.html">Home</a>
-        <a class="discover-link" href="discover.html">Discover</a>
-        <a class="forum-link" href="she-forum.html">SHE Forum</a>
-        <a class="partners-link" href="partners.html">Partners</a>
-        <a class="contact-link" href="contact.html">Contact</a>
-        <a class="early-link" href="join.html">Join Early Access</a>
-        <a class="learn-link" href="#what-is-she">Learn more about SHE</a>
-        <a class="join-link" href="join.html">Join Early Access</a>
-      </nav>
+<body class="home">
+
+<header class="nav">
+  <div class="wrap nav-inner">
+
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div>
+      <div class="hero-kicker">Women’s Health, Made Easy</div>
+
+      <h1>
+        Women’s health is not broken.<br>
+        It is <span>fragmented.</span>
+      </h1>
+
+      <p>
+        SHE is the navigation system for women’s health — bringing education,
+        products, services, community insight and system-level conversations into
+        one trusted place.
+      </p>
+
+      <div class="hero-actions">
+        <a href="platform.html" class="btn">Explore SHE</a>
+        <a href="https://forms.gle/8C21wsKWfFVxAec66" class="btn" target="_blank">
+          Join Early Access
+        </a>
+      </div>
     </div>
-  </main>
+
+    <div class="hero-visual">
+      <img src="assets/she-homepage-design.png" alt="SHE Health homepage preview">
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="what-is-she">
+  <div class="panel pink">
+    <h2>What is <span>SHE?</span></h2>
+    <p>
+      SHE Health is both an app and a convener for women’s health navigation.
+      The app helps women move from symptoms to understanding, support and next
+      steps. The wider SHE platform brings together the fragmentation across
+      education, healthcare, products, services, policy, workplaces and innovation.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="platform-grid">
+
+    <a href="she-helps.html" class="platform-card">
+      <div class="card-icon">✦</div>
+      <h3>SHE Helps</h3>
+      <p>Guided symptom-to-action support, connecting users to education and next steps.</p>
+    </a>
+
+    <a href="she-facts.html" class="platform-card">
+      <div class="card-icon">✓</div>
+      <h3>SHE Facts</h3>
+      <p>Clear, evidence-informed explanations across women’s health topics.</p>
+    </a>
+
+    <a href="she-finds.html" class="platform-card">
+      <div class="card-icon">★</div>
+      <h3>SHE Finds</h3>
+      <p>Product and support guidance that feels like a structured browser.</p>
+    </a>
+
+    <a href="she-asks.html" class="platform-card">
+      <div class="card-icon">💬</div>
+      <h3>SHE Asks</h3>
+      <p>Safer community questions, lived experience and shared learning.</p>
+    </a>
+
+    <a href="she-tells.html" class="platform-card">
+      <div class="card-icon">🎙</div>
+      <h3>SHE Tells</h3>
+      <p>Expert-led advice, insight and recommendations from trusted voices.</p>
+    </a>
+
+    <a href="she-news.html" class="platform-card">
+      <div class="card-icon">▤</div>
+      <h3>SHE News</h3>
+      <p>Women’s health policy, research, public health and innovation updates.</p>
+    </a>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="forum-strip">
+
+    <div>
+      <h2>The SHE Women’s Health Forum.</h2>
+      <p>
+        SHE also works at system level — convening policy, healthcare, academia,
+        innovation, advocacy and industry to advance women’s health in Northern Ireland.
+      </p>
+      <a href="forum.html" class="btn">Explore the Forum</a>
+    </div>
+
+    <div class="forum-list">
+      <div class="forum-pill">Women’s Health Strategy for NI</div>
+      <div class="forum-pill">Education, workplace and healthcare</div>
+      <div class="forum-pill">Femtech and innovation</div>
+      <div class="forum-pill">Community voices and lived experience</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="panel">
+    <h2>For institutions, partners and sponsors.</h2>
+    <p>
+      SHE gives organisations a practical way to support women’s health: through
+      institutional access, sponsored access, forum sponsorship, education,
+      collaboration and public health impact.
+    </p>
+    <br>
+    <a href="partners.html" class="btn">Partner with SHE</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Platform</h4>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="she-facts.html">SHE Facts</a>
+      <a href="she-finds.html">SHE Finds</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
+      <p class="footer-text">News, updates and women’s health insights.</p>
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">→</button>
+      </form>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/global-ui.js"></script>
+
 </body>
 </html>
