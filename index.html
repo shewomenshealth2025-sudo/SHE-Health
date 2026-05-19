@@ -35,7 +35,6 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
-/* HEADER — exact normal-page structure, with fallback CSS included so it shows in preview */
 .nav{
   width:100%;
   background:#fff;
@@ -91,7 +90,6 @@ a{ text-decoration:none; color:inherit; }
   font-size:12px;
   font-weight:800;
   color:var(--muted);
-  letter-spacing:-.01em;
   white-space:nowrap;
 }
 
@@ -108,7 +106,6 @@ a{ text-decoration:none; color:inherit; }
   font-size:14px;
   font-weight:900;
   opacity:.82;
-  transition:.18s ease;
   white-space:nowrap;
 }
 
@@ -132,16 +129,8 @@ a{ text-decoration:none; color:inherit; }
   font-weight:900;
   white-space:nowrap;
   box-shadow:0 12px 26px rgba(236,61,134,.18);
-  transition:.18s ease;
 }
 
-.btn:hover,
-.header-early-access:hover{
-  transform:translateY(-2px);
-  box-shadow:0 16px 34px rgba(236,61,134,.24);
-}
-
-/* HOMEPAGE */
 .homepage-hero{
   padding:72px 7% 44px;
   background:
@@ -227,12 +216,6 @@ a{ text-decoration:none; color:inherit; }
   padding:14px 20px;
   font-size:14px;
   font-weight:900;
-  transition:.18s ease;
-}
-
-.home-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(236,61,134,.2);
 }
 
 .home-btn.secondary{
@@ -240,48 +223,25 @@ a{ text-decoration:none; color:inherit; }
   color:var(--pink);
 }
 
+/* FIXED RIGHT SIDE */
 .home-visual{
   position:relative;
-  min-height:620px;
-  background:linear-gradient(135deg,#fff3f8 0%,#fff 48%,#f7f1ff 100%);
-  border:1px solid var(--border);
-  border-radius:38px;
-  box-shadow:var(--shadow);
-  overflow:hidden;
+  min-height:auto;
+  background:none;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.home-visual img{
+.hero-women-image{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  max-width:760px;
   display:block;
-}
-
-.home-floating-card{
-  position:absolute;
-  left:28px;
-  right:28px;
-  bottom:28px;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--border);
-  box-shadow:0 18px 50px rgba(53,16,45,.12);
-  border-radius:28px;
-  padding:18px;
-}
-
-.home-floating-card strong{
-  display:block;
-  font-size:20px;
-  letter-spacing:-.04em;
-  margin-bottom:6px;
-}
-
-.home-floating-card p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.45;
-  font-size:14px;
+  object-fit:contain;
 }
 
 /* WHAT IS SHE */
@@ -371,13 +331,6 @@ a{ text-decoration:none; color:inherit; }
   background:#fff;
   padding:22px;
   min-height:150px;
-  transition:.18s ease;
-}
-
-.what-pill:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 45px rgba(53,16,45,.08);
-  border-color:var(--pink);
 }
 
 .what-emoji{
@@ -582,16 +535,13 @@ a{ text-decoration:none; color:inherit; }
   }
 
   .home-visual{
-    min-height:430px;
-    border-left:1px solid var(--border);
-    border-top:1px solid var(--border);
-    border-radius:32px;
+    min-height:auto;
+    border:none;
+    border-radius:0;
   }
 
-  .home-floating-card{
-    left:18px;
-    right:18px;
-    bottom:18px;
+  .hero-women-image{
+    max-width:100%;
   }
 
   .what-is-she{
@@ -684,12 +634,11 @@ a{ text-decoration:none; color:inherit; }
       </div>
 
       <div class="home-visual">
-        <img src="assets/homepage-women.png" alt="Diverse women representing the SHE Health app community">
-
-        <div class="home-floating-card">
-          <strong>Your women’s health navigation layer.</strong>
-          <p>Built to make the next step feel clearer, calmer and easier to find.</p>
-        </div>
+        <img 
+          src="assets/homepage-women.png" 
+          alt="Women using SHE Health"
+          class="hero-women-image"
+        >
       </div>
     </div>
 
