@@ -1,278 +1,469 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SHE Helps | SHE Health</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="css/global.css">
+<title>SHE Helps | SHE Health</title>
 
-  <style>
-    .helps-page {
-      background: linear-gradient(180deg, #fff7fb 0%, #fff 100%);
-      padding: 70px 20px;
-    }
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
 
-    .helps-shell {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+}
 
-    .helps-header {
-      display: grid;
-      grid-template-columns: 0.9fr 1fr;
-      gap: 40px;
-      align-items: end;
-      margin-bottom: 34px;
-    }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
 
-    .helps-kicker {
-      color: #e83e7c;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 10px;
-    }
+a{ text-decoration:none; color:inherit; }
 
-    .helps-header h1 {
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: .95;
-      letter-spacing: -.06em;
-      color: #3b1230;
-      margin: 0;
-    }
+/* HERO */
 
-    .helps-header h1 span {
-      color: #e83e7c;
-    }
+.helps-page{
+  padding:90px 7% 90px;
+  background:linear-gradient(180deg,#fff7fb 0%,#fff 100%);
+}
 
-    .helps-header p {
-      color: #6f5b66;
-      font-size: 17px;
-      line-height: 1.65;
-      margin: 0;
-      max-width: 560px;
-    }
+.helps-shell{
+  max-width:1180px;
+  margin:0 auto;
+}
 
-    .helps-card {
-      background: #fff;
-      border: 1px solid #efd5df;
-      border-radius: 30px;
-      box-shadow: 0 24px 70px rgba(59, 18, 48, 0.08);
-      overflow: hidden;
-    }
+.helps-header{
+  display:grid;
+  grid-template-columns:.85fr 1fr;
+  gap:34px;
+  align-items:end;
+  margin-bottom:28px;
+}
 
-    .helps-progress {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-bottom: 1px solid #efd5df;
-      background: #fff7fb;
-    }
+.helps-kicker{
+  color:var(--pink);
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:14px;
+}
 
-    .progress-step {
-      padding: 16px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 900;
-      color: #6f5b66;
-      border-right: 1px solid #efd5df;
-    }
+.helps-header h1{
+  font-size:clamp(52px,7vw,88px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  color:var(--plum);
+  margin:0;
+}
 
-    .progress-step:last-child {
-      border-right: 0;
-    }
+.helps-header h1 span{ color:var(--pink); }
 
-    .progress-step.active {
-      color: #e83e7c;
-      background: #fff;
-    }
+.helps-header p{
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.65;
+  margin:0;
+  max-width:620px;
+}
 
-    .helps-body {
-      padding: 34px;
-    }
+/* FLOW CARD */
 
-    .helps-step {
-      display: none;
-    }
+.helps-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:34px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
 
-    .helps-step.active {
-      display: block;
-    }
+.helps-progress{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-bottom:1px solid var(--border);
+  background:#fff7fb;
+}
 
-    .helps-step h2 {
-      margin: 0 0 8px;
-      font-size: 30px;
-      color: #3b1230;
-      letter-spacing: -.035em;
-    }
+.progress-step{
+  padding:18px;
+  text-align:center;
+  font-size:13px;
+  font-weight:900;
+  color:var(--muted);
+  border-right:1px solid var(--border);
+}
 
-    .helps-step p {
-      margin: 0 0 24px;
-      color: #6f5b66;
-      line-height: 1.55;
-    }
+.progress-step:last-child{ border-right:0; }
 
-    .helps-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
-    }
+.progress-step.active{
+  color:var(--pink);
+  background:#fff;
+}
 
-    .helps-option {
-      border: 1px solid #efd5df;
-      background: #fff;
-      border-radius: 20px;
-      padding: 18px;
-      cursor: pointer;
-      transition: .2s ease;
-    }
+.helps-body{
+  padding:40px;
+}
 
-    .helps-option:hover,
-    .helps-option.active {
-      border-color: #e83e7c;
-      background: #fff3f8;
-      transform: translateY(-2px);
-    }
+.helps-step{ display:none; }
+.helps-step.active{ display:block; }
 
-    .helps-option strong {
-      display: block;
-      color: #3b1230;
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
+.helps-step h2{
+  margin:0 0 10px;
+  font-size:clamp(34px,4vw,54px);
+  color:var(--plum);
+  line-height:1;
+  letter-spacing:-.055em;
+}
 
-    .helps-option span {
-      color: #6f5b66;
-      font-size: 13px;
-      line-height: 1.4;
-    }
+.helps-step p{
+  margin:0 0 26px;
+  color:var(--muted);
+  line-height:1.65;
+  font-size:17px;
+}
 
-    .helps-actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.helps-options{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:16px;
+}
 
-    .helps-btn {
-      border: 0;
-      background: #e83e7c;
-      color: #fff;
-      font-weight: 900;
-      border-radius: 999px;
-      padding: 13px 20px;
-      cursor: pointer;
-    }
+.helps-option{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:24px;
+  padding:22px;
+  cursor:pointer;
+  transition:.2s ease;
+}
 
-    .helps-btn.secondary {
-      background: #fff3f8;
-      color: #3b1230;
-      border: 1px solid #efd5df;
-    }
+.helps-option:hover,
+.helps-option.active{
+  border-color:var(--pink);
+  background:#fff3f8;
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(236,61,134,.09);
+}
 
-    .result-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+.helps-option strong{
+  display:block;
+  color:var(--plum);
+  font-size:18px;
+  margin-bottom:8px;
+}
 
-    .result-box {
-      border: 1px solid #efd5df;
-      border-radius: 22px;
-      padding: 18px;
-      background: #fff;
-    }
+.helps-option span{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
 
-    .result-box.wide {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, #fff3f8, #fff);
-    }
+.helps-actions{
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .result-box h4 {
-      margin: 0 0 8px;
-      color: #3b1230;
-    }
+.helps-btn{
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-weight:900;
+  border-radius:999px;
+  padding:14px 22px;
+  cursor:pointer;
+}
 
-    .result-box p,
-    .result-box li {
-      color: #6f5b66;
-      font-size: 14px;
-      line-height: 1.55;
-    }
+.helps-btn.secondary{
+  background:#fff3f8;
+  color:var(--plum);
+  border:1px solid var(--border);
+}
 
-    .result-box ul {
-      margin: 0;
-      padding-left: 18px;
-    }
+/* RESULTS */
 
-    .result-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
 
-    .result-links a {
-      background: #e83e7c;
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 900;
-    }
+.result-box{
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:22px;
+  background:#fff;
+}
 
-    .map-preview {
-      height: 180px;
-      border-radius: 20px;
-      margin-top: 12px;
-      border: 1px solid #efd5df;
-      background:
-        radial-gradient(circle at 65% 42%, rgba(232,62,124,.45) 0 7px, transparent 8px),
-        radial-gradient(circle at 45% 60%, rgba(232,62,124,.35) 0 7px, transparent 8px),
-        radial-gradient(circle at 55% 50%, rgba(232,62,124,.25) 0 5px, transparent 6px),
-        linear-gradient(135deg, #fff, #fff3f8);
-      position: relative;
-    }
+.result-box.wide{
+  grid-column:1 / -1;
+  background:linear-gradient(135deg,#fff3f8,#fff);
+}
 
-    .disclaimer {
-      margin-top: 18px;
-      font-size: 12px;
-      color: #6f5b66;
-    }
+.result-box h4{
+  margin:0 0 10px;
+  color:var(--plum);
+  font-size:18px;
+}
 
-    @media (max-width: 850px) {
-      .helps-header,
-      .result-grid {
-        grid-template-columns: 1fr;
-      }
+.result-box p,
+.result-box li{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
 
-      .helps-body {
-        padding: 24px;
-      }
-    }
-  </style>
+.result-box ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.result-links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.result-links a{
+  background:var(--pink);
+  color:#fff;
+  padding:11px 15px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+}
+
+.map-preview{
+  height:190px;
+  border-radius:22px;
+  margin-top:14px;
+  border:1px solid var(--border);
+  background:
+    radial-gradient(circle at 65% 42%, rgba(236,61,134,.45) 0 7px, transparent 8px),
+    radial-gradient(circle at 45% 60%, rgba(236,61,134,.35) 0 7px, transparent 8px),
+    radial-gradient(circle at 55% 50%, rgba(236,61,134,.25) 0 5px, transparent 6px),
+    linear-gradient(135deg,#fff,#fff3f8);
+}
+
+.disclaimer{
+  margin-top:18px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .helps-page{
+    padding:60px 24px 70px;
+  }
+
+  .helps-header,
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .helps-header h1{
+    font-size:clamp(42px,12vw,64px);
+  }
+
+  .helps-header p{
+    font-size:17px;
+  }
+
+  .helps-body{
+    padding:26px;
+  }
+
+  .helps-progress{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .progress-step{
+    padding:13px 6px;
+    font-size:11px;
+  }
+
+  .helps-options{
+    grid-template-columns:1fr;
+  }
+
+  .helps-actions{
+    flex-direction:column;
+  }
+
+  .helps-btn{
+    width:100%;
+  }
+
+  .result-links{
+    flex-direction:column;
+  }
+
+  .result-links a{
+    text-align:center;
+  }
+
+  .site-footer{
+    padding:48px 24px;
+    margin-top:30px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .footer-form{
+    max-width:100%;
+  }
+}
+</style>
 </head>
 
 <body>
-<header class="header">
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="SHE logo">
-    <strong>SHE</strong>
-    <span>Women’s Health<br>Made Easy</span>
-  </a>
 
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="platform.html">Platform</a>
-    <a href="she-forum.html">SHE Forum</a>
-    <a href="partners.html">Partners</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="wrap nav-inner">
 
-  <a href="partners.html" class="header-cta">Partner with SHE</a>
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
 </header>
 
 <main class="helps-page">
@@ -283,8 +474,10 @@
         <div class="helps-kicker">SHE Helps</div>
         <h1>From symptoms to <span>next steps.</span></h1>
       </div>
+
       <p>
-        Choose a concern, select what you’re experiencing, and SHE Helps guides you towards clearer education, product support and service navigation.
+        Choose a concern, select what you’re experiencing, and SHE Helps guides you
+        towards clearer education, product support and service navigation.
       </p>
     </div>
 
@@ -338,10 +531,52 @@
   </div>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <strong>SHE Health · Women’s Health, Made Easy</strong>
-    <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Platform</h4>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="she-facts.html">SHE Facts</a>
+      <a href="she-finds.html">SHE Finds</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
+
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">→</button>
+      </form>
+    </div>
+
   </div>
 </footer>
 
@@ -401,7 +636,6 @@ const DATA = {
 let selectedTopic = "Periods";
 let selectedSymptoms = [];
 
-/* Restore saved pattern */
 const savedPattern = JSON.parse(localStorage.getItem("shePattern") || "null");
 
 if (savedPattern) {
@@ -466,6 +700,7 @@ function goToStep(step) {
   document.getElementById("progress" + step).classList.add("active");
 
   if (step === 2) renderSymptoms();
+
   if (step === 3) {
     savePattern();
     renderResults();
@@ -543,4 +778,8 @@ function clearPattern() {
 renderTopics();
 renderSymptoms();
 </script>
+
 <script src="js/global-ui.js"></script>
+
+</body>
+</html>
