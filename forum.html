@@ -1,36 +1,673 @@
-<!doctype html><html lang="en"><head><link rel="stylesheet" href="css/global.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forum | SHE Health</title><link rel="stylesheet" href="style.css"></head><body><header class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SHE Health logo"><div class="brand-name">SHE</div><div class="brand-tag">Women’s Health<br>Made Easy</div></a><nav class="links"><a href="index.html" >Home</a><a href="platform.html">Platform</a><a href="she-helps.html">SHE Helps</a><a href="partners.html">Partners</a><a href="forum.html" class="active">Forum</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a class="btn" href="partners.html">Partner with SHE</a></div></header><main><section class="mini-hero"><div class="wrap"><h1>SHE Women’s Health Forum 2026</h1><p><strong>Wednesday 9 September 2026 · Parliament Buildings, Stormont</strong><br>A high-impact convening of healthcare, policy, academia, innovation, advocacy and industry to advance women’s health.</p><a class="btn" href="contact.html">Request the programme</a></div></section><section class="section"><div class="wrap gradient-panel split"><div><h2 class="section-title">Why the forum exists</h2><p style="font-size:20px;line-height:1.7">Women’s health is now a strategic priority across the UK and Ireland, but Northern Ireland is still at an earlier stage of building a dedicated, joined-up approach.</p><p style="font-size:20px;line-height:1.7">The SHE Women’s Health Forum brings together policy, public health, clinical practice, education, workplace wellbeing, innovation and lived experience — conversations that rarely happen in the same room.</p><p style="font-size:22px"><strong>Policy changes the rules. Infrastructure changes outcomes.</strong></p></div><div class="card" style="background:rgba(255,255,255,.16);color:#fff;border:0"><h3>Programme themes</h3><p style="color:rgba(255,255,255,.82);font-size:20px;line-height:1.65">Access<br>Innovation<br>Prevention<br>Education<br>Research<br>Workplace wellbeing<br>Community health<br>Women’s Health Strategy for NI</p></div></div></section><section class="section"><div class="wrap grid3"><div class="card"><h3>Who should attend</h3><p>Government, healthcare leaders, academics, corporate wellbeing teams, charities, entrepreneurs and advocates.</p></div><div class="card"><h3>Sponsorship routes</h3><p>Headline partner, Forum partner, Women’s Wellness Partner, student access sponsor and community partner.</p></div><div class="card"><h3>What it creates</h3><p>A shared space to move from fragmented discussion to structured progress for women’s health in Northern Ireland.</p></div></div></section></main><footer class="footer"><div class="wrap footer-inner"><strong>SHE Health · Women’s Health, Made Easy</strong><span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span></div></footer><footer class="site-footer secondary-footer">
-  <div class="footer-grid">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <div class="footer-brand">
-      <h2>SHE<span>.</span></h2>
-      <p>Womens Health,<br>Made Easy.</p>
+<title>SHE Forum | SHE Health</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
+
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
+
+a{ text-decoration:none; color:inherit; }
+
+/* HERO */
+
+.forum-hero{
+  padding:90px 7% 60px;
+}
+
+.forum-hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.forum-kicker{
+  color:var(--pink);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.forum-hero h1{
+  font-size:clamp(52px,7vw,88px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  margin:0 0 22px;
+  max-width:1000px;
+}
+
+.forum-hero h1 span{ color:var(--pink); }
+
+.forum-hero p{
+  max-width:840px;
+  font-size:20px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:0 0 30px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+/* INFO CARDS */
+
+.forum-section{
+  padding:10px 7% 80px;
+}
+
+.forum-grid{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.forum-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:34px;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
+}
+
+.forum-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--pink);
+}
+
+.card-icon{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:#fff3f8;
+  color:var(--pink);
+  font-size:28px;
+  margin-bottom:26px;
+}
+
+.forum-card h3{
+  margin:0 0 12px;
+  font-size:30px;
+  letter-spacing:-.04em;
+}
+
+.forum-card p{
+  margin:0;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+/* PANEL */
+
+.strategy-section{
+  padding:0 7% 90px;
+}
+
+.strategy-panel{
+  max-width:1180px;
+  margin:0 auto;
+  background:linear-gradient(135deg,#fff3f8,#fff);
+  border:1px solid var(--border);
+  border-radius:36px;
+  padding:50px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+}
+
+.strategy-panel h2{
+  font-size:clamp(38px,5vw,64px);
+  line-height:.98;
+  letter-spacing:-.06em;
+  margin:0 0 18px;
+}
+
+.strategy-panel h2 span{ color:var(--pink); }
+
+.strategy-panel p,
+.strategy-panel li{
+  font-size:18px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.strategy-panel ul{
+  margin:0;
+  padding-left:20px;
+}
+
+.quote-box{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:30px;
+}
+
+.quote-box strong{
+  display:block;
+  font-size:28px;
+  line-height:1.15;
+  letter-spacing:-.04em;
+  color:var(--plum);
+  margin-bottom:14px;
+}
+
+/* SPONSOR SECTION */
+
+.sponsor-section{
+  padding:0 7% 100px;
+}
+
+.sponsor-panel{
+  max-width:1180px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:36px;
+  padding:46px;
+  box-shadow:var(--shadow);
+}
+
+.sponsor-panel h2{
+  font-size:clamp(36px,4.5vw,58px);
+  line-height:1;
+  letter-spacing:-.055em;
+  margin:0 0 16px;
+}
+
+.sponsor-panel h2 span{ color:var(--pink); }
+
+.sponsor-panel p{
+  font-size:18px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:0 0 28px;
+}
+
+.sponsor-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.sponsor-item{
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  background:#fff7fb;
+}
+
+.sponsor-item h4{
+  margin:0 0 8px;
+  font-size:20px;
+  color:var(--plum);
+}
+
+.sponsor-item p{
+  margin:0;
+  font-size:15px;
+}
+
+/* FOOTER */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .forum-hero{
+    padding:60px 24px 40px;
+  }
+
+  .forum-hero h1{
+    font-size:clamp(42px,12vw,64px);
+  }
+
+  .forum-hero p{
+    font-size:17px;
+  }
+
+  .forum-grid,
+  .strategy-panel,
+  .sponsor-list{
+    grid-template-columns:1fr;
+  }
+
+  .forum-section,
+  .strategy-section,
+  .sponsor-section{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .strategy-panel,
+  .sponsor-panel{
+    padding:30px;
+    border-radius:28px;
+  }
+
+  .site-footer{
+    padding:48px 24px;
+    margin-top:30px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .footer-form{
+    max-width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html" class="active">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<section class="forum-hero">
+  <div class="forum-hero-inner">
+
+    <div class="forum-kicker">SHE Women’s Health Forum 2026</div>
+
+    <h1>
+      Where policy, healthcare and innovation meet for <span>women’s health.</span>
+    </h1>
+
+    <p>
+      Wednesday 9 September 2026 · Parliament Buildings, Stormont.
+      A high-impact convening of healthcare, public health, policy, academia,
+      innovation, advocacy, industry and lived experience to advance women’s health
+      in Northern Ireland.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="contact.html">Request the programme</a>
+      <a class="btn" href="partners.html">Sponsor or partner with SHE</a>
     </div>
 
+  </div>
+</section>
+
+<section class="strategy-section">
+  <div class="strategy-panel">
+
     <div>
+      <h2>Why the forum <span>exists.</span></h2>
+
+      <p>
+        Women’s health is increasingly being prioritised across the UK and Ireland,
+        yet Northern Ireland still does not have a dedicated Women’s Health Strategy.
+        This creates a gap between policy progress elsewhere and implementation locally.
+      </p>
+
+      <p>
+        The SHE Women’s Health Forum is designed to bring the right people into one
+        room: government, healthcare, public health, universities, workplaces,
+        innovators, charities, advocates and community voices.
+      </p>
+
+      <p>
+        The purpose is not simply to raise awareness. It is to create structured
+        discussion, identify gaps, share learning from other regions, and explore
+        what practical infrastructure could support better women’s health outcomes
+        across Northern Ireland.
+      </p>
+    </div>
+
+    <div class="quote-box">
+      <strong>Policy changes the rules. Infrastructure changes outcomes.</strong>
+      <p>
+        SHE is convening the forum to move women’s health from fragmented discussion
+        into coordinated, practical progress.
+      </p>
+
+      <ul>
+        <li>Women’s Health Strategy for Northern Ireland</li>
+        <li>Access and early intervention</li>
+        <li>Education and health literacy</li>
+        <li>Workplace wellbeing</li>
+        <li>Femtech and innovation</li>
+        <li>Community and lived experience</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="forum-section">
+  <div class="forum-grid">
+
+    <div class="forum-card">
+      <div class="card-icon">▥</div>
+      <h3>Policy & strategy</h3>
+      <p>
+        Exploring what Northern Ireland can learn from women’s health strategies
+        across England, Scotland, Wales and Ireland.
+      </p>
+    </div>
+
+    <div class="forum-card">
+      <div class="card-icon">◉</div>
+      <h3>Healthcare & public health</h3>
+      <p>
+        Bringing clinical, public health and service perspectives into one
+        conversation about access, prevention and support.
+      </p>
+    </div>
+
+    <div class="forum-card">
+      <div class="card-icon">✦</div>
+      <h3>Innovation & femtech</h3>
+      <p>
+        Highlighting how digital health, data, navigation and femtech can help
+        close gaps in women’s health support.
+      </p>
+    </div>
+
+    <div class="forum-card">
+      <div class="card-icon">□</div>
+      <h3>Education & workplaces</h3>
+      <p>
+        Examining how universities, employers and institutions can support women
+        through better education and practical pathways.
+      </p>
+    </div>
+
+    <div class="forum-card">
+      <div class="card-icon">♡</div>
+      <h3>Community voices</h3>
+      <p>
+        Creating space for women’s lived experiences, advocacy groups and community
+        organisations to shape the conversation.
+      </p>
+    </div>
+
+    <div class="forum-card">
+      <div class="card-icon">∞</div>
+      <h3>Next steps</h3>
+      <p>
+        Moving beyond discussion towards partnerships, recommendations, working
+        relationships and ongoing ecosystem-building.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="sponsor-section">
+  <div class="sponsor-panel">
+
+    <h2>Why sponsor or get involved in the <span>SHE Forum?</span></h2>
+
+    <p>
+      Sponsoring the forum is not just visibility. It is a way to align with one of
+      Northern Ireland’s most important emerging public health and innovation
+      conversations, while supporting practical progress for women’s health.
+    </p>
+
+    <div class="sponsor-list">
+
+      <div class="sponsor-item">
+        <h4>Show leadership</h4>
+        <p>
+          Position your organisation as actively supporting women’s health,
+          health equity and system-level change.
+        </p>
+      </div>
+
+      <div class="sponsor-item">
+        <h4>Reach senior stakeholders</h4>
+        <p>
+          Connect with leaders across policy, healthcare, academia, industry,
+          public health and innovation.
+        </p>
+      </div>
+
+      <div class="sponsor-item">
+        <h4>Support NI’s policy conversation</h4>
+        <p>
+          Contribute to a critical moment as Northern Ireland considers how to
+          advance women’s health without a dedicated strategy in place.
+        </p>
+      </div>
+
+      <div class="sponsor-item">
+        <h4>Back practical infrastructure</h4>
+        <p>
+          Help SHE build beyond awareness by supporting education, navigation,
+          access and convening power.
+        </p>
+      </div>
+
+      <div class="sponsor-item">
+        <h4>Build credible partnerships</h4>
+        <p>
+          Create meaningful alignment with SHE Health, the forum, community voices
+          and organisations working in women’s health.
+        </p>
+      </div>
+
+      <div class="sponsor-item">
+        <h4>Demonstrate social impact</h4>
+        <p>
+          Support an event focused on public health, prevention, early intervention,
+          workplace wellbeing and women’s lived experience.
+        </p>
+      </div>
+
+    </div>
+
+    <a class="btn" href="partners.html">
+      Explore sponsorship and partnership routes
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-column">
       <h4>Platform</h4>
       <a href="she-helps.html">SHE Helps</a>
       <a href="she-facts.html">SHE Facts</a>
       <a href="she-finds.html">SHE Finds</a>
-      <a href="platform.html">SHE Asks</a>
-      <a href="platform.html">SHE Tells</a>
-      <a href="platform.html">SHE News</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
     </div>
 
-    <div>
-      <h4>Partners</h4>
-      <a href="partners.html">For Institutions</a>
-      <a href="partners.html">For Organisations</a>
-      <a href="partners.html">For Healthcare</a>
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Platform</a>
+      <a href="forum.html">Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <div>
-      <h4>Forum</h4>
-      <a href="forum.html">About the Forum</a>
-      <a href="forum.html">Events</a>
-    </div>
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
 
-    <div>
-      <h4>Stay Connected</h4>
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
       <form class="footer-form">
         <input type="email" placeholder="Enter your email">
         <button type="submit">→</button>
@@ -38,6 +675,12 @@
     </div>
 
   </div>
+</footer>
+
+<script src="js/global-ui.js"></script>
+
+</body>
+</html>
 </footer>
 <script src="js/global-ui.js"></script>
 </body></html>
