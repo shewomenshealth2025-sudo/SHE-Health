@@ -1,117 +1,645 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SHE Finds | SHE Health</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/she-premium-testers.css">
+<title>SHE Finds | SHE Health</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
+
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+  --purple:#8b5cf6;
+  --green:#22c55e;
+  --blue:#2563eb;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
+
+a{ text-decoration:none; color:inherit; }
+
+/* SHE FINDS */
+
+.she-product-demo{
+  padding:90px 7% 90px;
+  background:linear-gradient(180deg,#fff7fb 0%,#fff 100%);
+}
+
+.she-demo-shell{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.she-demo-header{
+  display:grid;
+  grid-template-columns:.85fr 1fr;
+  gap:34px;
+  align-items:end;
+  margin-bottom:28px;
+}
+
+.she-demo-kicker{
+  color:var(--pink);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.she-demo-title{
+  font-size:clamp(52px,7vw,88px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  margin:0;
+  color:var(--plum);
+}
+
+.she-demo-title span{ color:var(--pink); }
+
+.she-demo-intro{
+  max-width:620px;
+  margin:0;
+  font-size:20px;
+  line-height:1.65;
+  color:var(--muted);
+}
+
+.she-demo-card{
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:34px;
+  overflow:hidden;
+}
+
+.she-demo-topbar{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  padding:18px 22px;
+  border-bottom:1px solid var(--border);
+  background:#fff7fb;
+}
+
+.she-demo-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.she-demo-pill{
+  border:1px solid var(--border);
+  background:white;
+  color:var(--pink);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.she-demo-status{
+  color:var(--pink);
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.she-demo-main{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  min-height:620px;
+}
+
+.she-demo-sidebar{
+  padding:24px;
+  border-right:1px solid var(--border);
+  background:#fff;
+}
+
+.she-demo-search{
+  position:relative;
+  margin-bottom:16px;
+}
+
+.she-demo-search input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:15px 15px 15px 42px;
+  font-size:14px;
+  outline:none;
+  background:#fff;
+}
+
+.she-demo-search input:focus{
+  border-color:var(--pink);
+  box-shadow:0 0 0 4px rgba(236,61,134,.1);
+}
+
+.she-demo-search-icon{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--pink);
+  font-weight:900;
+}
+
+.she-topic-list{
+  display:grid;
+  gap:10px;
+}
+
+.she-topic-btn{
+  width:100%;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:18px;
+  padding:14px;
+  text-align:left;
+  cursor:pointer;
+  transition:.18s ease;
+}
+
+.she-topic-btn:hover,
+.she-topic-btn.is-active{
+  border-color:var(--pink);
+  background:#fff3f8;
+  transform:translateY(-1px);
+}
+
+.she-topic-name{
+  display:block;
+  font-size:14px;
+  font-weight:900;
+  color:var(--plum);
+  margin-bottom:4px;
+}
+
+.she-topic-meta{
+  display:block;
+  font-size:11px;
+  color:var(--plum);
+  line-height:1.3;
+  opacity:.75;
+}
+
+.she-demo-content{
+  padding:30px;
+  background:#fff;
+}
+
+.finds-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:24px;
+}
+
+.finds-label{
+  color:var(--pink);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.finds-title{
+  margin:0 0 10px;
+  font-size:clamp(34px,4vw,54px);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+
+.finds-summary{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+  max-width:650px;
+  margin:0;
+}
+
+.finds-badge{
+  background:#fff3f8;
+  border:1px solid var(--border);
+  color:var(--pink);
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.product-browser{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.product-card{
+  border:1px solid var(--border);
+  border-radius:26px;
+  overflow:hidden;
+  background:#fff;
+  transition:.2s ease;
+}
+
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+  border-color:var(--pink);
+}
+
+.product-image{
+  height:170px;
+  background:#fff3f8;
+  display:grid;
+  place-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-body{
+  padding:18px;
+}
+
+.product-category{
+  color:var(--pink);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:8px;
+}
+
+.product-body h3{
+  margin:0 0 8px;
+  font-size:21px;
+  letter-spacing:-.04em;
+}
+
+.product-body p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.score-row{
+  display:grid;
+  gap:7px;
+  margin:14px 0;
+}
+
+.score{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.score strong{
+  color:var(--plum);
+}
+
+.product-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.product-tag{
+  background:#fff3f8;
+  border:1px solid var(--border);
+  color:var(--plum);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.finds-note{
+  margin-top:18px;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:40px;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .she-product-demo{
+    padding:60px 24px 70px;
+  }
+
+  .she-demo-header,
+  .she-demo-main{
+    grid-template-columns:1fr;
+  }
+
+  .she-demo-title{
+    font-size:clamp(42px,12vw,64px);
+  }
+
+  .she-demo-intro{
+    font-size:17px;
+  }
+
+  .she-demo-sidebar{
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .she-topic-list{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:8px;
+  }
+
+  .she-topic-btn{
+    min-width:230px;
+    flex:0 0 auto;
+  }
+
+  .she-demo-content{
+    padding:22px;
+  }
+
+  .finds-top{
+    flex-direction:column;
+  }
+
+  .finds-badge{
+    white-space:normal;
+  }
+
+  .product-browser{
+    grid-template-columns:1fr;
+  }
+
+  .site-footer{
+    padding:48px 24px;
+    margin-top:30px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .footer-form{
+    max-width:100%;
+  }
+}
+</style>
 </head>
 
 <body>
-<header class="header">
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="SHE logo">
-    <strong>SHE</strong>
-    <span>Women’s Health<br>Made Easy</span>
-  </a>
 
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="platform.html">Platform</a>
-    <a href="she-forum.html">SHE Forum</a>
-    <a href="partners.html">Partners</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="wrap nav-inner">
 
-  <a href="partners.html" class="header-cta">Partner with SHE</a>
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="partners.html">Partners</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
 </header>
 
 <main>
 
-  <!-- PREMIUM SHE FINDS TESTER -->
-  <section class="she-product-demo" id="she-finds-demo">
-    <div class="she-demo-shell">
-      <div class="she-demo-header">
-        <div>
-          <div class="she-demo-kicker">SHE Finds</div>
-          <h2 class="she-demo-title">From product noise to <span>clear choices.</span></h2>
-        </div>
-        <p class="she-demo-intro">
-          A preview of how SHE Finds compares women’s health products and support tools using structured, practical, non-promotional criteria.
-        </p>
+<section class="she-product-demo" id="she-finds-demo">
+  <div class="she-demo-shell">
+
+    <div class="she-demo-header">
+      <div>
+        <div class="she-demo-kicker">SHE Finds</div>
+        <h2 class="she-demo-title">From product noise to <span>clear choices.</span></h2>
       </div>
 
-      <div class="she-demo-card">
-        <div class="she-demo-topbar">
-          <div class="she-demo-pills">
-            <span class="she-demo-pill">Period care</span>
-            <span class="she-demo-pill">Pain support</span>
-            <span class="she-demo-pill">Hormone support</span>
-            <span class="she-demo-pill">Navigation tools</span>
+      <p class="she-demo-intro">
+        A preview of how SHE Finds compares women’s health products and support tools using structured, practical, non-promotional criteria.
+      </p>
+    </div>
+
+    <div class="she-demo-card">
+      <div class="she-demo-topbar">
+        <div class="she-demo-pills">
+          <span class="she-demo-pill">Period care</span>
+          <span class="she-demo-pill">Pain support</span>
+          <span class="she-demo-pill">Hormone support</span>
+          <span class="she-demo-pill">Navigation tools</span>
+        </div>
+
+        <span class="she-demo-status">Comparison preview</span>
+      </div>
+
+      <div class="she-demo-main">
+        <aside class="she-demo-sidebar">
+          <div class="she-demo-search">
+            <span class="she-demo-search-icon">⌕</span>
+            <input id="she-finds-search" type="text" placeholder="Search: heat patches, PMOS support...">
           </div>
-          <span class="she-demo-status">Comparison preview</span>
-        </div>
 
-        <div class="she-demo-main">
-          <aside class="she-demo-sidebar">
-            <div class="she-demo-search">
-              <span class="she-demo-search-icon">⌕</span>
-              <input id="she-finds-search" type="text" placeholder="Search: heat patches, PCOS supplements...">
-            </div>
+          <div class="she-topic-list" id="she-finds-list"></div>
+        </aside>
 
-            <div class="she-topic-list" id="she-finds-list"></div>
-          </aside>
-
-          <main class="she-demo-content" id="she-finds-output"></main>
-        </div>
+        <section class="she-demo-content" id="she-finds-output"></section>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <strong>SHE Health · Women’s Health, Made Easy</strong>
-    <span>Educational support only. SHE does not provide diagnosis or replace medical advice.</span>
-  </div>
-</footer>
-<footer class="site-footer secondary-footer">
-  <div class="footer-grid">
+<footer class="site-footer">
+  <div class="footer-container">
 
     <div class="footer-brand">
-      <h2>SHE<span>.</span></h2>
-      <p>Womens Health,<br>Made Easy.</p>
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
     </div>
 
-    <div>
+    <div class="footer-column">
       <h4>Platform</h4>
       <a href="she-helps.html">SHE Helps</a>
       <a href="she-facts.html">SHE Facts</a>
       <a href="she-finds.html">SHE Finds</a>
-      <a href="platform.html">SHE Asks</a>
-      <a href="platform.html">SHE Tells</a>
-      <a href="platform.html">SHE News</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
     </div>
 
-    <div>
-      <h4>Partners</h4>
-      <a href="partners.html">For Institutions</a>
-      <a href="partners.html">For Organisations</a>
-      <a href="partners.html">For Healthcare</a>
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <div>
-      <h4>Forum</h4>
-      <a href="forum.html">About the Forum</a>
-      <a href="forum.html">Events</a>
-    </div>
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
 
-    <div>
-      <h4>Stay Connected</h4>
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
       <form class="footer-form">
         <input type="email" placeholder="Enter your email">
         <button type="submit">→</button>
@@ -120,7 +648,232 @@
 
   </div>
 </footer>
-<script src="js/she-finds-premium.js"></script>
+
+<script>
+const SHE_FINDS_CONTENT = [
+  {
+    id:"period-care",
+    title:"Period care",
+    meta:"Cups, discs, pads, period underwear",
+    summary:"Browse period care options by comfort, practicality, accessibility and use case.",
+    products:[
+      {
+        name:"Menstrual cup",
+        category:"Reusable period care",
+        image:"https://placehold.co/600x420/fff3f8/ec3d86?text=Menstrual+Cup",
+        desc:"A reusable internal period product that may suit people looking for lower-waste, longer-wear options.",
+        scores:{Comfort:"4/5",Practicality:"4/5",Accessibility:"3/5"},
+        tags:["Reusable","Long wear","Learning curve"]
+      },
+      {
+        name:"Period underwear",
+        category:"Leak protection",
+        image:"https://placehold.co/600x420/f7f1ff/8b5cf6?text=Period+Underwear",
+        desc:"Absorbent underwear designed as backup protection or standalone support depending on flow.",
+        scores:{Comfort:"5/5",Practicality:"4/5",Accessibility:"3/5"},
+        tags:["Comfort","Backup","Washable"]
+      },
+      {
+        name:"Organic pads",
+        category:"External period care",
+        image:"https://placehold.co/600x420/fff8eb/f59e0b?text=Organic+Pads",
+        desc:"External disposable pads that may appeal to users wanting simple, familiar period protection.",
+        scores:{Comfort:"3/5",Practicality:"5/5",Accessibility:"5/5"},
+        tags:["Easy access","Disposable","Beginner friendly"]
+      }
+    ]
+  },
+  {
+    id:"pain-support",
+    title:"Pain support",
+    meta:"Heat, TENS, tracking, comfort tools",
+    summary:"Compare practical tools that may help people manage period pain or pelvic discomfort.",
+    products:[
+      {
+        name:"Heat patches",
+        category:"Heat therapy",
+        image:"https://placehold.co/600x420/ffe4f0/ec3d86?text=Heat+Patches",
+        desc:"Portable heat support often used for cramps, lower back discomfort or pelvic pain flare-ups.",
+        scores:{Comfort:"5/5",Practicality:"5/5",Accessibility:"4/5"},
+        tags:["Portable","Discreet","Single use"]
+      },
+      {
+        name:"TENS device",
+        category:"Pain support device",
+        image:"https://placehold.co/600x420/eef6ff/2563eb?text=TENS+Device",
+        desc:"A small device that uses mild electrical pulses and may support some people with period pain.",
+        scores:{Comfort:"3/5",Practicality:"3/5",Accessibility:"2/5"},
+        tags:["Reusable","Device","Higher cost"]
+      },
+      {
+        name:"Pain diary",
+        category:"Tracking tool",
+        image:"https://placehold.co/600x420/fff3f8/35102d?text=Pain+Diary",
+        desc:"A structured way to record timing, severity, triggers and impact before seeking support.",
+        scores:{Comfort:"5/5",Practicality:"4/5",Accessibility:"5/5"},
+        tags:["Appointment prep","Patterns","Free option"]
+      }
+    ]
+  },
+  {
+    id:"hormone-support",
+    title:"Hormone support",
+    meta:"PMOS support, tracking, supplements, appointment prep",
+    summary:"Compare support tools often searched by people navigating PMOS, irregular cycles or hormone symptoms.",
+    products:[
+      {
+        name:"Inositol support",
+        category:"Supplement guidance",
+        image:"https://placehold.co/600x420/f8f4ff/9333ea?text=Inositol+Support",
+        desc:"A commonly discussed supplement in PMOS spaces. SHE would explain what to know before buying.",
+        scores:{Comfort:"4/5",Practicality:"4/5",Accessibility:"3/5"},
+        tags:["PMOS","Research needed","Check suitability"]
+      },
+      {
+        name:"Cycle tracker",
+        category:"Tracking tool",
+        image:"https://placehold.co/600x420/eefcf4/22c55e?text=Cycle+Tracker",
+        desc:"A digital or paper tracker to record cycle length, bleeding, symptoms, mood and changes over time.",
+        scores:{Comfort:"5/5",Practicality:"5/5",Accessibility:"5/5"},
+        tags:["Patterns","Free option","Useful for GP"]
+      },
+      {
+        name:"Appointment checklist",
+        category:"Navigation tool",
+        image:"https://placehold.co/600x420/fff3f8/ec3d86?text=Appointment+Checklist",
+        desc:"A structured prompt list to help users explain symptoms, questions and concerns clearly.",
+        scores:{Comfort:"5/5",Practicality:"5/5",Accessibility:"5/5"},
+        tags:["GP prep","Clearer notes","Low cost"]
+      }
+    ]
+  },
+  {
+    id:"navigation-tools",
+    title:"Navigation tools",
+    meta:"Symptom tracking, service search, next-step support",
+    summary:"Browse tools that help users move from confusion to clearer action.",
+    products:[
+      {
+        name:"Symptom tracker",
+        category:"Pattern support",
+        image:"https://placehold.co/600x420/fff3f8/ec3d86?text=Symptom+Tracker",
+        desc:"Helps users record patterns across pain, bleeding, mood, sleep, bowel, bladder and cycle changes.",
+        scores:{Comfort:"5/5",Practicality:"5/5",Accessibility:"5/5"},
+        tags:["Your patterns","Low cost","Reusable"]
+      },
+      {
+        name:"Services map",
+        category:"Navigation support",
+        image:"https://placehold.co/600x420/eef6ff/2563eb?text=Services+Map",
+        desc:"A location-based support concept showing relevant services and pathways near the user.",
+        scores:{Comfort:"5/5",Practicality:"4/5",Accessibility:"4/5"},
+        tags:["Local support","Map view","Next steps"]
+      },
+      {
+        name:"Red flag guide",
+        category:"Safety support",
+        image:"https://placehold.co/600x420/fff8eb/f59e0b?text=Red+Flag+Guide",
+        desc:"Clear prompts explaining when symptoms may need more urgent support or professional advice.",
+        scores:{Comfort:"5/5",Practicality:"5/5",Accessibility:"5/5"},
+        tags:["Safety","Clear language","Action-focused"]
+      }
+    ]
+  }
+];
+
+function findsTemplate(item){
+  return `
+    <div class="finds-top">
+      <div>
+        <div class="finds-label">${item.title}</div>
+        <h3 class="finds-title">Browse ${item.title.toLowerCase()}</h3>
+        <p class="finds-summary">${item.summary}</p>
+      </div>
+      <div class="finds-badge">Structured comparison · Not sponsored</div>
+    </div>
+
+    <div class="product-browser">
+      ${item.products.map(product => `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+
+          <div class="product-body">
+            <div class="product-category">${product.category}</div>
+            <h3>${product.name}</h3>
+            <p>${product.desc}</p>
+
+            <div class="score-row">
+              ${Object.entries(product.scores).map(([key,value]) => `
+                <div class="score">
+                  <span>${key}</span>
+                  <strong>${value}</strong>
+                </div>
+              `).join("")}
+            </div>
+
+            <div class="product-tags">
+              ${product.tags.map(tag => `<span class="product-tag">${tag}</span>`).join("")}
+            </div>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+
+    <p class="finds-note">
+      SHE Finds is an educational product guidance preview. It does not replace medical advice and does not currently sell products directly.
+    </p>
+  `;
+}
+
+function renderFinds(item){
+  document.querySelectorAll("[data-finds-item]").forEach(btn =>
+    btn.classList.toggle("is-active", btn.dataset.findsItem === item.id)
+  );
+
+  document.getElementById("she-finds-output").innerHTML = findsTemplate(item);
+}
+
+function findsSearch(query){
+  const q = query.toLowerCase().trim();
+
+  return SHE_FINDS_CONTENT.find(item =>
+    item.id.includes(q) ||
+    item.title.toLowerCase().includes(q) ||
+    item.meta.toLowerCase().includes(q) ||
+    item.products.some(product =>
+      product.name.toLowerCase().includes(q) ||
+      product.category.toLowerCase().includes(q) ||
+      product.tags.join(" ").toLowerCase().includes(q)
+    )
+  ) || SHE_FINDS_CONTENT[0];
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("she-finds-list");
+
+  list.innerHTML = SHE_FINDS_CONTENT.map(item => `
+    <button class="she-topic-btn" type="button" data-finds-item="${item.id}">
+      <span class="she-topic-name">${item.title}</span>
+      <span class="she-topic-meta">${item.meta}</span>
+    </button>
+  `).join("");
+
+  list.querySelectorAll("[data-finds-item]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      renderFinds(SHE_FINDS_CONTENT.find(item => item.id === btn.dataset.findsItem));
+    });
+  });
+
+  const input = document.getElementById("she-finds-search");
+  input.addEventListener("input", () => renderFinds(findsSearch(input.value)));
+
+  renderFinds(SHE_FINDS_CONTENT[0]);
+});
+</script>
+
 <script src="js/global-ui.js"></script>
+
 </body>
 </html>
