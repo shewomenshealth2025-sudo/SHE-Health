@@ -20,6 +20,7 @@
   --shadow:0 22px 60px rgba(53,16,45,.08);
   --purple:#8b5cf6;
   --green:#22c55e;
+  --blue:#2563eb;
   --yellow:#fff4c7;
 }
 
@@ -34,7 +35,6 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
-/* HEADER */
 .nav{
   width:100%;
   background:#fff;
@@ -131,66 +131,32 @@ a{ text-decoration:none; color:inherit; }
   box-shadow:0 12px 26px rgba(236,61,134,.18);
 }
 
-/* HERO */
 .homepage-hero{
-  position:relative;
-  min-height:720px;
-  overflow:hidden;
-  background:#fff7fb;
-}
-
-/* FIXED IMAGE */
-.hero-background{
-  position:absolute;
-  top:0;
-  right:0;
-  width:66%;
-  height:100%;
-  object-fit:cover;
-  object-position:center center;
-  z-index:0;
-}
-
-/* FIXED SOFT BLEND */
-.hero-fade{
-  position:absolute;
-  inset:0;
-  z-index:1;
-
+  padding:72px 7% 44px;
   background:
-    linear-gradient(
-      90deg,
-      #fff7fb 0%,
-      rgba(255,247,251,.96) 18%,
-      rgba(255,247,251,.72) 34%,
-      rgba(255,247,251,.28) 48%,
-      rgba(255,247,251,0) 60%
-    );
+    radial-gradient(circle at 12% 16%, rgba(255,244,199,.85), transparent 30%),
+    radial-gradient(circle at 88% 10%, rgba(139,92,246,.12), transparent 28%),
+    linear-gradient(180deg,#fff7fb 0%,#fff 100%);
 }
 
 .home-shell{
   max-width:1180px;
   margin:0 auto;
-  position:relative;
-  z-index:2;
-  padding:0 7%;
 }
 
-/* FIXED LAYERING */
 .home-hero-card{
-  min-height:720px;
-  display:flex;
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  min-height:620px;
+  gap:34px;
   align-items:center;
-  position:relative;
-  z-index:3;
 }
 
-/* FIXED TEXT POSITION */
 .home-hero-copy{
-  position:relative;
-  z-index:5;
-  max-width:560px;
-  padding:72px 0 44px;
+  padding:34px 0 46px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .home-kicker{
@@ -217,7 +183,7 @@ a{ text-decoration:none; color:inherit; }
   color:var(--muted);
   font-size:20px;
   line-height:1.65;
-  max-width:540px;
+  max-width:620px;
 }
 
 .home-demo-note{
@@ -226,7 +192,7 @@ a{ text-decoration:none; color:inherit; }
   align-items:center;
   gap:10px;
   width:fit-content;
-  background:rgba(255,243,248,.92);
+  background:#fff3f8;
   border:1px solid var(--border);
   color:var(--plum);
   border-radius:999px;
@@ -257,9 +223,30 @@ a{ text-decoration:none; color:inherit; }
   color:var(--pink);
 }
 
+/* FIXED RIGHT SIDE */
+.home-visual{
+  position:relative;
+  min-height:auto;
+  background:none;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-women-image{
+  width:100%;
+  max-width:760px;
+  display:block;
+  object-fit:contain;
+}
+
 /* WHAT IS SHE */
 .what-is-she{
-  padding:70px 7% 92px;
+  padding:34px 7% 92px;
   background:linear-gradient(180deg,#fff,#fff7fb);
 }
 
@@ -518,41 +505,17 @@ a{ text-decoration:none; color:inherit; }
   }
 
   .homepage-hero{
-    min-height:auto;
-    padding-bottom:410px;
-  }
-
-  .hero-background{
-    top:auto;
-    bottom:0;
-    width:100%;
-    height:410px;
-    object-position:center bottom;
-  }
-
-  .hero-fade{
-    background:
-      linear-gradient(
-        180deg,
-        #fff7fb 0%,
-        rgba(255,247,251,.96) 42%,
-        rgba(255,247,251,.72) 65%,
-        rgba(255,247,251,0) 100%
-      );
-  }
-
-  .home-shell{
-    padding:0 24px;
+    padding:46px 24px 28px;
   }
 
   .home-hero-card{
+    grid-template-columns:1fr;
     min-height:auto;
-    align-items:flex-start;
+    gap:24px;
   }
 
   .home-hero-copy{
-    max-width:100%;
-    padding:46px 0 10px;
+    padding:18px 0 6px;
   }
 
   .home-title{
@@ -569,6 +532,16 @@ a{ text-decoration:none; color:inherit; }
 
   .home-btn{
     text-align:center;
+  }
+
+  .home-visual{
+    min-height:auto;
+    border:none;
+    border-radius:0;
+  }
+
+  .hero-women-image{
+    max-width:100%;
   }
 
   .what-is-she{
@@ -635,15 +608,6 @@ a{ text-decoration:none; color:inherit; }
 <main>
 
 <section class="homepage-hero">
-
-  <img
-    src="assets/homepage-women.png"
-    alt="Women using SHE Health"
-    class="hero-background"
-  >
-
-  <div class="hero-fade"></div>
-
   <div class="home-shell">
 
     <div class="home-hero-card">
@@ -667,6 +631,14 @@ a{ text-decoration:none; color:inherit; }
           <a class="home-btn" href="platform.html">Explore the app demo</a>
           <a class="home-btn secondary" href="forum.html">See the SHE Forum</a>
         </div>
+      </div>
+
+      <div class="home-visual">
+        <img 
+          src="assets/homepage-women.png" 
+          alt="Women using SHE Health"
+          class="hero-women-image"
+        >
       </div>
     </div>
 
