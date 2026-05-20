@@ -633,3 +633,265 @@ a {
     font-size: 0.9rem;
   }
 }
+/* =========================================================
+   SHE GLOBAL MOBILE FIX
+   Applies to: SHE Finds, SHE Facts, SHE Asks, SHE News
+   Add this once at the BOTTOM of css/global.css
+========================================================= */
+
+@media (max-width: 950px){
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    font-size:16px;
+  }
+
+  img,
+  video,
+  iframe{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* General section spacing */
+  .she-product-demo,
+  .asks-hero,
+  .news-hero,
+  .filter-section,
+  .questions-section,
+  .news-section,
+  .insight-section{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .she-product-demo{
+    padding-top:56px !important;
+    padding-bottom:70px !important;
+  }
+
+  /* Big headings */
+  .she-demo-title,
+  .asks-hero h1,
+  .news-hero h1{
+    font-size:clamp(42px,13vw,64px) !important;
+    line-height:.92 !important;
+    letter-spacing:-.065em !important;
+  }
+
+  .she-demo-intro,
+  .asks-hero p,
+  .news-hero p{
+    font-size:17px !important;
+    line-height:1.65 !important;
+  }
+
+  /* SHE Facts + SHE Finds layout */
+  .she-demo-header,
+  .she-demo-main{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+  }
+
+  .she-demo-card{
+    border-radius:28px !important;
+    overflow:hidden !important;
+  }
+
+  .she-demo-topbar{
+    display:block !important;
+    padding:18px !important;
+  }
+
+  .she-demo-pills{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    gap:8px !important;
+    padding-bottom:8px !important;
+    scrollbar-width:none;
+  }
+
+  .she-demo-pills::-webkit-scrollbar{
+    display:none;
+  }
+
+  .she-demo-pill{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+
+  .she-demo-status{
+    display:block !important;
+    margin-top:8px !important;
+  }
+
+  .she-demo-sidebar{
+    border-right:0 !important;
+    border-bottom:1px solid var(--border) !important;
+    padding:20px !important;
+  }
+
+  .she-topic-list{
+    display:flex !important;
+    overflow-x:auto !important;
+    gap:10px !important;
+    padding-bottom:8px !important;
+    scrollbar-width:none;
+  }
+
+  .she-topic-list::-webkit-scrollbar{
+    display:none;
+  }
+
+  .she-topic-btn{
+    min-width:230px !important;
+    flex:0 0 auto !important;
+  }
+
+  .she-demo-content{
+    padding:22px !important;
+  }
+
+  /* SHE Facts content blocks */
+  .she-content-top,
+  .finds-top{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:16px !important;
+  }
+
+  .she-action-button,
+  .finds-badge{
+    width:100% !important;
+    white-space:normal !important;
+    text-align:center !important;
+  }
+
+  .she-content-grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "pattern"
+      "symptoms"
+      "what"
+      "know"
+      "next"
+      "facts"
+      "finds" !important;
+    gap:14px !important;
+  }
+
+  .she-info-block,
+  .she-pattern-card{
+    border-radius:20px !important;
+    padding:18px !important;
+  }
+
+  /* SHE Finds product browser */
+  .product-browser{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+
+  .product-card{
+    border-radius:24px !important;
+  }
+
+  .product-image{
+    height:210px !important;
+  }
+
+  .product-body h3{
+    font-size:24px !important;
+  }
+
+  /* SHE Asks + SHE News cards */
+  .ask-section,
+  .questions-section,
+  .news-section,
+  .insight-section{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .ask-box,
+  .community-panel,
+  .insight-panel{
+    padding:28px !important;
+    border-radius:28px !important;
+  }
+
+  .ask-form,
+  .questions-grid,
+  .news-grid,
+  .insight-panel{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+  }
+
+  .ask-form button,
+  .expand-btn{
+    width:100% !important;
+  }
+
+  .question-card,
+  .news-card{
+    padding:26px !important;
+    border-radius:28px !important;
+  }
+
+  .question-card h2,
+  .news-card h2,
+  .community-panel h2,
+  .insight-panel h2{
+    font-size:clamp(34px,10vw,52px) !important;
+    line-height:1 !important;
+  }
+
+  .question-card h3,
+  .news-card h3{
+    font-size:24px !important;
+  }
+
+  /* Filter buttons */
+  .filter-bar{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    gap:10px !important;
+    padding-bottom:8px !important;
+    scrollbar-width:none;
+  }
+
+  .filter-bar::-webkit-scrollbar{
+    display:none;
+  }
+
+  .filter-btn{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+
+  /* Footer */
+  .site-footer{
+    padding:48px 22px !important;
+  }
+
+  .footer-container{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+  }
+
+  .footer-form{
+    max-width:100% !important;
+  }
+}
