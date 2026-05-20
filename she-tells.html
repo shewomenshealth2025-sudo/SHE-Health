@@ -20,18 +20,25 @@
   --shadow:0 22px 60px rgba(53,16,45,.07);
 }
 
-*{ box-sizing:border-box; }
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
   background:#fff;
   color:var(--plum);
+  overflow-x:hidden;
 }
 
-a{ text-decoration:none; color:inherit; }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 /* MOBILE MENU */
+
 .mobile-menu-btn{
   display:none;
 }
@@ -393,7 +400,9 @@ a{ text-decoration:none; color:inherit; }
   line-height:1.4;
 }
 
-.footer-column a:hover{ color:var(--pink); }
+.footer-column a:hover{
+  color:var(--pink);
+}
 
 .footer-text{
   margin:0 0 14px;
@@ -432,6 +441,7 @@ a{ text-decoration:none; color:inherit; }
 /* MOBILE */
 
 @media(max-width:950px){
+
   .links,
   .header-early-access{
     display:none;
@@ -561,287 +571,72 @@ a{ text-decoration:none; color:inherit; }
       Join Early Access
     </a>
 
+    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
+      ☰
+    </button>
+
   </div>
 </header>
 
 <div class="mobile-menu-panel" id="mobileMenuPanel">
   <a href="index.html">Home</a>
   <a href="platform.html">Discover</a>
+  <a href="she-helps.html">SHE Helps</a>
+  <a href="she-facts.html">SHE Facts</a>
+  <a href="she-finds.html">SHE Finds</a>
+  <a href="she-news.html">SHE News</a>
+  <a href="she-asks.html">SHE Asks</a>
+  <a href="she-tells.html">SHE Tells</a>
   <a href="forum.html">SHE Forum</a>
   <a href="partners.html">Partners</a>
   <a href="contact.html">Contact</a>
   <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
 </div>
 
-<main>
-
-<section class="tells-hero">
-  <div class="tells-hero-inner">
-
-    <div class="tells-kicker">SHE Tells</div>
-
-    <h1>
-      Expert voices shaping the women’s health <span>conversation.</span>
-    </h1>
-
-    <p>
-      SHE Tells is a curated space for experts across healthcare, research,
-      public health, innovation and advocacy to contribute advice, recommendations,
-      practical insight and trusted perspective.
-    </p>
-
-  </div>
-</section>
-
-<section class="expert-panel-section">
-  <div class="expert-panel">
-
-    <div>
-      <h2>Not noise. <span>Expert-led clarity.</span></h2>
-
-      <p>
-        Women’s health conversations are often dominated by fragmented advice,
-        social media trends and inconsistent information. SHE Tells creates a more
-        credible space where trusted voices can explain what matters, what to ask,
-        what to consider and where women may need further support.
-      </p>
-
-      <p>
-        It is designed to bring professional insight into everyday language — not
-        as diagnosis, but as education, guidance and conversation.
-      </p>
-    </div>
-
-    <div class="expert-box">
-      <strong>Who contributes?</strong>
-
-      <ul>
-        <li>Clinicians and healthcare professionals</li>
-        <li>Researchers and academics</li>
-        <li>Public health specialists</li>
-        <li>Femtech founders and innovators</li>
-        <li>Advocates, educators and sector leaders</li>
-        <li>Experts with lived and professional insight</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section class="filter-section">
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="clinician">Clinician</button>
-    <button class="filter-btn" data-filter="research">Research</button>
-    <button class="filter-btn" data-filter="innovation">Innovation</button>
-    <button class="filter-btn" data-filter="advocacy">Advocacy</button>
-  </div>
-</section>
-
-<section class="tells-section">
-  <div class="tells-grid">
-
-    <article class="tells-card featured filter-item" data-category="clinician">
-      <span class="tells-label">Featured expert insight</span>
-
-      <h2>When symptoms are common, but not normal.</h2>
-
-      <div class="expert-meta">
-        <span class="meta-pill">Clinical insight</span>
-        <span class="meta-pill">Symptom awareness</span>
-        <span class="meta-pill">Appointment preparation</span>
-      </div>
-
-      <p>
-        Expert-led conversations helping women understand what to notice,
-        what to track and what to raise with a healthcare professional.
-      </p>
-
-      <button class="expand-btn">Key insight</button>
-
-      <div class="hidden-content">
-        Many symptoms become invisible because they are common. SHE Tells helps
-        translate professional guidance into clear, usable language so women feel
-        more prepared and less dismissed.
-      </div>
-    </article>
-
-    <div class="tells-stack">
-
-      <article class="tells-card filter-item" data-category="clinician">
-        <span class="tells-label">Clinician voice</span>
-
-        <h3>Understanding pelvic pain</h3>
-
-        <p>
-          Clear advice from professionals working across women’s health,
-          gynaecology and pelvic health.
-        </p>
-
-        <button class="expand-btn">Open insight</button>
-
-        <div class="hidden-content">
-          Pelvic pain can have multiple causes. The aim is not self-diagnosis, but
-          knowing when symptoms should be reviewed and how to explain them clearly.
-        </div>
-      </article>
-
-      <article class="tells-card filter-item" data-category="research">
-        <span class="tells-label">Research voice</span>
-
-        <h3>What new evidence actually means</h3>
-
-        <p>
-          Research translated into practical takeaways women and institutions can use.
-        </p>
-
-        <button class="expand-btn">Open insight</button>
-
-        <div class="hidden-content">
-          SHE Tells can help bridge academic evidence and everyday understanding,
-          especially where research affects symptoms, care pathways or public health.
-        </div>
-      </article>
-
-      <article class="tells-card filter-item" data-category="innovation">
-        <span class="tells-label">Innovation voice</span>
-
-        <h3>The future of femtech</h3>
-
-        <p>
-          Insight from people building women’s health solutions across digital health,
-          data, access and navigation.
-        </p>
-
-        <button class="expand-btn">Open insight</button>
-
-        <div class="hidden-content">
-          Femtech is moving beyond tracking into navigation, prevention, access,
-          patient education and system-level support.
-        </div>
-      </article>
-
-      <article class="tells-card filter-item" data-category="advocacy">
-        <span class="tells-label">Advocacy voice</span>
-
-        <h3>Stories that shape better systems</h3>
-
-        <p>
-          Advocacy and lived experience connected to education, policy and practical
-          support.
-        </p>
-
-        <button class="expand-btn">Open insight</button>
-
-        <div class="hidden-content">
-          Lived experience helps reveal what systems miss: confusion, delays,
-          dismissal, poor communication and unclear next steps.
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="contribute-section">
-  <div class="contribute-panel">
-
-    <div>
-      <h2>Contribute to SHE Tells.</h2>
-
-      <p>
-        SHE Tells is built for credible contributors who want to support better
-        women’s health education and conversation. Clinicians, researchers,
-        innovators and sector experts can share advice, recommendations, explainers,
-        interviews and practical guidance.
-      </p>
-    </div>
-
-    <a class="btn" href="contact.html">Register interest</a>
-
-  </div>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-container">
-
-    <div class="footer-brand">
-      <div class="footer-logo-row">
-        <img src="assets/logo.png" alt="SHE logo">
-
-        <div>
-          <h2>SHE</h2>
-          <p>Women’s Health,<br>Made Easy.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-column">
-      <h4>Platform</h4>
-      <a href="she-helps.html">SHE Helps</a>
-      <a href="she-facts.html">SHE Facts</a>
-      <a href="she-finds.html">SHE Finds</a>
-      <a href="she-news.html">SHE News</a>
-      <a href="she-asks.html">SHE Asks</a>
-      <a href="she-tells.html">SHE Tells</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>Navigate</h4>
-      <a href="index.html">Home</a>
-      <a href="platform.html">Discover</a>
-      <a href="forum.html">SHE Forum</a>
-      <a href="partners.html">Partners</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>Stay in the loop</h4>
-
-      <p class="footer-text">
-        News, updates and women’s health insights.
-      </p>
-
-      <form class="footer-form">
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">→</button>
-      </form>
-    </div>
-
-  </div>
-</footer>
+<!-- KEEP THE REST OF YOUR PAGE EXACTLY THE SAME -->
 
 <script>
 const menuButton = document.querySelector(".mobile-menu-btn");
 
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
-});
+if(menuButton){
+  menuButton.addEventListener("click", function () {
+    document.body.classList.toggle("menu-open");
+  });
+}
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const items = document.querySelectorAll(".filter-item");
 
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
+
+    filterButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
     button.classList.add("active");
 
     const filter = button.dataset.filter;
 
     items.forEach(item => {
-      item.style.display =
-        filter === "all" || item.dataset.category === filter ? "" : "none";
+
+      if(filter === "all" || item.dataset.category === filter){
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+
     });
+
   });
 });
 
 document.querySelectorAll(".expand-btn").forEach(button => {
+
   button.addEventListener("click", () => {
     button.nextElementSibling.classList.toggle("open");
   });
+
 });
 </script>
 
