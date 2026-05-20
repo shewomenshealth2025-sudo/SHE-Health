@@ -32,6 +32,27 @@ a{
   color:inherit;
 }
 
+.btn,
+.header-early-access{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--pink);
+  background:var(--pink);
+  color:#fff;
+  border-radius:999px;
+  padding:15px 24px;
+  font-size:15px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 12px 26px rgba(236,61,134,.18);
+}
+
+.hero-actions .btn:last-child{
+  background:#fff;
+  color:var(--pink);
+}
+
 /* MOBILE MENU */
 .mobile-menu-btn{
   display:none;
@@ -494,6 +515,10 @@ a{
       Join Early Access
     </a>
 
+    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
+      ☰
+    </button>
+
   </div>
 </header>
 
@@ -689,18 +714,12 @@ a{
 <script>
 const menuButton = document.querySelector(".mobile-menu-btn");
 
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
-});
+if (menuButton) {
+  menuButton.addEventListener("click", function () {
+    document.body.classList.toggle("menu-open");
+  });
+}
 </script>
-
-</body>
-</html>
-
-  </div>
-</footer>
-
-<script src="js/global-ui.js"></script>
 
 </body>
 </html>
