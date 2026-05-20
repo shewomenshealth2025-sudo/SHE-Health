@@ -584,6 +584,228 @@ a{ text-decoration:none; color:inherit; }
     max-width:100%;
   }
 }
+
+/* MOBILE LEGIBILITY FIX */
+@media(max-width:950px){
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .she-product-demo{
+    padding:34px 16px 56px !important;
+  }
+
+  .she-demo-shell,
+  .she-demo-card,
+  .she-demo-main,
+  .she-demo-sidebar,
+  .she-demo-content,
+  .she-content-top,
+  .she-content-grid,
+  .she-info-block,
+  .she-pattern-card{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  .she-demo-header{
+    display:block;
+    margin-bottom:20px;
+  }
+
+  .she-demo-title{
+    font-size:42px;
+    line-height:.95;
+    letter-spacing:-.05em;
+    margin-bottom:14px;
+  }
+
+  .she-demo-intro{
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  .she-demo-card{
+    border-radius:26px;
+    overflow:hidden;
+  }
+
+  .she-demo-topbar{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px;
+    gap:10px;
+  }
+
+  .she-demo-pills{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    width:100%;
+    max-width:100%;
+    padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .she-demo-pill{
+    flex:0 0 auto;
+    font-size:11px;
+    padding:7px 10px;
+  }
+
+  .she-demo-status{
+    white-space:normal;
+    font-size:11px;
+  }
+
+  .she-demo-main{
+    display:block;
+    min-height:0;
+  }
+
+  .she-demo-sidebar{
+    padding:14px;
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .she-demo-search input{
+    font-size:16px;
+    border-radius:16px;
+    padding:13px 14px 13px 40px;
+  }
+
+  .she-topic-list{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:6px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .she-topic-btn{
+    min-width:210px;
+    max-width:230px;
+    flex:0 0 auto;
+    padding:12px;
+    border-radius:16px;
+  }
+
+  .she-topic-name{
+    font-size:14px;
+  }
+
+  .she-topic-meta{
+    font-size:11px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  .she-demo-content{
+    padding:18px 14px;
+    overflow:hidden;
+  }
+
+  .she-content-top{
+    display:block;
+    margin-bottom:16px;
+  }
+
+  .she-content-title{
+    font-size:38px;
+    line-height:1;
+    letter-spacing:-.04em;
+    margin:8px 0 12px;
+    overflow-wrap:anywhere;
+  }
+
+  .she-content-summary{
+    font-size:16px;
+    line-height:1.55;
+    max-width:100%;
+    overflow-wrap:break-word;
+  }
+
+  .she-action-button{
+    width:100%;
+    margin-top:16px;
+    padding:14px 16px;
+    font-size:15px;
+    white-space:normal;
+    text-align:center;
+  }
+
+  .she-content-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "pattern"
+      "symptoms"
+      "what"
+      "know"
+      "next"
+      "facts"
+      "finds";
+    gap:12px;
+  }
+
+  .she-pattern-card,
+  .she-info-block{
+    border-radius:20px;
+    padding:16px;
+    overflow:hidden;
+  }
+
+  .she-pattern-label,
+  .she-content-label{
+    font-size:11px;
+    letter-spacing:.06em;
+  }
+
+  .she-pattern-card h4,
+  .she-info-block h4{
+    font-size:18px;
+    line-height:1.2;
+  }
+
+  .she-pattern-card p,
+  .she-info-block p,
+  .she-info-block li{
+    font-size:15px;
+    line-height:1.6;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+
+  .she-info-block ul{
+    padding-left:18px;
+  }
+
+  .she-symptom-pills,
+  .she-mini-links{
+    gap:8px;
+  }
+
+  .she-symptom-pill,
+  .she-mini-link{
+    max-width:100%;
+    white-space:normal;
+    overflow-wrap:break-word;
+    font-size:13px;
+    line-height:1.25;
+    padding:9px 12px;
+  }
+
+  .she-demo-disclaimer{
+    font-size:12px;
+    line-height:1.5;
+    overflow-wrap:break-word;
+  }
+}
+
 </style>
 </head>
 
@@ -728,9 +950,11 @@ a{ text-decoration:none; color:inherit; }
 <script>
 const menuButton = document.querySelector(".mobile-menu-btn");
 
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
-});
+if (menuButton) {
+  menuButton.addEventListener("click", function () {
+    document.body.classList.toggle("menu-open");
+  });
+}
 
 const SHE_FACTS_CONTENT = [
   {
