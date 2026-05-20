@@ -965,7 +965,11 @@ const SHE_FACTS_CONTENT = [
     summary: "SHE Facts separates common period pain from symptoms that may need further support.",
     what: "Painful periods can range from common menstrual cramps to pain linked with conditions such as endometriosis, adenomyosis, fibroids, pelvic inflammatory disease or heavy menstrual bleeding. The key issue is impact: if pain repeatedly disrupts work, study, sleep, relationships or daily routine, it should not be brushed off as normal.",
     pattern: "Pain is especially worth tracking when it is severe, one-sided, worsening, linked with heavy bleeding, or affecting daily life.",
-    know: ["Track when the pain starts, where it is felt and how long it lasts.", "Note bleeding pattern, clotting, bowel/bladder symptoms and fatigue.", "Record whether pain relief, heat or rest actually helps."],
+    know: [
+      "Track when the pain starts, where it is felt and how long it lasts.",
+      "Note bleeding pattern, clotting, bowel/bladder symptoms and fatigue.",
+      "Record whether pain relief, heat or rest actually helps."
+    ],
     next: "Speak to a GP or healthcare professional if the pain is severe, worsening, new, one-sided, associated with very heavy bleeding, or stopping normal activities.",
     linkedFacts: ["Endometriosis", "Adenomyosis", "Heavy menstrual bleeding"],
     linkedFinds: ["Heat therapy", "TENS devices", "Period care", "Symptom tracking"]
@@ -978,138 +982,135 @@ const SHE_FACTS_CONTENT = [
     summary: "PMOS, previously known as PCOS, is a hormone and metabolic condition affecting cycles, skin, hair growth, fertility and long-term health.",
     what: "PMOS stands for Polyendocrine Metabolic Ovarian Syndrome. It reflects that the condition is not simply about ovarian cysts. It can involve hormone changes, irregular ovulation, androgen-related symptoms such as acne or excess hair growth, insulin resistance, metabolic risk, fertility concerns and emotional wellbeing.",
     pattern: "A PMOS pattern may involve irregular cycles alongside skin, hair, weight, fertility or metabolic changes. SHE helps users connect these patterns before seeking support.",
-    know: ["Irregular or infrequent periods can be a key sign.", "Symptoms may include acne, excess facial/body hair, scalp hair thinning, weight changes or difficulty conceiving.", "Support may involve cycle management, metabolic health, skin/hair symptoms, fertility planning and long-term risk monitoring."],
+    know: [
+      "Irregular or infrequent periods can be a key sign.",
+      "Symptoms may include acne, excess facial/body hair, scalp hair thinning, weight changes or difficulty conceiving.",
+      "Support may involve cycle management, metabolic health, skin/hair symptoms, fertility planning and long-term risk monitoring."
+    ],
     next: "Seek medical advice if periods are very irregular, symptoms are worsening, or you are trying to conceive. Track cycles, skin/hair changes, weight patterns and family history before an appointment.",
     linkedFacts: ["Insulin resistance", "Irregular periods", "Acne and hormones"],
     linkedFinds: ["Cycle tracking", "Inositol guidance", "Appointment prep"]
+  },
+  {
+    id: "endometriosis",
+    topic: "Gynaecology",
+    title: "Endometriosis",
+    meta: "Pelvic pain, fatigue, painful periods",
+    summary: "Endometriosis is a condition where tissue similar to the lining of the uterus grows outside of it, often causing pain and inflammation.",
+    what: "Endometriosis can affect the ovaries, fallopian tubes, bladder, bowel and surrounding pelvic tissue. Symptoms vary widely. Some women experience severe pain while others have fertility difficulties, fatigue or digestive symptoms.",
+    pattern: "Pain that worsens around periods, pain during sex, bowel symptoms, fatigue and years of being dismissed are common patterns.",
+    know: [
+      "Symptoms can begin in teenage years.",
+      "Severity of pain does not always reflect severity of disease.",
+      "Diagnosis is often delayed for years."
+    ],
+    next: "Seek medical support if pelvic pain repeatedly affects work, school, relationships or daily life.",
+    linkedFacts: ["Painful periods", "Heavy menstrual bleeding", "Fatigue"],
+    linkedFinds: ["Heat therapy", "Pelvic support", "Symptom tracking"]
+  },
+  {
+    id: "adenomyosis",
+    topic: "Gynaecology",
+    title: "Adenomyosis",
+    meta: "Heavy bleeding, pelvic pain, bloating",
+    summary: "Adenomyosis occurs when tissue similar to the womb lining grows into the muscle wall of the uterus.",
+    what: "Adenomyosis can cause very heavy periods, pelvic pressure, clotting, bloating and intense cramps. It is commonly confused with normal period pain.",
+    pattern: "Women often describe worsening heavy bleeding, pelvic fullness and exhaustion around periods.",
+    know: [
+      "Symptoms can overlap with endometriosis or fibroids.",
+      "Heavy bleeding may contribute to iron deficiency.",
+      "Pain can progressively worsen over time."
+    ],
+    next: "Seek support if periods are becoming heavier, more painful or causing fatigue and disruption.",
+    linkedFacts: ["Heavy menstrual bleeding", "Iron deficiency", "Endometriosis"],
+    linkedFinds: ["Period care", "Pain support", "Iron support"]
+  },
+  {
+    id: "fibroids",
+    topic: "Gynaecology",
+    title: "Fibroids",
+    meta: "Heavy bleeding, pressure, pelvic fullness",
+    summary: "Fibroids are non-cancerous growths that develop in or around the uterus.",
+    what: "Fibroids vary in size and location. Some cause no symptoms while others lead to heavy bleeding, pressure, urinary frequency or fertility difficulties.",
+    pattern: "Heavy periods, clotting, bloating and pressure symptoms are common patterns.",
+    know: [
+      "Fibroids are very common.",
+      "Symptoms depend on size and location.",
+      "Heavy bleeding may cause anaemia."
+    ],
+    next: "Seek medical advice if bleeding becomes excessive, painful or affects quality of life.",
+    linkedFacts: ["Heavy menstrual bleeding", "Anaemia", "Pelvic pain"],
+    linkedFinds: ["Period products", "Iron support", "Appointment prep"]
+  },
+  {
+    id: "menopause",
+    topic: "Hormones",
+    title: "Menopause",
+    meta: "Hot flushes, sleep, mood, hormones",
+    summary: "Menopause reflects hormonal changes that can affect the entire body, not just periods.",
+    what: "Menopause and perimenopause can affect sleep, mood, energy, concentration, temperature regulation, vaginal health, joints and overall wellbeing. Symptoms vary significantly between women.",
+    pattern: "Women often notice changes years before periods fully stop, including brain fog, anxiety, night sweats, fatigue or irregular cycles.",
+    know: [
+      "Perimenopause can begin years before menopause.",
+      "Symptoms can impact work, confidence and relationships.",
+      "Support options may include lifestyle support, HRT and symptom management."
+    ],
+    next: "Seek support if symptoms are disrupting sleep, work, mental wellbeing or quality of life.",
+    linkedFacts: ["Perimenopause", "Sleep", "Hormones"],
+    linkedFinds: ["Cooling products", "Sleep support", "HRT guidance"]
+  },
+  {
+    id: "uti",
+    topic: "Urinary Health",
+    title: "UTIs",
+    meta: "Burning, urgency, bladder symptoms",
+    summary: "Urinary tract infections are common and can cause pain, burning and urgency when urinating.",
+    what: "UTIs occur when bacteria enter the urinary tract. Symptoms can range from mild burning to severe pain or kidney infection symptoms.",
+    pattern: "Burning urination, needing to pee frequently and lower abdominal discomfort are common signs.",
+    know: [
+      "Some women experience recurrent UTIs.",
+      "Hydration and early treatment matter.",
+      "Symptoms worsening quickly may require urgent support."
+    ],
+    next: "Seek medical advice if symptoms are severe, recurrent, associated with fever or not improving.",
+    linkedFacts: ["Bladder health", "Hydration", "Hormones"],
+    linkedFinds: ["Hydration support", "Intimate care", "Appointment prep"]
+  },
+  {
+    id: "iron-deficiency",
+    topic: "Energy & Nutrition",
+    title: "Iron deficiency",
+    meta: "Fatigue, dizziness, heavy periods",
+    summary: "Iron deficiency is common in women and may be linked with heavy menstrual bleeding.",
+    what: "Low iron can affect energy, concentration, exercise tolerance, hair health and overall wellbeing.",
+    pattern: "Persistent tiredness, breathlessness, dizziness or pale skin may indicate low iron levels.",
+    know: [
+      "Heavy periods are a major contributor.",
+      "Iron deficiency can exist before anaemia develops.",
+      "Diet and absorption both matter."
+    ],
+    next: "Consider medical advice and blood testing if fatigue is ongoing or worsening.",
+    linkedFacts: ["Heavy menstrual bleeding", "Fatigue", "Periods"],
+    linkedFinds: ["Iron support", "Nutrition guidance", "Energy support"]
+  },
+  {
+    id: "autoimmune-disease",
+    topic: "Autoimmune Health",
+    title: "Autoimmune disease",
+    meta: "Fatigue, inflammation, pain, flare-ups",
+    summary: "Autoimmune diseases occur when the immune system mistakenly attacks the body’s own tissues.",
+    what: "There are over 80 recognised autoimmune diseases, including lupus, rheumatoid arthritis, Hashimoto’s thyroiditis, coeliac disease and multiple sclerosis. Many disproportionately affect women and can impact energy, hormones, joints, digestion, skin and mental wellbeing.",
+    pattern: "Women often experience years of unexplained fatigue, pain, inflammation or fluctuating symptoms before diagnosis.",
+    know: [
+      "Symptoms can come and go in flare-ups.",
+      "Fatigue is one of the most common symptoms.",
+      "Autoimmune conditions are more common in women."
+    ],
+    next: "Seek medical support if symptoms are persistent, worsening or affecting multiple systems in the body.",
+    linkedFacts: ["Fatigue", "Hormones", "Inflammation"],
+    linkedFinds: ["Symptom tracking", "Energy support", "Nutrition support"]
   }
 ];
-  ,
-{
-  id: "endometriosis",
-  topic: "Gynaecology",
-  title: "Endometriosis",
-  meta: "Pelvic pain, fatigue, painful periods",
-  summary: "Endometriosis is a condition where tissue similar to the lining of the uterus grows outside of it, often causing pain and inflammation.",
-  what: "Endometriosis can affect the ovaries, fallopian tubes, bladder, bowel and surrounding pelvic tissue. Symptoms vary widely. Some women experience severe pain while others have fertility difficulties, fatigue or digestive symptoms.",
-  pattern: "Pain that worsens around periods, pain during sex, bowel symptoms, fatigue and years of being dismissed are common patterns.",
-  know: [
-    "Symptoms can begin in teenage years.",
-    "Severity of pain does not always reflect severity of disease.",
-    "Diagnosis is often delayed for years."
-  ],
-  next: "Seek medical support if pelvic pain repeatedly affects work, school, relationships or daily life.",
-  linkedFacts: ["Painful periods", "Heavy menstrual bleeding", "Fatigue"],
-  linkedFinds: ["Heat therapy", "Pelvic support", "Symptom tracking"]
-},
-
-{
-  id: "adenomyosis",
-  topic: "Gynaecology",
-  title: "Adenomyosis",
-  meta: "Heavy bleeding, pelvic pain, bloating",
-  summary: "Adenomyosis occurs when tissue similar to the womb lining grows into the muscle wall of the uterus.",
-  what: "Adenomyosis can cause very heavy periods, pelvic pressure, clotting, bloating and intense cramps. It is commonly confused with normal period pain.",
-  pattern: "Women often describe worsening heavy bleeding, pelvic fullness and exhaustion around periods.",
-  know: [
-    "Symptoms can overlap with endometriosis or fibroids.",
-    "Heavy bleeding may contribute to iron deficiency.",
-    "Pain can progressively worsen over time."
-  ],
-  next: "Seek support if periods are becoming heavier, more painful or causing fatigue and disruption.",
-  linkedFacts: ["Heavy menstrual bleeding", "Iron deficiency", "Endometriosis"],
-  linkedFinds: ["Period care", "Pain support", "Iron support"]
-},
-
-{
-  id: "fibroids",
-  topic: "Gynaecology",
-  title: "Fibroids",
-  meta: "Heavy bleeding, pressure, pelvic fullness",
-  summary: "Fibroids are non-cancerous growths that develop in or around the uterus.",
-  what: "Fibroids vary in size and location. Some cause no symptoms while others lead to heavy bleeding, pressure, urinary frequency or fertility difficulties.",
-  pattern: "Heavy periods, clotting, bloating and pressure symptoms are common patterns.",
-  know: [
-    "Fibroids are very common.",
-    "Symptoms depend on size and location.",
-    "Heavy bleeding may cause anaemia."
-  ],
-  next: "Seek medical advice if bleeding becomes excessive, painful or affects quality of life.",
-  linkedFacts: ["Heavy menstrual bleeding", "Anaemia", "Pelvic pain"],
-  linkedFinds: ["Period products", "Iron support", "Appointment prep"]
-},
-
-{
-  id: "menopause",
-  topic: "Hormones",
-  title: "Menopause",
-  meta: "Hot flushes, sleep, mood, hormones",
-  summary: "Menopause reflects the natural decline in reproductive hormones and affects the entire body, not just periods.",
-  what: "Symptoms can include hot flushes, sleep disruption, anxiety, brain fog, vaginal dryness, joint pain and changes in energy or mood.",
-  pattern: "Many women notice symptoms years before periods stop completely during perimenopause.",
-  know: [
-    "Symptoms vary widely between individuals.",
-    "Sleep disruption is extremely common.",
-    "Hormonal changes can affect mental wellbeing."
-  ],
-  next: "Seek support if symptoms are affecting work, relationships, confidence or daily functioning.",
-  linkedFacts: ["Perimenopause", "Sleep", "Hormones"],
-  linkedFinds: ["Cooling products", "Sleep support", "HRT information"]
-},
-
-{
-  id: "uti",
-  topic: "Urinary Health",
-  title: "UTIs",
-  meta: "Burning, urgency, bladder symptoms",
-  summary: "Urinary tract infections are common and can cause pain, burning and urgency when urinating.",
-  what: "UTIs occur when bacteria enter the urinary tract. Symptoms can range from mild burning to severe pain or kidney infection symptoms.",
-  pattern: "Burning urination, needing to pee frequently and lower abdominal discomfort are common signs.",
-  know: [
-    "Some women experience recurrent UTIs.",
-    "Hydration and early treatment matter.",
-    "Symptoms worsening quickly may require urgent support."
-  ],
-  next: "Seek medical advice if symptoms are severe, recurrent, associated with fever or not improving.",
-  linkedFacts: ["Bladder health", "Hydration", "Hormones"],
-  linkedFinds: ["Hydration support", "Intimate care", "Appointment prep"]
-},
-
-{
-  id: "iron-deficiency",
-  topic: "Energy & Nutrition",
-  title: "Iron deficiency",
-  meta: "Fatigue, dizziness, heavy periods",
-  summary: "Iron deficiency is common in women and may be linked with heavy menstrual bleeding.",
-  what: "Low iron can affect energy, concentration, exercise tolerance, hair health and overall wellbeing.",
-  pattern: "Persistent tiredness, breathlessness, dizziness or pale skin may indicate low iron levels.",
-  know: [
-    "Heavy periods are a major contributor.",
-    "Iron deficiency can exist before anaemia develops.",
-    "Diet and absorption both matter."
-  ],
-  next: "Consider medical advice and blood testing if fatigue is ongoing or worsening.",
-  linkedFacts: ["Heavy menstrual bleeding", "Fatigue", "Periods"],
-  linkedFinds: ["Iron support", "Nutrition guidance", "Energy support"]
-}
-  ,
-{
-  id: "autoimmune-disease",
-  topic: "Autoimmune Health",
-  title: "Autoimmune disease",
-  meta: "Fatigue, inflammation, pain, flare-ups",
-  summary: "Autoimmune diseases occur when the immune system mistakenly attacks the body’s own tissues.",
-  what: "There are over 80 recognised autoimmune diseases, including lupus, rheumatoid arthritis, Hashimoto’s thyroiditis, coeliac disease and multiple sclerosis. Many disproportionately affect women and can impact energy, hormones, joints, digestion, skin and mental wellbeing.",
-  pattern: "Women often experience years of unexplained fatigue, pain, inflammation or fluctuating symptoms before diagnosis.",
-  know: [
-    "Symptoms can come and go in flare-ups.",
-    "Fatigue is one of the most common symptoms.",
-    "Autoimmune conditions are more common in women."
-  ],
-  next: "Seek medical support if symptoms are persistent, worsening or affecting multiple systems in the body.",
-  linkedFacts: ["Fatigue", "Hormones", "Inflammation"],
-  linkedFinds: ["Symptom tracking", "Energy support", "Nutrition support"]
-},
 
 function factsTemplate(item) {
   const symptoms = item.meta.split(",").map(x => x.trim());
