@@ -28,8 +28,16 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
-/* HERO */
+/* MOBILE MENU */
+.mobile-menu-btn{
+  display:none;
+}
 
+.mobile-menu-panel{
+  display:none;
+}
+
+/* HERO */
 .helps-page{
   padding:90px 7% 90px;
   background:linear-gradient(180deg,#fff7fb 0%,#fff 100%);
@@ -76,7 +84,6 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* FLOW CARD */
-
 .helps-card{
   background:#fff;
   border:1px solid var(--border);
@@ -190,7 +197,6 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* RESULTS */
-
 .result-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -262,7 +268,6 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* FOOTER */
-
 .site-footer{
   background:#fff;
   border-top:1px solid var(--border);
@@ -366,8 +371,59 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* MOBILE */
-
 @media(max-width:950px){
+  .links,
+  .header-early-access{
+    display:none;
+  }
+
+  .mobile-menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--pink);
+    color:#fff;
+    border:none;
+    font-size:22px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(236,61,134,.22);
+  }
+
+  .mobile-menu-panel{
+    display:none;
+    position:fixed;
+    top:82px;
+    left:0;
+    right:0;
+    z-index:99999;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:18px 24px 28px;
+    box-shadow:0 20px 50px rgba(53,16,45,.12);
+  }
+
+  body.menu-open .mobile-menu-panel{
+    display:block !important;
+  }
+
+  .mobile-menu-panel a{
+    display:block;
+    padding:14px 0;
+    font-size:18px;
+    font-weight:900;
+    color:var(--plum);
+    border-bottom:1px solid #f7ddea;
+  }
+
+  .mobile-menu-panel a:last-child{
+    border-bottom:none;
+    color:var(--pink);
+  }
+
   .helps-page{
     padding:60px 24px 70px;
   }
@@ -463,8 +519,21 @@ a{ text-decoration:none; color:inherit; }
       Join Early Access
     </a>
 
+    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
+      ☰
+    </button>
+
   </div>
 </header>
+
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+  <a href="index.html">Home</a>
+  <a href="platform.html">Discover</a>
+  <a href="forum.html">SHE Forum</a>
+  <a href="partners.html">Partners</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+</div>
 
 <main class="helps-page">
   <div class="helps-shell">
@@ -581,6 +650,12 @@ a{ text-decoration:none; color:inherit; }
 </footer>
 
 <script>
+const menuButton = document.querySelector(".mobile-menu-btn");
+
+menuButton.addEventListener("click", function () {
+  document.body.classList.toggle("menu-open");
+});
+
 const DATA = {
   "Periods": {
     desc: "Pain, flow, cycle changes or period disruption.",
@@ -778,8 +853,6 @@ function clearPattern() {
 renderTopics();
 renderSymptoms();
 </script>
-
-<script src="js/global-ui.js"></script>
 
 </body>
 </html>
