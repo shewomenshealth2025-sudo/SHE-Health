@@ -28,6 +28,16 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
+/* MOBILE MENU */
+
+.mobile-menu-btn{
+  display:none;
+}
+
+.mobile-menu-panel{
+  display:none;
+}
+
 .she-product-demo{
   padding:90px 7% 90px;
   background:linear-gradient(180deg,#fff7fb 0%,#fff 100%);
@@ -450,6 +460,58 @@ a{ text-decoration:none; color:inherit; }
 /* MOBILE */
 
 @media(max-width:950px){
+  .links,
+  .header-early-access{
+    display:none;
+  }
+
+  .mobile-menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--pink);
+    color:#fff;
+    border:none;
+    font-size:22px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(236,61,134,.22);
+  }
+
+  .mobile-menu-panel{
+    display:none;
+    position:fixed;
+    top:82px;
+    left:0;
+    right:0;
+    z-index:99999;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:18px 24px 28px;
+    box-shadow:0 20px 50px rgba(53,16,45,.12);
+  }
+
+  body.menu-open .mobile-menu-panel{
+    display:block !important;
+  }
+
+  .mobile-menu-panel a{
+    display:block;
+    padding:14px 0;
+    font-size:18px;
+    font-weight:900;
+    color:var(--plum);
+    border-bottom:1px solid #f7ddea;
+  }
+
+  .mobile-menu-panel a:last-child{
+    border-bottom:none;
+    color:var(--pink);
+  }
+
   .she-product-demo{
     padding:60px 24px 70px !important;
   }
@@ -553,8 +615,27 @@ a{ text-decoration:none; color:inherit; }
       Join Early Access
     </a>
 
+    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
+      ☰
+    </button>
+
   </div>
 </header>
+
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+  <a href="index.html">Home</a>
+  <a href="platform.html">Discover</a>
+  <a href="she-helps.html">SHE Helps</a>
+  <a href="she-facts.html">SHE Facts</a>
+  <a href="she-finds.html">SHE Finds</a>
+  <a href="she-news.html">SHE News</a>
+  <a href="she-asks.html">SHE Asks</a>
+  <a href="she-tells.html">SHE Tells</a>
+  <a href="forum.html">SHE Forum</a>
+  <a href="partners.html">Partners</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+</div>
 
 <main>
   <section class="she-product-demo" id="she-facts-demo">
@@ -651,6 +732,12 @@ a{ text-decoration:none; color:inherit; }
 </footer>
 
 <script>
+const menuButton = document.querySelector(".mobile-menu-btn");
+
+menuButton.addEventListener("click", function () {
+  document.body.classList.toggle("menu-open");
+});
+
 const SHE_FACTS_CONTENT = [
   {
     id: "painful-periods",
@@ -677,45 +764,6 @@ const SHE_FACTS_CONTENT = [
     next: "Seek medical advice if periods are very irregular, symptoms are worsening, or you are trying to conceive. Track cycles, skin/hair changes, weight patterns and family history before an appointment.",
     linkedFacts: ["Insulin resistance", "Irregular periods", "Acne and hormones"],
     linkedFinds: ["Cycle tracking", "Inositol guidance", "Appointment prep"]
-  },
-  {
-    id: "endometriosis",
-    topic: "Gynaecological Conditions",
-    title: "Endometriosis",
-    meta: "Pelvic pain, fatigue, bowel symptoms, bladder symptoms",
-    summary: "SHE Facts helps users understand endometriosis symptom patterns and what to raise during an appointment.",
-    what: "Endometriosis is a long-term inflammatory gynaecological condition where tissue similar to the lining of the womb grows outside the womb. It can cause pelvic pain, painful periods, pain during sex, fatigue, bowel symptoms, bladder symptoms and fertility concerns.",
-    pattern: "A possible endometriosis pattern may involve pelvic pain plus bowel, bladder, fatigue or pain-with-sex symptoms, especially when these cluster around periods.",
-    know: ["Pain that affects daily life should not be normalised.", "Symptoms may flare around periods but can also occur throughout the cycle.", "Tracking pain, bowel/bladder symptoms and fatigue can support better clinical conversations."],
-    next: "Speak to a GP if pelvic pain is persistent, severe, worsening, or affecting your daily life.",
-    linkedFacts: ["Painful periods", "Pelvic pain", "Fertility"],
-    linkedFinds: ["Heat patches", "TENS", "Pain diary", "Appointment checklist"]
-  },
-  {
-    id: "perimenopause",
-    topic: "Menopause",
-    title: "Perimenopause",
-    meta: "Cycle changes, mood, sleep, hot flushes",
-    summary: "SHE Facts explains perimenopause beyond hot flushes, including mood, sleep, cognition, periods and workplace impact.",
-    what: "Perimenopause is the transition leading up to menopause, when hormone levels fluctuate and periods may become irregular. It can involve hot flushes, night sweats, mood changes, anxiety, sleep disruption, brain fog, vaginal dryness, libido changes, joint aches and heavier or changing periods.",
-    pattern: "A perimenopause pattern may include cycle changes plus sleep, mood, temperature, cognition or body changes that appear gradually and affect quality of life.",
-    know: ["Symptoms can begin before periods stop completely.", "Periods may become heavier, lighter, closer together or further apart.", "Support can include lifestyle changes, medical advice, HRT discussions and workplace adjustments."],
-    next: "Speak to a healthcare professional if symptoms affect quality of life or if bleeding becomes very heavy, unusual or concerning.",
-    linkedFacts: ["HRT basics", "Heavy bleeding", "Sleep and hormones"],
-    linkedFinds: ["Symptom trackers", "Menopause resources", "Workplace support"]
-  },
-  {
-    id: "uti",
-    topic: "Sexual & Urinary Health",
-    title: "UTI symptoms",
-    meta: "Burning, urgency, frequency, discomfort",
-    summary: "SHE Facts helps users identify common UTI symptoms and when symptoms may need urgent attention.",
-    what: "A urinary tract infection can cause burning when peeing, urgency, needing to pee more often, cloudy or strong-smelling urine and lower abdominal discomfort. Some symptoms can overlap with vaginal infections, STIs or bladder conditions, so repeated or unusual symptoms should be reviewed properly.",
-    pattern: "A UTI pattern may involve burning, urgency and frequency. Fever, back pain, blood in urine or pregnancy changes the level of urgency.",
-    know: ["Symptoms can escalate if infection spreads.", "Recurrent UTIs may need proper review.", "Pregnancy, fever, back pain or blood in urine changes the level of urgency."],
-    next: "Seek urgent advice if there is fever, back pain, blood in urine, pregnancy, or worsening symptoms.",
-    linkedFacts: ["Recurrent UTIs", "Vaginal health", "STIs"],
-    linkedFinds: ["Pharmacy navigation", "Hydration support", "Symptom logging"]
   }
 ];
 
@@ -792,20 +840,6 @@ function renderFacts(item) {
   document.getElementById("she-facts-output").innerHTML = factsTemplate(item);
 }
 
-function factsSearch(query) {
-  const q = query.toLowerCase().trim();
-
-  if (q.includes("pcos")) return SHE_FACTS_CONTENT.find(item => item.id === "pmos");
-
-  return SHE_FACTS_CONTENT.find(item =>
-    item.id.toLowerCase().includes(q) ||
-    item.title.toLowerCase().includes(q) ||
-    item.topic.toLowerCase().includes(q) ||
-    item.meta.toLowerCase().includes(q) ||
-    item.linkedFacts.join(" ").toLowerCase().includes(q)
-  ) || SHE_FACTS_CONTENT[1];
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("she-facts-list");
 
@@ -822,14 +856,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const input = document.getElementById("she-facts-search");
-  input.addEventListener("input", () => renderFacts(factsSearch(input.value)));
-
   renderFacts(SHE_FACTS_CONTENT[1]);
 });
 </script>
-
-<script src="js/global-ui.js"></script>
 
 </body>
 </html>
