@@ -6,6 +6,7 @@
 
 <title>SHE Forum | SHE Health</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
+
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/global.css">
 
@@ -27,16 +28,6 @@ body{
 }
 
 a{ text-decoration:none; color:inherit; }
-
-/* MOBILE MENU */
-
-.mobile-menu-btn{
-  display:none;
-}
-
-.mobile-menu-panel{
-  display:none;
-}
 
 /* HERO */
 
@@ -352,61 +343,44 @@ a{ text-decoration:none; color:inherit; }
   cursor:pointer;
 }
 
+
+/* PROGRAMME + PEOPLE */
+.section-inner{max-width:1180px;margin:0 auto;}
+.programme-section,.moderator-section,.speakers-section,.audience-section,.registration-section{padding:0 7% 90px;}
+.section-heading{margin-bottom:34px;}
+.section-heading h2,.audience-panel h2,.registration-panel h2,.moderator-card h2{
+  margin:0;font-size:clamp(38px,5vw,64px);line-height:.98;letter-spacing:-.055em;
+}
+.programme-list{background:#fff;border:1px solid var(--border);border-radius:34px;overflow:hidden;box-shadow:var(--shadow);}
+.programme-row{display:grid;grid-template-columns:110px 1fr;gap:26px;padding:24px 30px;border-bottom:1px solid var(--border);align-items:start;}
+.programme-row:last-child{border-bottom:0;}
+.programme-row.highlight{background:var(--pink-soft);}
+.programme-row time{font-weight:900;color:var(--pink);font-size:17px;}
+.programme-row strong{font-size:20px;color:var(--plum);}
+.programme-row p{margin:7px 0 0;color:var(--muted);line-height:1.6;}
+.moderator-card{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;background:linear-gradient(135deg,#35102d,#4c1740);color:#fff;border-radius:36px;padding:46px;box-shadow:var(--shadow);}
+.moderator-card h2{color:#fff;}
+.moderator-card .role{color:#f8c6dc;font-weight:800;}
+.moderator-card>p{color:rgba(255,255,255,.82);font-size:18px;line-height:1.7;margin:0;}
+.panel-block{margin-top:48px;}
+.panel-title{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;}
+.panel-title span{background:var(--pink);color:#fff;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.panel-title h3{margin:0;font-size:30px;letter-spacing:-.04em;}
+.speaker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.speaker-card{background:#fff;border:1px solid var(--border);border-radius:26px;padding:26px;box-shadow:var(--shadow);}
+.speaker-card h4{margin:0 0 9px;font-size:22px;letter-spacing:-.035em;}
+.speaker-card p{margin:0;color:var(--muted);line-height:1.65;}
+.speaker-card.pending{background:#fff8fb;border-style:dashed;}
+.audience-panel,.registration-panel{background:linear-gradient(135deg,#fff3f8,#fff);border:1px solid var(--border);border-radius:36px;padding:46px;box-shadow:var(--shadow);}
+.audience-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;}
+.audience-panel p,.registration-panel p{font-size:18px;line-height:1.7;color:var(--muted);margin:0;}
+.registration-panel{display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.registration-panel>div{max-width:780px;}
+.registration-panel p{margin-top:18px;}
+
 /* MOBILE */
 
 @media(max-width:950px){
-  .links,
-  .header-early-access{
-    display:none;
-  }
-
-  .mobile-menu-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    background:var(--pink);
-    color:#fff;
-    border:none;
-    font-size:22px;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 10px 24px rgba(236,61,134,.22);
-  }
-
-  .mobile-menu-panel{
-    display:none;
-    position:fixed;
-    top:82px;
-    left:0;
-    right:0;
-    z-index:99999;
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    padding:18px 24px 28px;
-    box-shadow:0 20px 50px rgba(53,16,45,.12);
-  }
-
-  body.menu-open .mobile-menu-panel{
-    display:block !important;
-  }
-
-  .mobile-menu-panel a{
-    display:block;
-    padding:14px 0;
-    font-size:18px;
-    font-weight:900;
-    color:var(--plum);
-    border-bottom:1px solid #f7ddea;
-  }
-
-  .mobile-menu-panel a:last-child{
-    border-bottom:none;
-    color:var(--pink);
-  }
-
   .forum-hero{
     padding:60px 24px 40px;
   }
@@ -451,6 +425,15 @@ a{ text-decoration:none; color:inherit; }
   .footer-form{
     max-width:100%;
   }
+
+  .programme-section,.moderator-section,.speakers-section,.audience-section,.registration-section{
+    padding-left:24px;padding-right:24px;
+  }
+  .programme-row{grid-template-columns:1fr;gap:8px;padding:22px;}
+  .moderator-card,.audience-panel{grid-template-columns:1fr;padding:30px;}
+  .speaker-grid{grid-template-columns:1fr;}
+  .registration-panel{flex-direction:column;align-items:flex-start;padding:30px;}
+
 }
 </style>
 </head>
@@ -483,221 +466,168 @@ a{ text-decoration:none; color:inherit; }
       Join Early Access
     </a>
 
-    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
-      ☰
-    </button>
-
   </div>
 </header>
-
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-  <a href="index.html">Home</a>
-  <a href="platform.html">Discover</a>
-  <a href="forum.html">SHE Forum</a>
-  <a href="partners.html">Partners</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
-</div>
 
 <main>
 
 <section class="forum-hero">
   <div class="forum-hero-inner">
-
     <div class="forum-kicker">SHE Women’s Health Forum 2026</div>
-
-    <h1>
-      Where policy, healthcare and innovation meet for <span>women’s health.</span>
-    </h1>
-
+    <h1>Bringing together the people shaping the future of <span>women’s health in Northern Ireland.</span></h1>
     <p>
-      Wednesday 9 September 2026 · Parliament Buildings, Stormont.
-      A high-impact convening of healthcare, public health, policy, academia,
-      innovation, advocacy, industry and lived experience to advance women’s health
-      in Northern Ireland.
+      Wednesday 9 September 2026 · 9:30am–12:30pm · Long Gallery, Parliament Buildings, Stormont.
+      A focused cross-sector forum bringing together healthcare, policy, research, advocacy, education,
+      industry and lived experience.
     </p>
-
     <div class="hero-actions">
-      <a class="btn" href="contact.html">Request the programme</a>
-      <a class="btn" href="partners.html">Sponsor or partner with SHE</a>
+      <a class="btn" href="#registration">Join the waitlist</a>
+      <a class="btn" href="partners.html">Partner with SHE</a>
     </div>
-
   </div>
 </section>
 
 <section class="strategy-section">
   <div class="strategy-panel">
-
     <div>
-      <h2>Why the forum <span>exists.</span></h2>
-
+      <h2>About the <span>Forum.</span></h2>
       <p>
-        Women’s health is increasingly being prioritised across the UK and Ireland,
-        yet Northern Ireland still does not have a dedicated Women’s Health Strategy.
-        This creates a gap between policy progress elsewhere and implementation locally.
+        Women’s health in Northern Ireland is at an important point. Information, services and support
+        remain fragmented, while Northern Ireland continues without a dedicated Women’s Health Strategy.
       </p>
-
       <p>
-        The SHE Women’s Health Forum is designed to bring the right people into one
-        room: government, healthcare, public health, universities, workplaces,
-        innovators, charities, advocates and community voices.
+        The SHE Women’s Health Forum brings together people working across the system to examine where
+        the gaps remain, what can be learned from elsewhere and what meaningful progress could look like
+        for women in Northern Ireland.
       </p>
-
       <p>
-        The purpose is not simply to raise awareness. It is to create structured
-        discussion, identify gaps, share learning from other regions, and explore
-        what practical infrastructure could support better women’s health outcomes
-        across Northern Ireland.
+        The focus is not simply awareness, but constructive conversation that can strengthen connections,
+        clarify priorities and support practical action.
       </p>
     </div>
-
     <div class="quote-box">
-      <strong>Policy changes the rules. Infrastructure changes outcomes.</strong>
-      <p>
-        SHE is convening the forum to move women’s health from fragmented discussion
-        into coordinated, practical progress.
-      </p>
-
+      <strong>Two conversations. One shared goal.</strong>
+      <p>To make women’s health more connected, accessible and easier to navigate.</p>
       <ul>
-        <li>Women’s Health Strategy for Northern Ireland</li>
-        <li>Access and early intervention</li>
-        <li>Education and health literacy</li>
-        <li>Workplace wellbeing</li>
-        <li>Femtech and innovation</li>
-        <li>Community and lived experience</li>
+        <li>Building a Women’s Health Strategy for Northern Ireland</li>
+        <li>Women’s Health in Practice</li>
+        <li>Cross-sector collaboration</li>
+        <li>Healthcare, policy and lived experience</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<section class="forum-section">
-  <div class="forum-grid">
+<section class="programme-section" id="programme">
+  <div class="section-inner">
+    <div class="section-heading">
+      <div class="forum-kicker">The programme</div>
+      <h2>Wednesday 9 September 2026</h2>
+    </div>
+    <div class="programme-list">
+      <div class="programme-row"><time>09:30</time><div><strong>Registration & Arrival</strong><p>Arrival and networking in the Long Gallery.</p></div></div>
+      <div class="programme-row"><time>10:00</time><div><strong>Welcome & Opening Remarks</strong><p>Opening remarks from SHE and Claire Sugden MLA.</p></div></div>
+      <div class="programme-row highlight"><time>10:10</time><div><strong>Panel 1 · Building a Women’s Health Strategy for Northern Ireland</strong><p>A discussion on policy, services, accountability and what Northern Ireland needs to move women’s health forward.</p></div></div>
+      <div class="programme-row"><time>11:00</time><div><strong>Break</strong></div></div>
+      <div class="programme-row"><time>11:20</time><div><strong>SHE · Women’s Health, Made Easy.</strong><p>An introduction to SHE and the wider vision for making women’s health easier to navigate.</p></div></div>
+      <div class="programme-row highlight"><time>11:30</time><div><strong>Panel 2 · Women’s Health in Practice</strong><p>Exploring women’s health across healthcare, workplaces, education, mental health, community and everyday life.</p></div></div>
+      <div class="programme-row"><time>12:20</time><div><strong>Closing Remarks</strong></div></div>
+      <div class="programme-row"><time>12:30</time><div><strong>Forum Close</strong></div></div>
+    </div>
+  </div>
+</section>
 
-    <div class="forum-card">
-      <div class="card-icon">▥</div>
-      <h3>Policy & strategy</h3>
+<section class="moderator-section">
+  <div class="section-inner">
+    <div class="moderator-card">
+      <div>
+        <div class="forum-kicker">Forum moderator</div>
+        <h2>Dr Alice McGee</h2>
+        <p class="role">Senior Medical Advisor, Flo Health · Founder, Mara Health</p>
+      </div>
       <p>
-        Exploring what Northern Ireland can learn from women’s health strategies
-        across England, Scotland, Wales and Ireland.
+        Originally from Limavady, Northern Ireland, Alice is an NHS-trained doctor working across
+        women’s health, patient safety, digital health and innovation. She will guide both panel
+        conversations throughout the morning.
       </p>
     </div>
+  </div>
+</section>
 
-    <div class="forum-card">
-      <div class="card-icon">◉</div>
-      <h3>Healthcare & public health</h3>
-      <p>
-        Bringing clinical, public health and service perspectives into one
-        conversation about access, prevention and support.
-      </p>
+<section class="speakers-section">
+  <div class="section-inner">
+    <div class="section-heading">
+      <div class="forum-kicker">Speakers</div>
+      <h2>The voices in the conversation.</h2>
     </div>
 
-    <div class="forum-card">
-      <div class="card-icon">✦</div>
-      <h3>Innovation & femtech</h3>
-      <p>
-        Highlighting how digital health, data, navigation and femtech can help
-        close gaps in women’s health support.
-      </p>
+    <div class="panel-block">
+      <div class="panel-title">
+        <span>Panel 1</span>
+        <h3>Building a Women’s Health Strategy for Northern Ireland</h3>
+      </div>
+      <div class="speaker-grid">
+        <article class="speaker-card"><h4>Claire Sugden MLA</h4><p>MLA for East Londonderry and sponsor of the SHE Women’s Health Forum at Parliament Buildings.</p></article>
+        <article class="speaker-card"><h4>Sarah Rose McCann</h4><p>Journalist and patient advocate bringing lived experience and the patient voice into the policy conversation.</p></article>
+        <article class="speaker-card"><h4>Dr Orlan Conan</h4><p>Bringing a clinical and healthcare perspective to the future of women’s health in Northern Ireland.</p></article>
+        <article class="speaker-card pending"><h4>Further speaker to be announced</h4><p>The final Panel 1 line-up is being completed.</p></article>
+      </div>
     </div>
 
-    <div class="forum-card">
-      <div class="card-icon">□</div>
-      <h3>Education & workplaces</h3>
+    <div class="panel-block">
+      <div class="panel-title">
+        <span>Panel 2</span>
+        <h3>Women’s Health in Practice</h3>
+      </div>
+      <div class="speaker-grid">
+        <article class="speaker-card"><h4>Dr Caroline Millar</h4><p>Researcher exploring pregnancy, maternity-related illness, maternity leave and women’s experiences returning to work.</p></article>
+        <article class="speaker-card"><h4>Lindsey Robinson MBE</h4><p>Award-winning advocate and leader in perinatal mental health, with experience contributing to women’s health policy in Ireland.</p></article>
+        <article class="speaker-card"><h4>Catherine McDaid</h4><p>Student Wellbeing Manager at Ulster University and Deputy Mayor of Derry City & Strabane District Council.</p></article>
+        <article class="speaker-card"><h4>Breeda Bermingham</h4><p>Women’s health and workplace specialist, former midwife and Associate Consultant with Henpicked.</p></article>
+        <article class="speaker-card pending"><h4>Further speaker to be announced</h4><p>The final Panel 2 line-up is being completed.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience-section">
+  <div class="section-inner audience-panel">
+    <div>
+      <div class="forum-kicker">Who will be in the room?</div>
+      <h2>A deliberately cross-sector audience.</h2>
+    </div>
+    <p>
+      The Forum is bringing together voices spanning healthcare, policy, academia, research,
+      patient advocacy, community organisations, education, industry and lived experience.
+      Registration is currently operating through a waitlist to help maintain a strong mix of
+      perspectives across the room.
+    </p>
+  </div>
+</section>
+
+<section class="registration-section" id="registration">
+  <div class="section-inner registration-panel">
+    <div>
+      <div class="forum-kicker">Registration</div>
+      <h2>Join the Forum waitlist.</h2>
       <p>
-        Examining how universities, employers and institutions can support women
-        through better education and practical pathways.
+        Places are being curated to maintain a strong balance across healthcare, academia, policy,
+        advocacy, industry and lived experience. Registration does not constitute final admission to
+        Parliament Buildings; confirmed attendees will receive an official Parliament invitation.
       </p>
     </div>
-
-    <div class="forum-card">
-      <div class="card-icon">♡</div>
-      <h3>Community voices</h3>
-      <p>
-        Creating space for women’s lived experiences, advocacy groups and community
-        organisations to shape the conversation.
-      </p>
-    </div>
-
-    <div class="forum-card">
-      <div class="card-icon">∞</div>
-      <h3>Next steps</h3>
-      <p>
-        Moving beyond discussion towards partnerships, recommendations, working
-        relationships and ongoing ecosystem-building.
-      </p>
-    </div>
-
+    <a class="btn" href="https://www.eventbrite.co.uk/e/she-womens-health-forum-2026-tickets-1992483925056" target="_blank" rel="noopener">Join the waitlist on Eventbrite</a>
   </div>
 </section>
 
 <section class="sponsor-section">
   <div class="sponsor-panel">
-
-    <h2>Why sponsor or get involved in the <span>SHE Forum?</span></h2>
-
+    <h2>Support the <span>SHE Women’s Health Forum.</span></h2>
     <p>
-      Sponsoring the forum is not just visibility. It is a way to align with one of
-      Northern Ireland’s most important emerging public health and innovation
-      conversations, while supporting practical progress for women’s health.
+      Organisations interested in supporting the Forum through sponsorship or partnership can explore
+      the current opportunities through the SHE Partners page.
     </p>
-
-    <div class="sponsor-list">
-
-      <div class="sponsor-item">
-        <h4>Show leadership</h4>
-        <p>
-          Position your organisation as actively supporting women’s health,
-          health equity and system-level change.
-        </p>
-      </div>
-
-      <div class="sponsor-item">
-        <h4>Reach senior stakeholders</h4>
-        <p>
-          Connect with leaders across policy, healthcare, academia, industry,
-          public health and innovation.
-        </p>
-      </div>
-
-      <div class="sponsor-item">
-        <h4>Support NI’s policy conversation</h4>
-        <p>
-          Contribute to a critical moment as Northern Ireland considers how to
-          advance women’s health without a dedicated strategy in place.
-        </p>
-      </div>
-
-      <div class="sponsor-item">
-        <h4>Back practical infrastructure</h4>
-        <p>
-          Help SHE build beyond awareness by supporting education, navigation,
-          access and convening power.
-        </p>
-      </div>
-
-      <div class="sponsor-item">
-        <h4>Build credible partnerships</h4>
-        <p>
-          Create meaningful alignment with SHE Health, the forum, community voices
-          and organisations working in women’s health.
-        </p>
-      </div>
-
-      <div class="sponsor-item">
-        <h4>Demonstrate social impact</h4>
-        <p>
-          Support an event focused on public health, prevention, early intervention,
-          workplace wellbeing and women’s lived experience.
-        </p>
-      </div>
-
-    </div>
-
-    <a class="btn" href="partners.html">
-      Explore sponsorship and partnership routes
-    </a>
-
+    <a class="btn" href="partners.html">Explore partnership opportunities</a>
   </div>
 </section>
 
@@ -729,9 +659,10 @@ a{ text-decoration:none; color:inherit; }
     <div class="footer-column">
       <h4>Navigate</h4>
       <a href="index.html">Home</a>
-      <a href="platform.html">Discover</a>
-      <a href="forum.html">SHE Forum</a>
+      <a href="platform.html">Platform</a>
+      <a href="forum.html">Forum</a>
       <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
 
@@ -751,13 +682,7 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </footer>
 
-<script>
-const menuButton = document.querySelector(".mobile-menu-btn");
-
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
-});
-</script>
+<script src="js/global-ui.js"></script>
 
 </body>
 </html>

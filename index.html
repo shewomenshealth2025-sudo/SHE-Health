@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>SHE Health | Women’s Health, Made Easy.</title>
-  <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/logo.png">
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/global.css">
@@ -36,12 +36,106 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
-/* MOBILE MENU */
-.mobile-menu-btn{
-  display:none;
+/* HEADER */
+.nav{
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:9999;
 }
 
-.mobile-menu-panel{
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.nav-inner{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:34px;
+  padding:0 7%;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:max-content;
+}
+
+.brand-logo{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  display:block;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.brand-name{
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:var(--pink);
+}
+
+.brand-tag{
+  margin-top:6px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:42px;
+  flex:1;
+}
+
+.links a{
+  color:var(--plum);
+  font-size:15px;
+  font-weight:900;
+  opacity:.9;
+  white-space:nowrap;
+}
+
+.links a:hover,
+.links a.active{
+  color:var(--pink);
+  opacity:1;
+}
+
+.btn,
+.header-early-access{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--pink);
+  background:var(--pink);
+  color:#fff;
+  border-radius:999px;
+  padding:15px 24px;
+  font-size:15px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 12px 26px rgba(236,61,134,.18);
+}
+
+/* HIDE DESKTOP MENU BOX */
+.menu-toggle,
+.mobile-menu-btn{
   display:none;
 }
 
@@ -375,14 +469,39 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* MOBILE */
-
 @media(max-width:950px){
+  .nav-inner{
+    min-height:auto;
+    padding:16px 20px;
+    align-items:center;
+    flex-wrap:nowrap;
+    gap:16px;
+  }
+
+  .brand{
+    flex:1;
+  }
+
+  .brand-logo{
+    width:50px;
+    height:50px;
+  }
+
+  .brand-name{
+    font-size:34px;
+  }
+
+  .brand-tag{
+    font-size:11px;
+  }
+
   .links,
   .header-early-access{
     display:none;
   }
 
-  .mobile-menu-btn{
+  .mobile-menu-btn,
+  .menu-toggle{
     display:flex;
     align-items:center;
     justify-content:center;
@@ -397,38 +516,6 @@ a{ text-decoration:none; color:inherit; }
     cursor:pointer;
     box-shadow:0 10px 24px rgba(236,61,134,.22);
   }
-
-  .mobile-menu-panel{
-    display:none;
-    position:fixed;
-    top:82px;
-    left:0;
-    right:0;
-    z-index:9998;
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    padding:18px 24px 28px;
-    box-shadow:0 20px 50px rgba(53,16,45,.12);
-  }
-
-  body.menu-open .mobile-menu-panel{
-    display:block !important;
-  }
-
-  .mobile-menu-panel a{
-    display:block;
-    padding:14px 0;
-    font-size:18px;
-    font-weight:900;
-    color:var(--plum);
-    border-bottom:1px solid #f7ddea;
-  }
-
-  .mobile-menu-panel a:last-child{
-    border-bottom:none;
-    color:var(--pink);
-  }
-
   .homepage-hero{
     padding:46px 24px 28px;
   }
@@ -527,21 +614,8 @@ a{ text-decoration:none; color:inherit; }
       Join Early Access
     </a>
 
-    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
-      ☰
-    </button>
-
   </div>
 </header>
-
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-  <a href="index.html">Home</a>
-  <a href="platform.html">Discover</a>
-  <a href="forum.html">SHE Forum</a>
-  <a href="partners.html">Partners</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
-</div>
 
 <main>
 
@@ -590,37 +664,41 @@ a{ text-decoration:none; color:inherit; }
       <div class="what-kicker">What is SHE?</div>
 
       <h2 class="what-title">
-        The app and convener for <span>women’s health navigation.</span>
+        <span>Women’s Health, Made Easy.</span>
       </h2>
 
       <p class="what-text">
-        SHE brings together the fragmented pieces of women’s health into one connected place, helping women understand what they’re experiencing, explore practical next steps, and find support without having to search across endless silos.
+        SHE is a women’s health navigation platform designed to help women better understand their health, explore their options, access trusted information and identify the right services, products and support — through one app and through meaningful real-world connection.
+      </p>
+
+      <p class="what-text">
+        Women’s health remains highly fragmented, with information, care pathways, services and support often spread across multiple systems and sources. SHE brings these elements together into a clearer, more accessible and more connected experience.
       </p>
     </div>
 
     <div class="what-grid">
       <article class="what-pill pink">
         <span class="what-emoji">📱</span>
-        <h3>An app</h3>
-        <p>A clear, user-friendly demo of how women could navigate symptoms, education, products and support.</p>
+        <h3>The app</h3>
+        <p>Trusted information, health navigation, products, services and support brought together in one accessible place.</p>
       </article>
 
       <article class="what-pill purple">
         <span class="what-emoji">🧭</span>
-        <h3>A navigation layer</h3>
-        <p>Designed to turn scattered information into clearer pathways and more confident next steps.</p>
+        <h3>Personal navigation</h3>
+        <p>Helping women understand what may be relevant to them, explore their options and identify practical next steps.</p>
       </article>
 
       <article class="what-pill yellow">
         <span class="what-emoji">🤝</span>
-        <h3>A convener</h3>
-        <p>Bringing healthcare, policy, education, workplaces, innovation and lived experience into the same conversation.</p>
+        <h3>In person</h3>
+        <p>Creating opportunities for education, community and direct connection with women’s health experts, services and organisations.</p>
       </article>
 
       <article class="what-pill green">
         <span class="what-emoji">✨</span>
-        <h3>One connected place</h3>
-        <p>Because women should not have to piece together their health journey alone.</p>
+        <h3>One connected experience</h3>
+        <p>Bringing together the parts of women’s health that women currently have to navigate separately.</p>
       </article>
     </div>
 
@@ -678,12 +756,31 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </footer>
 
-
+<script src="js/global-ui.js"></script>
+  
 <script>
-const menuButton = document.querySelector(".mobile-menu-btn");
+document.addEventListener("DOMContentLoaded", function () {
+  const menuButton = document.querySelector(".mobile-menu-btn, .menu-toggle");
 
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
+  if (!menuButton) return;
+
+  const mobileMenu = document.createElement("div");
+  mobileMenu.className = "mobile-menu-panel";
+
+  mobileMenu.innerHTML = `
+    <a href="index.html">Home</a>
+    <a href="platform.html">Discover</a>
+    <a href="forum.html">SHE Forum</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+  `;
+
+  document.body.appendChild(mobileMenu);
+
+  menuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("is-open");
+  });
 });
 </script>
 </body>
