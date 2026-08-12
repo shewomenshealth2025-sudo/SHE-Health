@@ -29,6 +29,12 @@ body{
 
 a{ text-decoration:none; color:inherit; }
 
+/* MOBILE MENU */
+.mobile-menu-btn{
+  display:none;
+}
+
+
 /* HERO */
 
 .forum-hero{
@@ -381,6 +387,11 @@ a{ text-decoration:none; color:inherit; }
 /* MOBILE */
 
 @media(max-width:950px){
+  .mobile-menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
   .forum-hero{
     padding:60px 24px 40px;
   }
