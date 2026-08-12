@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Platform | SHE Health</title>
+<title>Discover SHE | Women’s Health, Made Easy.</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/global.css">
@@ -20,6 +20,8 @@
   --shadow:0 22px 60px rgba(53,16,45,.08);
 }
 
+*{ box-sizing:border-box; }
+
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
@@ -27,32 +29,29 @@ body{
   color:var(--plum);
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+a{ text-decoration:none; color:inherit; }
+
+/* Ensure injected mobile menu button never appears on desktop */
+.mobile-menu-btn,
+.menu-toggle{
+  display:none !important;
 }
 
-/* MOBILE MENU */
-.mobile-menu-btn{
-  display:none;
+/* DISCOVER HERO */
+.discover-hero{
+  padding:82px 7% 46px;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255,244,199,.7), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(236,61,134,.09), transparent 26%),
+    linear-gradient(180deg,#fff7fb 0%,#fff 100%);
 }
 
-.mobile-menu-panel{
-  display:none;
-}
-
-/* HERO */
-
-.platform-hero{
-  padding:90px 7% 60px;
-}
-
-.platform-hero-inner{
+.discover-inner{
   max-width:1180px;
   margin:0 auto;
 }
 
-.platform-kicker{
+.discover-kicker{
   color:var(--pink);
   font-size:13px;
   font-weight:900;
@@ -61,104 +60,184 @@ a{
   margin-bottom:18px;
 }
 
-.platform-hero h1{
+.discover-hero h1{
+  margin:0;
+  max-width:900px;
   font-size:clamp(52px,7vw,88px);
   line-height:.92;
   letter-spacing:-.07em;
-  margin:0 0 22px;
-  max-width:900px;
 }
 
-.platform-hero h1 span{
+.discover-hero h1 span{
   color:var(--pink);
 }
 
-.platform-hero p{
-  max-width:760px;
+.discover-intro{
+  max-width:800px;
+  margin:24px 0 0;
+  color:var(--muted);
   font-size:20px;
   line-height:1.65;
-  color:var(--muted);
-  margin:0;
 }
 
-/* PLATFORM GRID */
-
-.platform-section{
-  padding:10px 7% 100px;
+.discover-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
 }
 
-.platform-grid{
+.discover-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--pink);
+  background:var(--pink);
+  color:#fff;
+  border-radius:999px;
+  padding:15px 24px;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 12px 26px rgba(236,61,134,.18);
+}
+
+.discover-btn.secondary{
+  background:#fff;
+  color:var(--pink);
+}
+
+/* LIVE APP */
+.app-section{
+  padding:20px 7% 100px;
+}
+
+.app-shell{
   max-width:1180px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
 }
 
-.platform-card{
+.app-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:20px;
+}
+
+.app-meta h2{
+  margin:0;
+  font-size:clamp(34px,4vw,54px);
+  letter-spacing:-.055em;
+  line-height:1;
+}
+
+.app-meta p{
+  margin:10px 0 0;
+  max-width:680px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+}
+
+.live-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 14px;
+  border-radius:999px;
   background:#fff;
   border:1px solid var(--border);
-  border-radius:32px;
-  padding:34px;
-  transition:.25s ease;
-  box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
-}
-
-.platform-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--pink);
-}
-
-.platform-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(236,61,134,.05),transparent 45%);
-  pointer-events:none;
-}
-
-.card-icon{
-  width:64px;
-  height:64px;
-  border-radius:18px;
-  display:grid;
-  place-items:center;
-  background:#fff3f8;
-  color:var(--pink);
-  font-size:28px;
-  margin-bottom:26px;
-}
-
-.platform-card h3{
-  margin:0 0 12px;
-  font-size:30px;
-  letter-spacing:-.04em;
   color:var(--plum);
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 8px 24px rgba(53,16,45,.06);
 }
 
-.platform-card p{
-  margin:0;
-  font-size:16px;
-  line-height:1.7;
+.live-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--pink);
+}
+
+.app-window{
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:34px;
+  background:#fff;
+  box-shadow:0 26px 70px rgba(53,16,45,.12);
+}
+
+.browser-bar{
+  height:54px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 20px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+}
+
+.browser-dots{
+  display:flex;
+  gap:7px;
+}
+
+.browser-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#f1c9da;
+}
+
+.browser-address{
+  flex:1;
+  max-width:560px;
+  margin:0 auto;
+  background:#fff7fb;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:8px 14px;
+  text-align:center;
   color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
-.platform-card.facts .card-icon{ background:#fff1f7; }
-.platform-card.finds .card-icon{ background:#f7f1ff; color:#8b5cf6; }
-.platform-card.helps .card-icon{ background:#eefcf4; color:#22c55e; }
-.platform-card.news .card-icon{ background:#eef6ff; color:#2563eb; }
-.platform-card.asks .card-icon{ background:#fff8eb; color:#f59e0b; }
-.platform-card.tells .card-icon{ background:#f8f4ff; color:#9333ea; }
+.app-frame{
+  display:block;
+  width:100%;
+  height:860px;
+  border:0;
+  background:#fff;
+}
+
+/* FALLBACK NOTE */
+.app-note{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:20px 4px 0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.app-note a{
+  color:var(--pink);
+  font-weight:900;
+}
 
 /* FOOTER */
-
 .site-footer{
   background:#fff;
   border-top:1px solid var(--border);
   padding:64px 7%;
-  margin-top:40px;
 }
 
 .footer-container{
@@ -218,12 +297,9 @@ a{
   color:var(--muted);
   font-size:15px;
   line-height:1.4;
-  text-decoration:none;
 }
 
-.footer-column a:hover{
-  color:var(--pink);
-}
+.footer-column a:hover{ color:var(--pink); }
 
 .footer-text{
   margin:0 0 14px;
@@ -260,83 +336,83 @@ a{
 }
 
 /* MOBILE */
-
 @media(max-width:950px){
+  .mobile-menu-btn,
+  .menu-toggle{
+    display:flex !important;
+  }
+
   .links,
   .header-early-access{
-    display:none;
+    display:none !important;
   }
 
-  .mobile-menu-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    background:var(--pink);
-    color:#fff;
-    border:none;
-    font-size:22px;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 10px 24px rgba(236,61,134,.22);
+  .discover-hero{
+    padding:52px 24px 34px;
   }
 
-  .mobile-menu-panel{
-    display:none;
-    position:fixed;
-    top:82px;
-    left:0;
-    right:0;
-    z-index:9998;
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    padding:18px 24px 28px;
-    box-shadow:0 20px 50px rgba(53,16,45,.12);
+  .discover-hero h1{
+    font-size:clamp(44px,13vw,66px);
   }
 
-  body.menu-open .mobile-menu-panel{
-    display:block !important;
-  }
-
-  .mobile-menu-panel a{
-    display:block;
-    padding:14px 0;
-    font-size:18px;
-    font-weight:900;
-    color:var(--plum);
-    border-bottom:1px solid #f7ddea;
-  }
-
-  .mobile-menu-panel a:last-child{
-    border-bottom:none;
-    color:var(--pink);
-  }
-
-  .platform-grid{
-    grid-template-columns:1fr;
-  }
-
-  .platform-hero{
-    padding:60px 24px 40px;
-  }
-
-  .platform-section{
-    padding:0 24px 70px;
-  }
-
-  .platform-hero h1{
-    font-size:clamp(42px,12vw,64px);
-  }
-
-  .platform-hero p{
+  .discover-intro{
     font-size:17px;
+  }
+
+  .discover-actions{
+    flex-direction:column;
+  }
+
+  .discover-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .app-section{
+    padding:12px 18px 70px;
+  }
+
+  .app-meta{
+    display:block;
+  }
+
+  .live-badge{
+    margin-top:16px;
+  }
+
+  .app-window{
+    border-radius:24px;
+  }
+
+  .browser-bar{
+    height:48px;
+    padding:0 12px;
+  }
+
+  .browser-dots{
+    display:none;
+  }
+
+  .browser-address{
+    max-width:100%;
+  }
+
+  .app-frame{
+    height:78vh;
+    min-height:650px;
+  }
+
+  .app-note{
+    display:block;
+  }
+
+  .app-note a{
+    display:inline-block;
+    margin-top:8px;
   }
 
   .site-footer{
     padding:48px 24px;
-    margin-top:30px;
   }
 
   .footer-container{
@@ -379,99 +455,88 @@ a{
       Join Early Access
     </a>
 
-    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
-      ☰
-    </button>
-
   </div>
 </header>
 
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-  <a href="index.html">Home</a>
-  <a href="platform.html">Discover</a>
-  <a href="forum.html">SHE Forum</a>
-  <a href="partners.html">Partners</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
-</div>
-
 <main>
 
-<section class="platform-hero">
-  <div class="platform-hero-inner">
-    <div class="platform-kicker">SHE Platform</div>
+<section class="discover-hero">
+  <div class="discover-inner">
+    <div class="discover-kicker">Discover SHE</div>
 
     <h1>
-      One umbrella for<br>
-      women’s health <span>navigation.</span>
+      See SHE <span>in action.</span>
     </h1>
 
-    <p>
-      SHE connects education, community, products, services,
-      insights and events into one structured support layer,
-      helping women move from symptoms to action. This is a 
-      preview of the different components of SHE. Click each
-      for a sneak preview!
+    <p class="discover-intro">
+      Explore how SHE brings women’s health information, navigation, products,
+      services and support together in one place. Use the current working version
+      of the app directly below.
     </p>
+
+    <div class="discover-actions">
+      <a class="discover-btn"
+         href="https://she-vp.vercel.app"
+         target="_blank"
+         rel="noopener">
+        Open the full app ↗
+      </a>
+
+      <a class="discover-btn secondary"
+         href="https://forms.gle/8C21wsKWfFVxAec66"
+         target="_blank"
+         rel="noopener">
+        Join Early Access
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="platform-section">
-  <div class="platform-grid">
+<section class="app-section">
+  <div class="app-shell">
 
-    <a href="she-helps.html" class="platform-card helps">
-      <div class="card-icon">✦</div>
-      <h3>SHE Helps</h3>
-      <p>
-        Guided symptom-to-action support connecting women to education,
-        services and practical next steps.
-      </p>
-    </a>
+    <div class="app-meta">
+      <div>
+        <div class="discover-kicker">The SHE app</div>
+        <h2>Explore the current experience.</h2>
+        <p>
+          Navigate the live product just as you would in the standalone app.
+          Updates to the SHE MVP will appear here automatically.
+        </p>
+      </div>
 
-    <a href="she-facts.html" class="platform-card facts">
-      <div class="card-icon">✓</div>
-      <h3>SHE Facts</h3>
-      <p>
-        Evidence-based education across menstrual health,
-        hormones, menopause, fertility and more.
-      </p>
-    </a>
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        Live app preview
+      </div>
+    </div>
 
-    <a href="she-finds.html" class="platform-card finds">
-      <div class="card-icon">★</div>
-      <h3>SHE Finds</h3>
-      <p>
-        Structured guidance on products, tools and support
-        women are actively searching for.
-      </p>
-    </a>
+    <div class="app-window">
+      <div class="browser-bar" aria-hidden="true">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
 
-    <a href="she-news.html" class="platform-card news">
-      <div class="card-icon">≡</div>
-      <h3>SHE News</h3>
-      <p>
-        Research, policy, public health and innovation.
-        Explained clearly and accessibly.
-      </p>
-    </a>
+        <div class="browser-address">she-vp.vercel.app</div>
+      </div>
 
-    <a href="she-asks.html" class="platform-card asks">
-      <div class="card-icon">💬</div>
-      <h3>SHE Asks</h3>
-      <p>
-        Real questions, shared experiences and community-led
-        conversation around women’s health.
-      </p>
-    </a>
+      <iframe
+        class="app-frame"
+        src="https://she-vp.vercel.app"
+        title="SHE women’s health app"
+        loading="lazy"
+        allow="geolocation; microphone; camera; clipboard-read; clipboard-write; fullscreen"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-    <a href="she-tells.html" class="platform-card tells">
-      <div class="card-icon">📣</div>
-      <h3>SHE Tells</h3>
-      <p>
-        Curated insight from clinicians, researchers,
-        advocates and leaders shaping women’s health.
-      </p>
-    </a>
+    <div class="app-note">
+      <span>If the embedded experience feels restricted on your device, open SHE directly.</span>
+      <a href="https://she-vp.vercel.app" target="_blank" rel="noopener">Open full app ↗</a>
+    </div>
 
   </div>
 </section>
@@ -526,13 +591,7 @@ a{
   </div>
 </footer>
 
-<script>
-const menuButton = document.querySelector(".mobile-menu-btn");
-
-menuButton.addEventListener("click", function () {
-  document.body.classList.toggle("menu-open");
-});
-</script>
+<script src="js/global-ui.js"></script>
 
 </body>
 </html>
