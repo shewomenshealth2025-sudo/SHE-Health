@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>SHE Health | Women’s Health, Made Easy.</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/global.css">
+
+<style>
+:root{
+  --pink:#ec3d86;
+  --pink-dark:#d82f75;
+  --pink-soft:#fff3f8;
+  --plum:#35102d;
+  --muted:#6f5b66;
+  --border:#f4d7e5;
+  --shadow:0 22px 60px rgba(53,16,45,.08);
+  --purple:#8b5cf6;
+  --green:#22c55e;
+  --blue:#2563eb;
+  --yellow:#fff4c7;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fff7fb,#fff);
+  color:var(--plum);
+}
+
+a{ text-decoration:none; color:inherit; }
+
+/* HEADER */
+.nav{
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:9999;
+}
+
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.nav-inner{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:34px;
+  padding:0 7%;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:max-content;
+}
+
+.brand-logo{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  display:block;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.brand-name{
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:var(--pink);
+}
+
+.brand-tag{
+  margin-top:6px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:42px;
+  flex:1;
+}
+
+.links a{
+  color:var(--plum);
+  font-size:15px;
+  font-weight:900;
+  opacity:.9;
+  white-space:nowrap;
+}
+
+.links a:hover,
+.links a.active{
+  color:var(--pink);
+  opacity:1;
+}
+
+.btn,
+.header-early-access{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--pink);
+  background:var(--pink);
+  color:#fff;
+  border-radius:999px;
+  padding:15px 24px;
+  font-size:15px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 12px 26px rgba(236,61,134,.18);
+}
+
+/* HIDE DESKTOP MENU BOX */
+.menu-toggle,
+.mobile-menu-btn{
+  display:none;
+}
+
+/* HERO */
+.homepage-hero{
+  padding:72px 7% 44px;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(255,244,199,.85), transparent 30%),
+    radial-gradient(circle at 88% 10%, rgba(139,92,246,.12), transparent 28%),
+    linear-gradient(180deg,#fff7fb 0%,#fff 100%);
+}
+
+.home-shell{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.home-hero-card{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  min-height:620px;
+  gap:34px;
+  align-items:center;
+}
+
+.home-hero-copy{
+  padding:34px 0 46px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.home-kicker{
+  color:var(--pink);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.home-title{
+  margin:0;
+  font-size:clamp(54px,7vw,92px);
+  line-height:.9;
+  letter-spacing:-.075em;
+  color:var(--plum);
+}
+
+.home-title span{ color:var(--pink); }
+
+.home-intro{
+  margin:24px 0 0;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.65;
+  max-width:620px;
+}
+
+.home-demo-note{
+  margin-top:24px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:fit-content;
+  background:#fff3f8;
+  border:1px solid var(--border);
+  color:var(--plum);
+  border-radius:999px;
+  padding:12px 16px;
+  font-weight:900;
+  font-size:13px;
+}
+
+.home-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.home-btn{
+  border:1px solid var(--pink);
+  background:var(--pink);
+  color:#fff;
+  border-radius:999px;
+  padding:14px 20px;
+  font-size:14px;
+  font-weight:900;
+}
+
+.home-btn.secondary{
+  background:#fff;
+  color:var(--pink);
+}
+
+.home-visual{
+  position:relative;
+  min-height:auto;
+  background:none;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-women-image{
+  width:100%;
+  max-width:760px;
+  display:block;
+  object-fit:contain;
+}
+
+/* WHAT IS SHE */
+.what-is-she{
+  padding:34px 7% 92px;
+  background:linear-gradient(180deg,#fff,#fff7fb);
+}
+
+.what-card{
+  max-width:1180px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:38px;
+  box-shadow:var(--shadow);
+  padding:38px;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:28px;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.what-card:before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:rgba(236,61,134,.09);
+  right:-80px;
+  top:-90px;
+}
+
+.what-card:after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background:rgba(255,244,199,.9);
+  left:-60px;
+  bottom:-70px;
+}
+
+.what-copy,
+.what-grid{
+  position:relative;
+  z-index:1;
+}
+
+.what-kicker{
+  color:var(--pink);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.what-title{
+  margin:0;
+  font-size:clamp(42px,5vw,70px);
+  line-height:.95;
+  letter-spacing:-.065em;
+}
+
+.what-title span{ color:var(--pink); }
+
+.what-text{
+  margin:20px 0 0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.what-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.what-pill{
+  border:1px solid var(--border);
+  border-radius:28px;
+  background:#fff;
+  padding:22px;
+  min-height:150px;
+}
+
+.what-emoji{
+  font-size:30px;
+  display:block;
+  margin-bottom:12px;
+}
+
+.what-pill h3{
+  margin:0 0 8px;
+  font-size:23px;
+  letter-spacing:-.045em;
+}
+
+.what-pill p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+}
+
+.what-pill.pink{ background:#fff3f8; }
+.what-pill.purple{ background:#f7f1ff; }
+.what-pill.yellow{ background:#fff9df; }
+.what-pill.green{ background:#effdf4; }
+
+/* FOOTER */
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:64px 7%;
+  margin-top:0;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.footer-logo-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-logo-row img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+.footer-brand h2{
+  margin:0;
+  font-size:42px;
+  line-height:1;
+  color:var(--pink);
+  letter-spacing:-.05em;
+}
+
+.footer-brand p{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-column h4{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--plum);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+
+.footer-column a:hover{ color:var(--pink); }
+
+.footer-text{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.footer-form{
+  display:flex;
+  max-width:320px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.footer-form input{
+  flex:1;
+  border:0;
+  padding:13px 16px;
+  font-size:14px;
+  outline:none;
+  min-width:0;
+}
+
+.footer-form button{
+  width:48px;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:950px){
+  .nav-inner{
+    min-height:auto;
+    padding:16px 20px;
+    align-items:center;
+    flex-wrap:nowrap;
+    gap:16px;
+  }
+
+  .brand{
+    flex:1;
+  }
+
+  .brand-logo{
+    width:50px;
+    height:50px;
+  }
+
+  .brand-name{
+    font-size:34px;
+  }
+
+  .brand-tag{
+    font-size:11px;
+  }
+
+  .links,
+  .header-early-access{
+    display:none;
+  }
+
+  .mobile-menu-btn,
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--pink);
+    color:#fff;
+    border:none;
+    font-size:22px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(236,61,134,.22);
+  }
+  .homepage-hero{
+    padding:46px 24px 28px;
+  }
+
+  .home-hero-card{
+    grid-template-columns:1fr;
+    min-height:auto;
+    gap:24px;
+  }
+
+  .home-hero-copy{
+    padding:18px 0 6px;
+  }
+
+  .home-title{
+    font-size:clamp(44px,13vw,66px);
+  }
+
+  .home-intro{
+    font-size:17px;
+  }
+
+  .home-actions{
+    flex-direction:column;
+  }
+
+  .home-btn{
+    text-align:center;
+  }
+
+  .home-visual{
+    min-height:auto;
+    border:none;
+    border-radius:0;
+  }
+
+  .hero-women-image{
+    max-width:100%;
+  }
+
+  .what-is-she{
+    padding:26px 24px 70px;
+  }
+
+  .what-card{
+    grid-template-columns:1fr;
+    padding:28px;
+    border-radius:32px;
+  }
+
+  .what-grid{
+    grid-template-columns:1fr;
+  }
+
+  .site-footer{
+    padding:48px 24px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .footer-form{
+    max-width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.png" alt="SHE Health logo">
+
+      <div class="brand-text">
+        <div class="brand-name">SHE</div>
+        <div class="brand-tag">Women’s Health, Made Easy.</div>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn header-early-access"
+       href="https://forms.gle/8C21wsKWfFVxAec66"
+       target="_blank">
+      Join Early Access
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<section class="homepage-hero">
+  <div class="home-shell">
+
+    <div class="home-hero-card">
+      <div class="home-hero-copy">
+        <div class="home-kicker">SHE Health</div>
+
+        <h1 class="home-title">
+          Women’s health is not broken.<br>
+          It is <span>fragmented.</span>
+        </h1>
+
+        <p class="home-intro">
+          SHE is a women’s health app designed to help women move from confusion to clarity. Bringing education, navigation, product guidance and support into one place.
+        </p>
+
+        <div class="home-demo-note">
+          ✨ This website offers an early preview of the SHE platform experience ✨
+        </div>
+
+        <div class="home-actions">
+          <a class="home-btn" href="platform.html">Explore the app</a>
+          <a class="home-btn secondary" href="forum.html">See the SHE Forum</a>
+        </div>
+      </div>
+
+      <div class="home-visual">
+        <img 
+          src="assets/homepage-women.png" 
+          alt="Women using SHE Health"
+          class="hero-women-image"
+        >
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="what-is-she">
+  <div class="what-card">
+
+    <div class="what-copy">
+      <div class="what-kicker">What is SHE?</div>
+
+      <h2 class="what-title">
+        <span>Women’s Health, Made Easy.</span>
+      </h2>
+
+      <p class="what-text">
+        SHE is a women’s health navigation platform designed to help women better understand their health, explore their options, access trusted information and identify the right services, products and support — through one app and through meaningful real-world connection.
+      </p>
+
+      <p class="what-text">
+        Women’s health remains highly fragmented, with information, care pathways, services and support often spread across multiple systems and sources. SHE brings these elements together into a clearer, more accessible and more connected experience.
+      </p>
+    </div>
+
+    <div class="what-grid">
+      <article class="what-pill pink">
+        <span class="what-emoji">📱</span>
+        <h3>The app</h3>
+        <p>Trusted information, health navigation, products, services and support brought together in one accessible place.</p>
+      </article>
+
+      <article class="what-pill purple">
+        <span class="what-emoji">🧭</span>
+        <h3>Personal navigation</h3>
+        <p>Helping women understand what may be relevant to them, explore their options and identify practical next steps.</p>
+      </article>
+
+      <article class="what-pill yellow">
+        <span class="what-emoji">🤝</span>
+        <h3>In person</h3>
+        <p>Creating opportunities for education, community and direct connection with women’s health experts, services and organisations.</p>
+      </article>
+
+      <article class="what-pill green">
+        <span class="what-emoji">✨</span>
+        <h3>One connected experience</h3>
+        <p>Bringing together the parts of women’s health that women currently have to navigate separately.</p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="SHE logo">
+
+        <div>
+          <h2>SHE</h2>
+          <p>Women’s Health,<br>Made Easy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Platform</h4>
+      <a href="she-helps.html">SHE Helps</a>
+      <a href="she-facts.html">SHE Facts</a>
+      <a href="she-finds.html">SHE Finds</a>
+      <a href="she-news.html">SHE News</a>
+      <a href="she-asks.html">SHE Asks</a>
+      <a href="she-tells.html">SHE Tells</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="platform.html">Discover</a>
+      <a href="forum.html">SHE Forum</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Stay in the loop</h4>
+
+      <p class="footer-text">
+        News, updates and women’s health insights.
+      </p>
+
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">→</button>
+      </form>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/global-ui.js"></script>
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuButton = document.querySelector(".mobile-menu-btn, .menu-toggle");
+
+  if (!menuButton) return;
+
+  const mobileMenu = document.createElement("div");
+  mobileMenu.className = "mobile-menu-panel";
+
+  mobileMenu.innerHTML = `
+    <a href="index.html">Home</a>
+    <a href="platform.html">Discover</a>
+    <a href="forum.html">SHE Forum</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://forms.gle/8C21wsKWfFVxAec66" target="_blank">Join Early Access</a>
+  `;
+
+  document.body.appendChild(mobileMenu);
+
+  menuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("is-open");
+  });
+});
+</script>
+</body>
+</html>
