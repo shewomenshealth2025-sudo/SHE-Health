@@ -322,7 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="she-helps.html">SHE Helps</a>
           <a href="she-facts.html">SHE Facts</a>
           <a href="she-finds.html">SHE Finds</a>
-          <a href="partners.html">Partners</a>
           <a href="forum.html">Forum</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
