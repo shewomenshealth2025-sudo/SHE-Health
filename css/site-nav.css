@@ -1,0 +1,28 @@
+/* The same site navigation on every public page. */
+.nav.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid #f4dbe5;backdrop-filter:blur(14px);box-shadow:none}
+.site-header .site-nav-inner{width:min(100%,1240px);max-width:1240px;height:76px;min-height:76px;margin:auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:nowrap}
+.site-header .site-brand{display:flex;align-items:center;gap:12px;white-space:nowrap;min-width:0}
+.site-header .site-brand .brand-logo{display:block;width:54px;height:54px;object-fit:cover;border-radius:50%;flex:none}
+.site-header .site-brand .brand-text{display:flex;align-items:center;gap:10px}
+.site-header .site-brand .brand-name{font-size:34px;font-weight:950;line-height:1;color:#e83b83;letter-spacing:-.06em}
+.site-header .site-brand .brand-tag{font-size:13px;line-height:1.2;color:#35102d;font-weight:400;padding-left:12px;border-left:1px solid #dbc4cf;white-space:nowrap}
+.site-header .site-links{display:flex;align-items:center;gap:22px;flex-wrap:nowrap;white-space:nowrap;margin-left:auto}
+.site-header .site-links a{font-size:15px;font-weight:800;color:#35102d;text-decoration:none}
+.site-header .site-links a.active,.site-header .site-links a:hover{color:#e83b83}
+.site-header .site-nav-cta{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-height:44px;background:#e83b83;color:#fff;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:800;text-decoration:none;box-shadow:none}
+.site-header .site-menu-toggle{display:none;border:0;background:transparent;color:#35102d;font-size:26px;cursor:pointer;line-height:1;padding:8px;min-width:44px;min-height:44px}
+.site-header .site-mobile-links[hidden]{display:none!important}
+.site-header .site-mobile-links{display:none}
+/* Retired page-level menus otherwise duplicate the shared navigation. */
+.mobile-menu-panel,.mobile-sidebar,#mobileSidebar,#mobileOverlay,.mobile-overlay,.she-mobile-nav,.she-unified-mobile-menu{display:none!important}
+.nav.site-header .mobile-menu-btn,.nav.site-header .menu-toggle{display:none!important}
+@media(max-width:1000px){
+ .site-header .site-nav-inner{height:72px;min-height:72px;padding:0 18px!important;width:100%!important;max-width:100%!important}
+ .site-header .site-links,.site-header .site-nav-cta{display:none!important}
+ .site-header .site-menu-toggle{display:inline-flex!important;align-items:center;justify-content:center;margin-left:auto}
+ .site-header .site-mobile-links:not([hidden]){display:flex!important;flex-direction:column;gap:0;background:#fff;border-top:1px solid #f4dbe5;padding:8px 18px 18px;max-height:calc(100vh - 72px);overflow:auto}
+ .site-header .site-mobile-links a{display:block;padding:14px 10px;border-bottom:1px solid #f8e9ef;color:#35102d;font-size:17px;font-weight:800;text-decoration:none}
+ .site-header .site-mobile-links a.active{color:#e83b83}
+ .site-header .site-mobile-links .site-mobile-cta{margin-top:12px;background:#e83b83;color:white;text-align:center;border-radius:999px;border:0}
+}
+@media(max-width:520px){.site-header .site-brand .brand-logo{width:46px;height:46px}.site-header .site-brand .brand-name{font-size:29px!important}.site-header .site-brand .brand-tag{font-size:11px!important;max-width:145px;white-space:normal}}
