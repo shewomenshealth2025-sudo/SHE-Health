@@ -44,7 +44,7 @@
     const expanded = more.getAttribute('aria-expanded') === 'true';
     photos.slice(4).forEach(photo => { photo.hidden = expanded; });
     more.setAttribute('aria-expanded', String(!expanded));
-    more.textContent = expanded ? 'View all 16 photographs' : 'Show fewer photographs';
+    more.textContent = expanded ? `View all ${photos.length} photographs` : 'Show fewer photographs';
     if (expanded) document.getElementById('gallery').scrollIntoView({block:'start'});
   });
   viewer.querySelector('.viewer-close').addEventListener('click', close);
